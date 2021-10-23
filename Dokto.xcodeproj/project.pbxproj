@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F19B2812724A35D00D8B1F5 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19B2802724A35D00D8B1F5 /* DashboardViewModel.swift */; };
 		0F22159527242259006416CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F22159427242259006416CD /* AppDelegate.swift */; };
-		0F22159C27242259006416CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F22159A27242259006416CD /* Main.storyboard */; };
 		0F22159E2724225B006416CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F22159D2724225B006416CD /* Assets.xcassets */; };
 		0F2215A12724225B006416CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F22159F2724225B006416CD /* LaunchScreen.storyboard */; };
 		0F2215AE2724238E006416CD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2215AD2724238E006416CD /* SignInViewController.swift */; };
@@ -16,14 +16,26 @@
 		0F2215B4272424B6006416CD /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2215B3272424B6006416CD /* UIView.swift */; };
 		0F2215B627242521006416CD /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2215B527242521006416CD /* UIColor.swift */; };
 		0F2215B827242589006416CD /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2215B727242589006416CD /* Date.swift */; };
+		0FF8EDCA272490CC000BE755 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8EDC9272490CC000BE755 /* UIStoryboard.swift */; };
+		0FF8EDCE27249147000BE755 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8EDCD27249147000BE755 /* DashboardViewController.swift */; };
+		0FF8EDD12724920D000BE755 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF8EDD02724920D000BE755 /* Dashboard.storyboard */; };
+		0FF8EDD427249309000BE755 /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8EDD327249309000BE755 /* PaymentManager.swift */; };
+		0FF8EDD6272494AC000BE755 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8EDD5272494AC000BE755 /* UIApplication.swift */; };
+		0FF8EDD9272499BA000BE755 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8EDD8272499BA000BE755 /* RequestManager.swift */; };
+		0FF8EDDC27249AB5000BE755 /* RMErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8EDDB27249AB5000BE755 /* RMErrorModel.swift */; };
+		0FF8EDDE27249AD9000BE755 /* RMRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8EDDD27249AD9000BE755 /* RMRequestModel.swift */; };
+		0FF8EDE127249B0C000BE755 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8EDE027249B0C000BE755 /* Constants.swift */; };
+		0FF8EDE327249BC9000BE755 /* RMResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8EDE227249BC9000BE755 /* RMResponseModel.swift */; };
+		0FF8EDE527249BEF000BE755 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8EDE427249BEF000BE755 /* Dictionary.swift */; };
+		0FF8EDE927249D6C000BE755 /* PaymentResponseDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8EDE827249D6C000BE755 /* PaymentResponseDetails.swift */; };
 		891C96E263FE5260B8266555 /* Pods_Dokto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D2740B5B8118EF9EA8E251 /* Pods_Dokto.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0BB9EA378E813C5C0A071460 /* Pods-Dokto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dokto.release.xcconfig"; path = "Target Support Files/Pods-Dokto/Pods-Dokto.release.xcconfig"; sourceTree = "<group>"; };
+		0F19B2802724A35D00D8B1F5 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		0F22159127242259006416CD /* Dokto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dokto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F22159427242259006416CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0F22159B27242259006416CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0F22159D2724225B006416CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F2215A02724225B006416CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F2215A22724225B006416CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -32,6 +44,18 @@
 		0F2215B3272424B6006416CD /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		0F2215B527242521006416CD /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		0F2215B727242589006416CD /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		0FF8EDC9272490CC000BE755 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
+		0FF8EDCD27249147000BE755 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		0FF8EDD02724920D000BE755 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		0FF8EDD327249309000BE755 /* PaymentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
+		0FF8EDD5272494AC000BE755 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		0FF8EDD8272499BA000BE755 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		0FF8EDDB27249AB5000BE755 /* RMErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMErrorModel.swift; sourceTree = "<group>"; };
+		0FF8EDDD27249AD9000BE755 /* RMRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMRequestModel.swift; sourceTree = "<group>"; };
+		0FF8EDE027249B0C000BE755 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0FF8EDE227249BC9000BE755 /* RMResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMResponseModel.swift; sourceTree = "<group>"; };
+		0FF8EDE427249BEF000BE755 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		0FF8EDE827249D6C000BE755 /* PaymentResponseDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResponseDetails.swift; sourceTree = "<group>"; };
 		29588B8DF861B8593B7F20E9 /* Pods-Dokto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dokto.debug.xcconfig"; path = "Target Support Files/Pods-Dokto/Pods-Dokto.debug.xcconfig"; sourceTree = "<group>"; };
 		63D2740B5B8118EF9EA8E251 /* Pods_Dokto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dokto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -48,6 +72,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F19B27E2724A32F00D8B1F5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0F19B2802724A35D00D8B1F5 /* DashboardViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		0F22158827242259006416CD = {
 			isa = PBXGroup;
 			children = (
@@ -69,11 +101,12 @@
 		0F22159327242259006416CD /* Dokto */ = {
 			isa = PBXGroup;
 			children = (
+				0FF8EDDF27249AFD000BE755 /* Utility */,
+				0FF8EDD2272492F7000BE755 /* Managers */,
 				0F2215B227242485006416CD /* Extensions */,
 				0F2215AA27242310006416CD /* Resources */,
 				0F2215A9272422FF006416CD /* SupportFiles */,
 				0F2215A8272422EB006416CD /* Modules */,
-				0F22159A27242259006416CD /* Main.storyboard */,
 				0F22159F2724225B006416CD /* LaunchScreen.storyboard */,
 			);
 			path = Dokto;
@@ -82,6 +115,8 @@
 		0F2215A8272422EB006416CD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0FF8EDE627249D48000BE755 /* Payment */,
+				0FF8EDCB27249122000BE755 /* Dashboard */,
 				0F2215AB27242374006416CD /* Auth */,
 			);
 			path = Modules;
@@ -135,8 +170,89 @@
 				0F2215B3272424B6006416CD /* UIView.swift */,
 				0F2215B527242521006416CD /* UIColor.swift */,
 				0F2215B727242589006416CD /* Date.swift */,
+				0FF8EDC9272490CC000BE755 /* UIStoryboard.swift */,
+				0FF8EDD5272494AC000BE755 /* UIApplication.swift */,
+				0FF8EDE427249BEF000BE755 /* Dictionary.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0FF8EDCB27249122000BE755 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				0F19B27E2724A32F00D8B1F5 /* ViewModels */,
+				0FF8EDCC2724912E000BE755 /* Controllers */,
+				0FF8EDCF272491F2000BE755 /* Storyboard */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		0FF8EDCC2724912E000BE755 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0FF8EDCD27249147000BE755 /* DashboardViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0FF8EDCF272491F2000BE755 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				0FF8EDD02724920D000BE755 /* Dashboard.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		0FF8EDD2272492F7000BE755 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0FF8EDD7272499A7000BE755 /* Network */,
+				0FF8EDD327249309000BE755 /* PaymentManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		0FF8EDD7272499A7000BE755 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0FF8EDDA27249A2A000BE755 /* Models */,
+				0FF8EDD8272499BA000BE755 /* RequestManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		0FF8EDDA27249A2A000BE755 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0FF8EDDB27249AB5000BE755 /* RMErrorModel.swift */,
+				0FF8EDDD27249AD9000BE755 /* RMRequestModel.swift */,
+				0FF8EDE227249BC9000BE755 /* RMResponseModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0FF8EDDF27249AFD000BE755 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				0FF8EDE027249B0C000BE755 /* Constants.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		0FF8EDE627249D48000BE755 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				0FF8EDE727249D4D000BE755 /* Models */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		0FF8EDE727249D4D000BE755 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0FF8EDE827249D6C000BE755 /* PaymentResponseDetails.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		7C8B678428527E992B5843F6 /* Pods */ = {
@@ -145,7 +261,6 @@
 				29588B8DF861B8593B7F20E9 /* Pods-Dokto.debug.xcconfig */,
 				0BB9EA378E813C5C0A071460 /* Pods-Dokto.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -218,9 +333,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F2215B1272423A7006416CD /* Auth.storyboard in Resources */,
+				0FF8EDD12724920D000BE755 /* Dashboard.storyboard in Resources */,
 				0F2215A12724225B006416CD /* LaunchScreen.storyboard in Resources */,
 				0F22159E2724225B006416CD /* Assets.xcassets in Resources */,
-				0F22159C27242259006416CD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,9 +388,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FF8EDD6272494AC000BE755 /* UIApplication.swift in Sources */,
+				0FF8EDD427249309000BE755 /* PaymentManager.swift in Sources */,
+				0FF8EDCA272490CC000BE755 /* UIStoryboard.swift in Sources */,
+				0FF8EDCE27249147000BE755 /* DashboardViewController.swift in Sources */,
+				0FF8EDDC27249AB5000BE755 /* RMErrorModel.swift in Sources */,
 				0F2215AE2724238E006416CD /* SignInViewController.swift in Sources */,
+				0FF8EDD9272499BA000BE755 /* RequestManager.swift in Sources */,
+				0FF8EDE127249B0C000BE755 /* Constants.swift in Sources */,
+				0F19B2812724A35D00D8B1F5 /* DashboardViewModel.swift in Sources */,
 				0F2215B827242589006416CD /* Date.swift in Sources */,
+				0FF8EDDE27249AD9000BE755 /* RMRequestModel.swift in Sources */,
+				0FF8EDE927249D6C000BE755 /* PaymentResponseDetails.swift in Sources */,
 				0F2215B627242521006416CD /* UIColor.swift in Sources */,
+				0FF8EDE527249BEF000BE755 /* Dictionary.swift in Sources */,
+				0FF8EDE327249BC9000BE755 /* RMResponseModel.swift in Sources */,
 				0F2215B4272424B6006416CD /* UIView.swift in Sources */,
 				0F22159527242259006416CD /* AppDelegate.swift in Sources */,
 			);
@@ -284,14 +411,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0F22159A27242259006416CD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0F22159B27242259006416CD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0F22159F2724225B006416CD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -432,7 +551,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Dokto;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Auth;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -463,7 +582,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Dokto;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Auth;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

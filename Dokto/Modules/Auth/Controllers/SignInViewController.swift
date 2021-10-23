@@ -14,3 +14,13 @@ class SignInViewController: UIViewController {
         
     }
 }
+
+//MARK: Action methods
+extension SignInViewController {
+    
+    @IBAction func signInAction(_ sender: Any) {
+        if let controller = UIStoryboard.controller(with: .dashboard, type: DashboardViewController.self) {
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+}
