@@ -1,0 +1,50 @@
+PODS:
+  - Alamofire (5.4.4)
+  - IQKeyboardManagerSwift (6.5.6)
+  - lottie-ios (3.0.7)
+  - Paystack (3.0.17):
+    - Paystack/Core (= 3.0.17)
+  - Paystack/Core (3.0.17)
+  - PaystackCheckout (0.1.1):
+    - Alamofire
+  - RaveSDK (2.3.2):
+    - Alamofire
+    - IQKeyboardManagerSwift
+    - lottie-ios (~> 3.0.2)
+  - Stripe (21.8.1):
+    - Stripe/Stripe3DS2 (= 21.8.1)
+    - StripeCore (= 21.8.1)
+  - Stripe/Stripe3DS2 (21.8.1):
+    - StripeCore (= 21.8.1)
+  - StripeCore (21.8.1)
+
+DEPENDENCIES:
+  - Paystack
+  - PaystackCheckout
+  - RaveSDK
+  - Stripe
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - IQKeyboardManagerSwift
+    - lottie-ios
+    - Paystack
+    - PaystackCheckout
+    - RaveSDK
+    - Stripe
+    - StripeCore
+
+SPEC CHECKSUMS:
+  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  lottie-ios: c38c3178ae8c4a8f200661aa5f80b9f1ca7f56b3
+  Paystack: 5a7a9d5c47ddfd76e3d84550d9ff1f49bf6d284c
+  PaystackCheckout: 2f19b7bc908e99b8ecc9031316d295ee47044caf
+  RaveSDK: 91715e58550c9124667acbdc467ecf22d1e88545
+  Stripe: 57c6997c64042a3f5aedae9b76e331942f8b75d2
+  StripeCore: a6e50d58119a0c7601773b56f274db2d394dcdac
+
+PODFILE CHECKSUM: 1c3e21c1025b6d585b56811f65e9b1149c34ec6e
+
+COCOAPODS: 1.11.2
