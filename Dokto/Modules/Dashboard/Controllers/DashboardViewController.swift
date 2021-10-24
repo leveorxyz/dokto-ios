@@ -30,24 +30,36 @@ extension DashboardViewController {
     @IBAction func flutterWaveAction(_ sender: Any) {
         viewModel.flutterWaveCheckout { status in
             debugPrint(status)
+            if status == .success {
+                AlertManager.show(title: "FlutterWave payment completed successfully")
+            }
         }
     }
     
     @IBAction func paystackAction(_ sender: Any) {
         viewModel.paystackCheckout { status in
             debugPrint(status)
+            if status == .success {
+                AlertManager.show(title: "Paystack payment completed successfully")
+            }
         }
     }
     
     @IBAction func stripeAction(_ sender: Any) {
         viewModel.stripeCheckout { status in
             debugPrint(status)
+            if status == .success {
+                AlertManager.show(title: "Stripe payment completed successfully")
+            }
         }
     }
     
     @IBAction func paypalAction(_ sender: Any) {
         viewModel.paypalCheckout { status in
             debugPrint(status)
+            if status == .success {
+                AlertManager.show(title: "PayPal payment completed successfully")
+            }
         }
     }
     

@@ -55,21 +55,12 @@ extension PaymentManager: RavePayProtocol {
         }
         
         //request for backend verification
-        let request = RMRequestModel()
-        request.path = "http://159.203.72.156/accounting/flutterwave-verify/"
-        request.body = [
+        let body = [
             "transaction_reference" : response["id"] ?? "1234567",
             "id" : "1"
         ]
-        
-        RequestManager.request(request: request, type: PaymentResponseDetails.self) { [weak self] response, error in
-            if let _ = response.first {
-                debugPrint("Payment verified")
-                self?.paymentCompletion?(.success)
-            } else {
-                debugPrint("Payment verification failed")
-                self?.paymentCompletion?(.failure)
-            }
+        verifyPaypalWithBackend(path: Constants.Api.Payment.flutterWave, body: body) { [weak self] success in
+            self?.paymentCompletion?(success ? .success : .failure)
         }
     }
     
@@ -98,21 +89,12 @@ extension PaymentManager: CheckoutProtocol {
         print("Successfully paid with reference : \(response.reference)")
         
         //request for backend verification
-        let request = RMRequestModel()
-        request.path = "http://159.203.72.156/accounting/paystack-verify/"
-        request.body = [
+        let body = [
             "transaction_reference" : response.reference,
             "id" : response.id
         ]
-        
-        RequestManager.request(request: request, type: PaymentResponseDetails.self) { [weak self] response, error in
-            if let _ = response.first {
-                debugPrint("Payment verified")
-                self?.paymentCompletion?(.success)
-            } else {
-                debugPrint("Payment verification failed")
-                self?.paymentCompletion?(.failure)
-            }
+        verifyPaypalWithBackend(path: Constants.Api.Payment.paystack, body: body) { [weak self] success in
+            self?.paymentCompletion?(success ? .success : .failure)
         }
     }
     
@@ -247,8 +229,14 @@ extension PaymentManager {
                     debugPrint("Paypal error: Something went wrong, try again later")
                     self?.paymentCompletion?(.failure)
                 } else if response?.data.status.lowercased() == "completed" {
-                    LoadingManager.showProgress()
-                    self?.paymentCompletion?(.success)
+                    let body = [
+                        "transaction_reference" : "1234567",
+                        "id" : "1"
+                    ]
+                    self?.verifyPaypalWithBackend(path: Constants.Api.Payment.paypal,
+                                                  body: body, { success in
+                        self?.paymentCompletion?(success ? .success : .failure)
+                    })
                 } else {
                     self?.paymentCompletion?(.failure)
                 }
@@ -256,3 +244,25 @@ extension PaymentManager {
         }
     }
 }
+
+//MARK: Payment verification related methods
+extension PaymentManager {
+    
+    func verifyPaypalWithBackend(path: String, body: [String:Any], _ completion: @escaping(_ success: Bool) -> ()) {
+        let request = RMRequestModel()
+        request.path = path
+        request.body = body
+        request.method = .post
+        
+        RequestManager.request(request: request, type: PaymentResponseDetails.self) { response, error in
+            if let _ = response.first {
+                debugPrint("Payment verified")
+                completion(true)
+            } else {
+                debugPrint("Payment verification failed")
+                completion(false)
+            }
+        }
+    }
+}
+

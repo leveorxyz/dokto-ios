@@ -11,6 +11,7 @@ target 'Dokto' do
   pod 'Stripe'
   pod 'PayPalCheckout'
   pod 'GoogleMaps'
+  pod 'TwilioVideo'
   
 end
 

@@ -23,6 +23,7 @@ PODS:
   - Stripe/Stripe3DS2 (21.8.1):
     - StripeCore (= 21.8.1)
   - StripeCore (21.8.1)
+  - TwilioVideo (4.6.1)
 
 DEPENDENCIES:
   - GoogleMaps
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - PaystackCheckout
   - RaveSDK
   - Stripe
+  - TwilioVideo
 
 SPEC REPOS:
   trunk:
@@ -44,6 +46,7 @@ SPEC REPOS:
     - RaveSDK
     - Stripe
     - StripeCore
+    - TwilioVideo
 
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
@@ -56,7 +59,8 @@ SPEC CHECKSUMS:
   RaveSDK: 91715e58550c9124667acbdc467ecf22d1e88545
   Stripe: 57c6997c64042a3f5aedae9b76e331942f8b75d2
   StripeCore: a6e50d58119a0c7601773b56f274db2d394dcdac
+  TwilioVideo: b3d34744e3860c09816e349679eb2572e8fba06c
 
-PODFILE CHECKSUM: 91e99c06b5005d12b551c6b72a5b8b424f5fd2bc
+PODFILE CHECKSUM: dfc4b870cfd871ff995e405fc2639ce9fb3c97fe
 
 COCOAPODS: 1.11.2
