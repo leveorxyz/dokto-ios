@@ -9,5 +9,6 @@ target 'Dokto' do
   pod 'Paystack'
   pod 'PaystackCheckout'
   pod 'Stripe'
+  pod 'PayPalCheckout'
   
 end

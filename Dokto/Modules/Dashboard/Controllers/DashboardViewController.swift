@@ -13,6 +13,8 @@ class DashboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel.paymentManager.initiatePaypalButton()
     }
 }
 
@@ -32,11 +34,13 @@ extension DashboardViewController {
     }
     
     @IBAction func stripeAction(_ sender: Any) {
-//        LoadingManager.showProgress()
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-//            LoadingManager.hideProgress()
-//        }
         viewModel.stripeCheckout { status in
+            debugPrint(status)
+        }
+    }
+    
+    @IBAction func paypalAction(_ sender: Any) {
+        viewModel.paypalCheckout { status in
             debugPrint(status)
         }
     }

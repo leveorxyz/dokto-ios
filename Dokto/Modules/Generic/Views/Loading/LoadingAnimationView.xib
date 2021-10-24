@@ -98,6 +98,9 @@
             <point key="canvasLocation" x="128.98550724637681" y="53.571428571428569"/>
         </view>
     </objects>
+    <designables>
+        <designable name="nkF-0e-8jx"/>
+    </designables>
     <resources>
         <namedColor name="color_white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
