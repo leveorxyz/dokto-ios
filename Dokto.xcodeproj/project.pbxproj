@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0F19B2812724A35D00D8B1F5 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19B2802724A35D00D8B1F5 /* DashboardViewModel.swift */; };
+		0F19B28327251A1700D8B1F5 /* LoadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19B28227251A1700D8B1F5 /* LoadingManager.swift */; };
+		0F19B28927251B1F00D8B1F5 /* LoadingAnimationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F19B28727251B1F00D8B1F5 /* LoadingAnimationView.xib */; };
+		0F19B28A27251B1F00D8B1F5 /* LoadingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19B28827251B1F00D8B1F5 /* LoadingAnimationView.swift */; };
+		0F19B28D27251B9700D8B1F5 /* loading_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F19B28C27251B9700D8B1F5 /* loading_animation.json */; };
 		0F22159527242259006416CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F22159427242259006416CD /* AppDelegate.swift */; };
 		0F22159E2724225B006416CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F22159D2724225B006416CD /* Assets.xcassets */; };
 		0F2215A12724225B006416CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F22159F2724225B006416CD /* LaunchScreen.storyboard */; };
@@ -34,6 +38,10 @@
 /* Begin PBXFileReference section */
 		0BB9EA378E813C5C0A071460 /* Pods-Dokto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dokto.release.xcconfig"; path = "Target Support Files/Pods-Dokto/Pods-Dokto.release.xcconfig"; sourceTree = "<group>"; };
 		0F19B2802724A35D00D8B1F5 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		0F19B28227251A1700D8B1F5 /* LoadingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingManager.swift; sourceTree = "<group>"; };
+		0F19B28727251B1F00D8B1F5 /* LoadingAnimationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingAnimationView.xib; sourceTree = "<group>"; };
+		0F19B28827251B1F00D8B1F5 /* LoadingAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingAnimationView.swift; sourceTree = "<group>"; };
+		0F19B28C27251B9700D8B1F5 /* loading_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_animation.json; sourceTree = "<group>"; };
 		0F22159127242259006416CD /* Dokto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dokto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F22159427242259006416CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F22159D2724225B006416CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,6 +88,39 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		0F19B28427251B0200D8B1F5 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				0F19B28527251B0B00D8B1F5 /* Views */,
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
+		0F19B28527251B0B00D8B1F5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0F19B28627251B1100D8B1F5 /* Loading */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0F19B28627251B1100D8B1F5 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				0F19B28827251B1F00D8B1F5 /* LoadingAnimationView.swift */,
+				0F19B28727251B1F00D8B1F5 /* LoadingAnimationView.xib */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
+		0F19B28B27251B6C00D8B1F5 /* LottieFiles */ = {
+			isa = PBXGroup;
+			children = (
+				0F19B28C27251B9700D8B1F5 /* loading_animation.json */,
+			);
+			path = LottieFiles;
+			sourceTree = "<group>";
+		};
 		0F22158827242259006416CD = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +156,7 @@
 		0F2215A8272422EB006416CD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0F19B28427251B0200D8B1F5 /* Generic */,
 				0FF8EDE627249D48000BE755 /* Payment */,
 				0FF8EDCB27249122000BE755 /* Dashboard */,
 				0F2215AB27242374006416CD /* Auth */,
@@ -134,6 +176,7 @@
 		0F2215AA27242310006416CD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0F19B28B27251B6C00D8B1F5 /* LottieFiles */,
 				0F22159D2724225B006416CD /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -208,6 +251,7 @@
 			children = (
 				0FF8EDD7272499A7000BE755 /* Network */,
 				0FF8EDD327249309000BE755 /* PaymentManager.swift */,
+				0F19B28227251A1700D8B1F5 /* LoadingManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -336,6 +380,8 @@
 				0FF8EDD12724920D000BE755 /* Dashboard.storyboard in Resources */,
 				0F2215A12724225B006416CD /* LaunchScreen.storyboard in Resources */,
 				0F22159E2724225B006416CD /* Assets.xcassets in Resources */,
+				0F19B28927251B1F00D8B1F5 /* LoadingAnimationView.xib in Resources */,
+				0F19B28D27251B9700D8B1F5 /* loading_animation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +436,7 @@
 			files = (
 				0FF8EDD6272494AC000BE755 /* UIApplication.swift in Sources */,
 				0FF8EDD427249309000BE755 /* PaymentManager.swift in Sources */,
+				0F19B28327251A1700D8B1F5 /* LoadingManager.swift in Sources */,
 				0FF8EDCA272490CC000BE755 /* UIStoryboard.swift in Sources */,
 				0FF8EDCE27249147000BE755 /* DashboardViewController.swift in Sources */,
 				0FF8EDDC27249AB5000BE755 /* RMErrorModel.swift in Sources */,
@@ -404,6 +451,7 @@
 				0FF8EDE527249BEF000BE755 /* Dictionary.swift in Sources */,
 				0FF8EDE327249BC9000BE755 /* RMResponseModel.swift in Sources */,
 				0F2215B4272424B6006416CD /* UIView.swift in Sources */,
+				0F19B28A27251B1F00D8B1F5 /* LoadingAnimationView.swift in Sources */,
 				0F22159527242259006416CD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
