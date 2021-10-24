@@ -13,6 +13,7 @@
 		0F19B28A27251B1F00D8B1F5 /* LoadingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19B28827251B1F00D8B1F5 /* LoadingAnimationView.swift */; };
 		0F19B28D27251B9700D8B1F5 /* loading_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F19B28C27251B9700D8B1F5 /* loading_animation.json */; };
 		0F19B28F2725386D00D8B1F5 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19B28E2725386D00D8B1F5 /* AlertManager.swift */; };
+		0F19B293272553F500D8B1F5 /* DoctorListMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19B292272553F500D8B1F5 /* DoctorListMapViewController.swift */; };
 		0F22159527242259006416CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F22159427242259006416CD /* AppDelegate.swift */; };
 		0F22159E2724225B006416CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F22159D2724225B006416CD /* Assets.xcassets */; };
 		0F2215A12724225B006416CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F22159F2724225B006416CD /* LaunchScreen.storyboard */; };
@@ -44,6 +45,7 @@
 		0F19B28827251B1F00D8B1F5 /* LoadingAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingAnimationView.swift; sourceTree = "<group>"; };
 		0F19B28C27251B9700D8B1F5 /* loading_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_animation.json; sourceTree = "<group>"; };
 		0F19B28E2725386D00D8B1F5 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		0F19B292272553F500D8B1F5 /* DoctorListMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorListMapViewController.swift; sourceTree = "<group>"; };
 		0F22159127242259006416CD /* Dokto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dokto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F22159427242259006416CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F22159D2724225B006416CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				0FF8EDCD27249147000BE755 /* DashboardViewController.swift */,
+				0F19B292272553F500D8B1F5 /* DoctorListMapViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				0F22158E27242259006416CD /* Frameworks */,
 				0F22158F27242259006416CD /* Resources */,
 				61477BBE32FA25EF9AC0544F /* [CP] Embed Pods Frameworks */,
+				E99F745A4AF9BEEB958F775E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -430,6 +434,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dokto/Pods-Dokto-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E99F745A4AF9BEEB958F775E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dokto/Pods-Dokto-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dokto/Pods-Dokto-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dokto/Pods-Dokto-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -440,6 +461,7 @@
 				0FF8EDD6272494AC000BE755 /* UIApplication.swift in Sources */,
 				0FF8EDD427249309000BE755 /* PaymentManager.swift in Sources */,
 				0F19B28327251A1700D8B1F5 /* LoadingManager.swift in Sources */,
+				0F19B293272553F500D8B1F5 /* DoctorListMapViewController.swift in Sources */,
 				0FF8EDCA272490CC000BE755 /* UIStoryboard.swift in Sources */,
 				0FF8EDCE27249147000BE755 /* DashboardViewController.swift in Sources */,
 				0FF8EDDC27249AB5000BE755 /* RMErrorModel.swift in Sources */,
@@ -511,6 +533,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;

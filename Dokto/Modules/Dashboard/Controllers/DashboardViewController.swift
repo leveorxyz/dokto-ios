@@ -16,6 +16,12 @@ class DashboardViewController: UIViewController {
         
         viewModel.paymentManager.initiatePaypalButton()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
 }
 
 //MARK: Action methods
@@ -42,6 +48,12 @@ extension DashboardViewController {
     @IBAction func paypalAction(_ sender: Any) {
         viewModel.paypalCheckout { status in
             debugPrint(status)
+        }
+    }
+    
+    @IBAction func mapAction(_ sender: Any) {
+        if let controller = UIStoryboard.controller(with: .dashboard, type: DoctorListMapViewController.self) {
+            self.navigationController?.pushViewController(controller, animated: true)
         }
     }
 }

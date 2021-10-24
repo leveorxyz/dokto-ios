@@ -17,6 +17,9 @@ struct Constants {
                 static let clientId = dev
             }
         }
+        struct GoogleMap {
+            static let current = "AIzaSyC3jKbpRiXpO2hcQq12umTYmpCj8Wy9_so"
+        }
     }
     
     struct Api {

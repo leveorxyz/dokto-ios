@@ -7,6 +7,7 @@
 
 import UIKit
 import PayPalCheckout
+import GoogleMaps
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             environment: .sandbox
         )
         Checkout.set(config: config)
+        
+        //MARK: GMS service key
+        GMSServices.provideAPIKey(Constants.Keys.GoogleMap.current)
         
         return true
     }
