@@ -13,9 +13,11 @@ class TwilioRoomViewController: UIViewController {
     var room : Room?
     var audioTrack : LocalAudioTrack?
     var videoTrack : LocalVideoTrack?
+    var twilioAccessToken = ""
     
     @IBOutlet weak var UserNameField: UITextField!
     @IBOutlet weak var RoomNameField: UITextField!
+    private let viewModel = TwilioViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,47 +40,14 @@ class TwilioRoomViewController: UIViewController {
                   print("Enter a valid userName and room name")
                   return
               }
-        let urlString = "http://159.203.72.156/twilio/video-token/"
-        
-        guard let url = URL(string: urlString) else{
-            print("bad URL")
-            return
+        viewModel.getTwilioAccessToken(userName: userName, roomName: roomName) {[weak self] accessToken in
+            DispatchQueue.main.async {
+                self?.twilioAccessToken = accessToken
+                print("Got Access token \(self?.twilioAccessToken)")
+            }
         }
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "POST"
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let data : [String : Any] = [
-            "username" : userName,
-            "room_name" : roomName
-        ]
-        let requestData = try? JSONSerialization.data(withJSONObject: data)
-        urlRequest.httpBody = requestData
-        URLSession.shared.dataTask(with: urlRequest) { data, fetchedResponse , error in
-            guard let data = data, error == nil else{
-                
-                print("No data found")
-                return
-            }
-            //debugPrint(fetchedResponse)
-            do{
-                let tokenResponse = try JSONDecoder().decode(TwilioVideoTokenAPIResponse.self, from: data)
-                debugPrint(tokenResponse)
-            }
-            catch{
-                print("Error here")
-                print(error.localizedDescription)
-            }
-        }.resume()
+        
     }
     
 }
 
-struct TwilioVideoTokenAPIResponse : Codable{
-    let status_code : Int
-    let message : String
-    let result : TwilioTokenMessage
-}
-
-struct TwilioTokenMessage : Codable{
-    let token : String
-}
