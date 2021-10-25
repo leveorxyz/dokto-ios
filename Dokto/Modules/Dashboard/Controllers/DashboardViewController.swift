@@ -68,4 +68,11 @@ extension DashboardViewController {
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
+    
+    @IBAction func videoAction(_ sender : Any){
+        //Go to Video
+        if let controller = UIStoryboard.controller(with: .dashboard, type: TwilioRoomViewController.self) {
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
 }
