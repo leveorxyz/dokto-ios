@@ -35,5 +35,8 @@ struct Constants {
             static let paypal = "/accounting/paypal-verify/"
             static let stripe = "/accounting/stripe-charge/"
         }
+        struct Twilio{
+            static let twilioTokenUrl = "/twilio/video-token/"
+        }
     }
 }
