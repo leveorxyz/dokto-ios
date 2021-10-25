@@ -159,7 +159,6 @@
         <!--Twilio Room View Controller-->
         <scene sceneID="2gN-dZ-xYJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ovf-aZ-1YX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="TwilioRoomViewController" id="9PZ-dM-njx" customClass="TwilioRoomViewController" customModule="Dokto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RIx-23-gnb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -168,6 +167,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ovf-aZ-1YX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="19" y="809"/>
         </scene>
