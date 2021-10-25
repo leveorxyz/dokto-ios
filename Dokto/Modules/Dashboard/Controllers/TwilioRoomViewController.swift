@@ -61,7 +61,7 @@ class TwilioRoomViewController: UIViewController {
             }
             //debugPrint(fetchedResponse)
             do{
-                let tokenResponse = try JSONDecoder().decode(TwilioVideoTokenResponse.self, from: data)
+                let tokenResponse = try JSONDecoder().decode(TwilioVideoTokenAPIResponse.self, from: data)
                 debugPrint(tokenResponse)
             }
             catch{
@@ -73,10 +73,12 @@ class TwilioRoomViewController: UIViewController {
     
 }
 
-struct TwilioVideoTokenResponseElement : Codable{
+struct TwilioVideoTokenAPIResponse : Codable{
     let status_code : Int
     let message : String
-    let token : String
+    let result : TwilioTokenMessage
 }
 
-typealias TwilioVideoTokenResponse = [TwilioVideoTokenResponseElement]
+struct TwilioTokenMessage : Codable{
+    let token : String
+}
