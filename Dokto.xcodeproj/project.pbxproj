@@ -36,6 +36,7 @@
 		0FF8EDE927249D6C000BE755 /* PaymentResponseDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8EDE827249D6C000BE755 /* PaymentResponseDetails.swift */; };
 		891C96E263FE5260B8266555 /* Pods_Dokto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D2740B5B8118EF9EA8E251 /* Pods_Dokto.framework */; };
 		8D31D21E272675820025F9C5 /* TwilioRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D31D21D272675820025F9C5 /* TwilioRoomViewController.swift */; };
+		8D9BC9C42726A15500853B58 /* TwilioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9BC9C32726A15500853B58 /* TwilioManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		29588B8DF861B8593B7F20E9 /* Pods-Dokto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dokto.debug.xcconfig"; path = "Target Support Files/Pods-Dokto/Pods-Dokto.debug.xcconfig"; sourceTree = "<group>"; };
 		63D2740B5B8118EF9EA8E251 /* Pods_Dokto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dokto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D31D21D272675820025F9C5 /* TwilioRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioRoomViewController.swift; sourceTree = "<group>"; };
+		8D9BC9C32726A15500853B58 /* TwilioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +261,7 @@
 			children = (
 				0FF8EDD7272499A7000BE755 /* Network */,
 				0FF8EDD327249309000BE755 /* PaymentManager.swift */,
+				8D9BC9C32726A15500853B58 /* TwilioManager.swift */,
 				0F19B28227251A1700D8B1F5 /* LoadingManager.swift */,
 				0F19B28E2725386D00D8B1F5 /* AlertManager.swift */,
 			);
@@ -468,6 +471,7 @@
 				0FF8EDCA272490CC000BE755 /* UIStoryboard.swift in Sources */,
 				0FF8EDCE27249147000BE755 /* DashboardViewController.swift in Sources */,
 				0FF8EDDC27249AB5000BE755 /* RMErrorModel.swift in Sources */,
+				8D9BC9C42726A15500853B58 /* TwilioManager.swift in Sources */,
 				0F2215AE2724238E006416CD /* SignInViewController.swift in Sources */,
 				0FF8EDD9272499BA000BE755 /* RequestManager.swift in Sources */,
 				0FF8EDE127249B0C000BE755 /* Constants.swift in Sources */,
