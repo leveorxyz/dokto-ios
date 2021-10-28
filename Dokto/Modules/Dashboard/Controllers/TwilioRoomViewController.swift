@@ -8,12 +8,16 @@
 import UIKit
 import TwilioVideo
 
-class TwilioRoomViewController: UIViewController {
+class TwilioRoomViewController: UIViewController, RoomDelegate, LocalParticipantDelegate {
     
     var room : Room?
     var audioTrack : LocalAudioTrack?
     var videoTrack : LocalVideoTrack?
     var twilioAccessToken = ""
+    
+    var localAudioTrack = LocalAudioTrack()
+    var localDataTrack = LocalDataTrack()
+    var localVideoTrack : LocalVideoTrack?
     
     @IBOutlet weak var UserNameField: UITextField!
     @IBOutlet weak var RoomNameField: UITextField!
@@ -44,10 +48,34 @@ class TwilioRoomViewController: UIViewController {
             DispatchQueue.main.async {
                 self?.twilioAccessToken = accessToken
                 print("Got Access token \(self?.twilioAccessToken)")
+                self?.joinRoom(accessToken: self?.twilioAccessToken ?? "nil")
             }
         }
         
     }
     
+    //joining an already created room
+    
+    public func joinRoom(accessToken : String){
+        let connectOptions = ConnectOptions(token: accessToken){(builder) in
+            
+            builder.roomName = "random"
+            
+        }
+        room = TwilioVideoSDK.connect(options: connectOptions, delegate: self)
+        print(room?.name)
+    }
+    
+    //Room delegate function
+    func roomDidConnect(room: Room) {
+        print("Did connect to room")
+
+        if let localParticipant = room.localParticipant {
+            print("Local identity \(localParticipant.identity)")
+
+            // Set the delegate of the local particiant to receive callbacks
+            localParticipant.delegate = self
+        }
+    }
 }
 
