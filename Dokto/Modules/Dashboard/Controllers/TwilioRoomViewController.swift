@@ -8,16 +8,16 @@
 import UIKit
 import TwilioVideo
 
-class TwilioRoomViewController: UIViewController, RoomDelegate, LocalParticipantDelegate {
+class TwilioRoomViewController: UIViewController, RoomDelegate, LocalParticipantDelegate, CameraSourceDelegate, RemoteParticipantDelegate, VideoViewDelegate {
     
     var room : Room?
-    var audioTrack : LocalAudioTrack?
-    var videoTrack : LocalVideoTrack?
     var twilioAccessToken = ""
     
     var localAudioTrack = LocalAudioTrack()
     var localDataTrack = LocalDataTrack()
     var localVideoTrack : LocalVideoTrack?
+    var remoteView : VideoView?
+    
     
     @IBOutlet weak var UserNameField: UITextField!
     @IBOutlet weak var RoomNameField: UITextField!
@@ -25,8 +25,12 @@ class TwilioRoomViewController: UIViewController, RoomDelegate, LocalParticipant
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        
+        if let camera = CameraSource(delegate: self) {
+            localVideoTrack = LocalVideoTrack(source: camera)
+        }
         
     }
     
@@ -48,34 +52,73 @@ class TwilioRoomViewController: UIViewController, RoomDelegate, LocalParticipant
             DispatchQueue.main.async {
                 self?.twilioAccessToken = accessToken
                 print("Got Access token \(self?.twilioAccessToken)")
-                self?.joinRoom(accessToken: self?.twilioAccessToken ?? "nil")
+                self?.joinRoom(accessToken: self?.twilioAccessToken ?? "nil", roomName : roomName)
             }
         }
         
     }
     
-    //joining an already created room
     
-    public func joinRoom(accessToken : String){
+    
+   
+}
+
+extension TwilioRoomViewController{
+    public func joinRoom(accessToken : String,roomName : String){
         let connectOptions = ConnectOptions(token: accessToken){(builder) in
             
-            builder.roomName = "random"
+            builder.roomName = roomName
+            
+            if let audioTrack = self.localAudioTrack {
+                builder.audioTracks = [ audioTrack ]
+            }
             
         }
         room = TwilioVideoSDK.connect(options: connectOptions, delegate: self)
-        print(room?.name)
     }
     
     //Room delegate function
     func roomDidConnect(room: Room) {
         print("Did connect to room")
-
+        
         if let localParticipant = room.localParticipant {
             print("Local identity \(localParticipant.identity)")
-
-            // Set the delegate of the local particiant to receive callbacks
             localParticipant.delegate = self
         }
+        print("Number of connected Participants \(room.remoteParticipants.count)")
+        
+        for remoteParticipant in room.remoteParticipants {
+            remoteParticipant.delegate = self
+        }
+    }
+    
+    func participantDidConnect(room: Room, participant: RemoteParticipant) {
+        print ("Participant \(participant.identity) has joined Room \(room.name)")
+        participant.delegate = self
+    }
+    
+    func participantDidDisconnect(room: Room, participant: RemoteParticipant) {
+        print ("Participant \(participant.identity) has left Room \(room.name)")
+    }
+    
+    func didSubscribeToVideoTrack(videoTrack: RemoteVideoTrack,
+                                  publication: RemoteVideoTrackPublication,
+                                  participant: RemoteParticipant) {
+
+        print("Participant \(participant.identity) added a video track.")
+
+        if let remoteView = VideoView.init(frame: self.view.bounds,
+                                           delegate:self) {
+
+            videoTrack.addRenderer(remoteView)
+            self.view.addSubview(remoteView)
+            self.remoteView = remoteView
+        }
+    }
+    
+    func videoViewDimensionsDidChange(view: VideoView, dimensions: CMVideoDimensions) {
+        print("The dimensions of the video track changed to: \(dimensions.width)x\(dimensions.height)")
+        self.view.setNeedsLayout()
     }
 }
 
