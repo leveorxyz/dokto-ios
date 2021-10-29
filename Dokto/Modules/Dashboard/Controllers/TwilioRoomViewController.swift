@@ -36,6 +36,9 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         
         // Do any additional setup after loading the view.
         
+        self.disconnectButton.setTitle("", for: .normal)
+        self.micButton.setTitle("", for: .normal)
+        
         if PlatformUtils.isSimulator {
             self.previewView.removeFromSuperview()
         } else {
@@ -69,7 +72,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         // `VideoView` supports scaleToFill, scaleAspectFill and scaleAspectFit
         // scaleAspectFit is the default mode when you create `VideoView` programmatically.
         self.remoteView!.contentMode = .scaleAspectFit;
-        remoteView?.frame = CGRect(x: 0, y: connectButton.frame.origin.y+connectButton.frame.height+10, width: view.frame.width, height: 100)
+        remoteView?.frame = CGRect(x: 0, y: 100, width: view.frame.width, height: view.frame.width)
         
     }
     
