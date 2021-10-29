@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -190,23 +191,71 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiO-7U-feA">
+                                <rect key="frame" x="60" y="750" width="52" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="52" id="1sp-i9-545"/>
+                                    <constraint firstAttribute="height" constant="52" id="9sY-UC-ABf"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="phone.down.fill" catalog="system" symbolScale="large"/>
+                                    <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="disconnect:" destination="9PZ-dM-njx" eventType="touchUpInside" id="3y8-fK-if6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dM-aZ-WvR">
+                                <rect key="frame" x="122" y="750" width="52" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="NZa-d1-gAo"/>
+                                    <constraint firstAttribute="width" constant="52" id="mal-Sv-sBr"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="mic" catalog="system">
+                                    <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="toggleMic:" destination="9PZ-dM-njx" eventType="touchUpInside" id="anm-nr-f5M"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yVD-0Y-tBv" customClass="TVIVideoView">
+                                <rect key="frame" x="234" y="622" width="160" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="RLd-xV-B57"/>
+                                    <constraint firstAttribute="width" constant="160" id="qqf-hY-g0k"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VxA-Os-7sa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="7dM-aZ-WvR" firstAttribute="leading" secondItem="NiO-7U-feA" secondAttribute="trailing" constant="10" id="1lR-94-nBC"/>
+                            <constraint firstItem="VxA-Os-7sa" firstAttribute="bottom" secondItem="yVD-0Y-tBv" secondAttribute="bottom" constant="40" id="7Qd-pq-avg"/>
+                            <constraint firstItem="NiO-7U-feA" firstAttribute="leading" secondItem="VxA-Os-7sa" secondAttribute="leading" constant="60" id="HU7-0a-YS5"/>
+                            <constraint firstItem="VxA-Os-7sa" firstAttribute="bottom" secondItem="7dM-aZ-WvR" secondAttribute="bottom" constant="60" id="JQM-BL-dbr"/>
                             <constraint firstItem="Ud4-Jc-hDR" firstAttribute="top" secondItem="VxA-Os-7sa" secondAttribute="top" constant="40" id="Jxa-sU-Lkp"/>
                             <constraint firstItem="VxA-Os-7sa" firstAttribute="trailing" secondItem="Ud4-Jc-hDR" secondAttribute="trailing" constant="20" id="Oub-Ps-tW2"/>
+                            <constraint firstItem="VxA-Os-7sa" firstAttribute="trailing" secondItem="yVD-0Y-tBv" secondAttribute="trailing" constant="20" id="aLE-6e-Z2J"/>
+                            <constraint firstItem="VxA-Os-7sa" firstAttribute="bottom" secondItem="NiO-7U-feA" secondAttribute="bottom" constant="60" id="hYR-hi-Pbs"/>
+                            <constraint firstItem="yVD-0Y-tBv" firstAttribute="leading" secondItem="7dM-aZ-WvR" secondAttribute="trailing" constant="60" id="hf3-fh-Jd3"/>
                             <constraint firstItem="Ud4-Jc-hDR" firstAttribute="leading" secondItem="VxA-Os-7sa" secondAttribute="leading" constant="20" id="qm1-HS-UTa"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="RoomNameField" destination="0sL-X7-hd5" id="UQq-7I-2U6"/>
                         <outlet property="UserNameField" destination="8JY-IT-AE2" id="jsZ-Cl-9ac"/>
+                        <outlet property="connectButton" destination="TIn-IY-sVH" id="LpL-in-8oH"/>
+                        <outlet property="disconnectButton" destination="NiO-7U-feA" id="clm-Ki-oXY"/>
+                        <outlet property="micButton" destination="7dM-aZ-WvR" id="ZWF-4a-l0U"/>
+                        <outlet property="previewView" destination="yVD-0Y-tBv" id="0tu-JG-vgp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovf-aZ-1YX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="19" y="809"/>
+            <point key="canvasLocation" x="18.840579710144929" y="808.92857142857144"/>
         </scene>
         <!--Doctor List Map View Controller-->
         <scene sceneID="4HF-zr-ofF">
@@ -225,6 +274,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="mic" catalog="system" width="108" height="128"/>
+        <image name="phone.down.fill" catalog="system" width="128" height="52"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -239,6 +290,9 @@
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
