@@ -28,8 +28,9 @@ class TwilioManager{
         urlRequest.httpBody = requestData
         URLSession.shared.dataTask(with: urlRequest) { data, fetchedResponse , error in
             guard let data = data, error == nil else{
-                completion(.failure(.noDataFound))
                 print("No data found")
+                completion(.failure(.noDataFound))
+                
                 return
             }
             do{
@@ -38,7 +39,7 @@ class TwilioManager{
                 completion(.success(tokenResponse))
             }
             catch{
-                //print("Error here")
+                print("Error here")
                 completion(.failure(.jsonParseError))
                 //print(error.localizedDescription)
             }

@@ -11,9 +11,9 @@ class TwilioViewModel{
     let twilioManager = TwilioManager()
     
     //Access token from Backend
-    func getTwilioAccessToken(userName : String ,roomName : String,completion : @escaping (String)-> Void){
+    func getTwilioAccessToken(id : String ,roomName : String,completion : @escaping (String)-> Void){
         let data : [String : Any] = [
-            "username" : userName,
+            "id" : id,
             "room_name" : roomName
         ]
         twilioManager.getAccessToken(urlPath: Constants.Api.Twilio.twilioTokenUrl, body: data) { result in
@@ -24,6 +24,7 @@ class TwilioViewModel{
                 //print(token)
                 completion(token)
             case .failure(let error):
+                print("failed to get token")
                 print(error.localizedDescription)
             }
         }

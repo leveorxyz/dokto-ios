@@ -35,7 +35,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
+        title = "Connect to a room"
         self.disconnectButton.setTitle("", for: .normal)
         self.micButton.setTitle("", for: .normal)
         
@@ -84,7 +84,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
                   print("Enter a valid userName and room name")
                   return
               }
-        viewModel.getTwilioAccessToken(userName: userName, roomName: roomName) {[weak self] accessToken in
+        viewModel.getTwilioAccessToken(id: "3fa85f64-5717-4562-b3fc-2c963f66afa6", roomName: roomName) {[weak self] accessToken in
             DispatchQueue.main.async {
                 self?.twilioAccessToken = accessToken
                 print("Got Access token \(self?.twilioAccessToken)")
@@ -107,9 +107,9 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
             
             // Update the button title
             if (self.localAudioTrack?.isEnabled == true) {
-                self.micButton.setImage(UIImage(named: "mute"), for: .normal)
+                self.micButton.setImage(UIImage(named: "mic.fill"), for: .normal)
             } else {
-                self.micButton.setImage(UIImage(named: "Unmute"), for: .normal)
+                self.micButton.setImage(UIImage(named: "mic.slash"), for: .normal)
             }
         }
     }
@@ -140,6 +140,13 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         self.disconnectButton.isHidden = !inRoom
         self.navigationController?.setNavigationBarHidden(inRoom, animated: true)
         UIApplication.shared.isIdleTimerDisabled = inRoom
+        
+        if inRoom{
+            title = RoomNameField.text ?? "Default"
+        }
+        else{
+            title = "Connect to a room"
+        }
         
         // Show / hide the automatic home indicator on modern iPhones.
         self.setNeedsUpdateOfHomeIndicatorAutoHidden()
