@@ -456,14 +456,3 @@ extension TwilioRoomViewController : CameraSourceDelegate {
         print("Camera source failed with error: \(error.localizedDescription)")
     }
 }
-
-
-struct PlatformUtils {
-    static let isSimulator: Bool = {
-        var isSim = false
-#if arch(i386) || arch(x86_64)
-        isSim = true
-#endif
-        return isSim
-    }()
-}
