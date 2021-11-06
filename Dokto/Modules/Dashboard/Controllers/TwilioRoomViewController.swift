@@ -29,6 +29,8 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
     
     @IBOutlet weak var connectButton: UIButton!
     
+    @IBOutlet weak var cameraConnectButton: UIButton!
+    
     private let viewModel = TwilioViewModel()
     
     override func viewDidLoad() {
@@ -38,6 +40,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         title = "Connect to a room"
         self.disconnectButton.setTitle("", for: .normal)
         self.micButton.setTitle("", for: .normal)
+        self.cameraConnectButton.setTitle("", for: .normal)
         
         if PlatformUtils.isSimulator {
             self.previewView.removeFromSuperview()
@@ -111,6 +114,16 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
             } else {
                 self.micButton.setImage(UIImage(named: "mic.slash"), for: .normal)
             }
+        }
+    }
+    
+    
+    @IBAction func toggleCameraOnOff(_ sender: Any) {
+        if localVideoTrack != nil {
+            localVideoTrack = nil
+        }
+        else{
+            self.startPreview()
         }
     }
     

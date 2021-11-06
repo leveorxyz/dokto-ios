@@ -191,45 +191,60 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiO-7U-feA">
-                                <rect key="frame" x="60" y="750" width="52" height="52"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="52" id="1sp-i9-545"/>
-                                    <constraint firstAttribute="height" constant="52" id="9sY-UC-ABf"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <imageReference key="image" image="phone.down.fill" catalog="system" symbolScale="large"/>
-                                    <color key="baseForegroundColor" systemColor="systemRedColor"/>
-                                </buttonConfiguration>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="disconnect:" destination="9PZ-dM-njx" eventType="touchUpInside" id="3y8-fK-if6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dM-aZ-WvR">
-                                <rect key="frame" x="122" y="750" width="52" height="52"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="NZa-d1-gAo"/>
-                                    <constraint firstAttribute="width" constant="52" id="mal-Sv-sBr"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="mic" catalog="system">
-                                    <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="toggleMic:" destination="9PZ-dM-njx" eventType="touchUpInside" id="anm-nr-f5M"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TSs-TA-nTv">
+                                <rect key="frame" x="0.0" y="750" width="153" height="52"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiO-7U-feA">
+                                        <rect key="frame" x="0.0" y="0.0" width="52" height="52"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="52" id="1sp-i9-545"/>
+                                            <constraint firstAttribute="height" constant="52" id="9sY-UC-ABf"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="phone.down.fill" catalog="system" symbolScale="large"/>
+                                            <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="disconnect:" destination="9PZ-dM-njx" eventType="touchUpInside" id="3y8-fK-if6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Fz-D8-khp">
+                                        <rect key="frame" x="52" y="0.0" width="49" height="52"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="video.slash" catalog="system">
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="toggleCameraOnOff:" destination="9PZ-dM-njx" eventType="touchUpInside" id="8Eb-xG-RUN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dM-aZ-WvR">
+                                        <rect key="frame" x="101" y="0.0" width="52" height="52"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="NZa-d1-gAo"/>
+                                            <constraint firstAttribute="width" constant="52" id="mal-Sv-sBr"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="mic" catalog="system">
+                                            <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="toggleMic:" destination="9PZ-dM-njx" eventType="touchUpInside" id="anm-nr-f5M"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yVD-0Y-tBv" customClass="TVIVideoView">
                                 <rect key="frame" x="234" y="622" width="160" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -242,21 +257,19 @@
                         <viewLayoutGuide key="safeArea" id="VxA-Os-7sa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="7dM-aZ-WvR" firstAttribute="leading" secondItem="NiO-7U-feA" secondAttribute="trailing" constant="10" id="1lR-94-nBC"/>
                             <constraint firstItem="VxA-Os-7sa" firstAttribute="bottom" secondItem="yVD-0Y-tBv" secondAttribute="bottom" constant="40" id="7Qd-pq-avg"/>
-                            <constraint firstItem="NiO-7U-feA" firstAttribute="leading" secondItem="VxA-Os-7sa" secondAttribute="leading" constant="60" id="HU7-0a-YS5"/>
-                            <constraint firstItem="VxA-Os-7sa" firstAttribute="bottom" secondItem="7dM-aZ-WvR" secondAttribute="bottom" constant="60" id="JQM-BL-dbr"/>
+                            <constraint firstItem="VxA-Os-7sa" firstAttribute="bottom" secondItem="TSs-TA-nTv" secondAttribute="bottom" constant="60" id="Esw-Yw-RTf"/>
                             <constraint firstItem="Ud4-Jc-hDR" firstAttribute="top" secondItem="VxA-Os-7sa" secondAttribute="top" constant="40" id="Jxa-sU-Lkp"/>
                             <constraint firstItem="VxA-Os-7sa" firstAttribute="trailing" secondItem="Ud4-Jc-hDR" secondAttribute="trailing" constant="20" id="Oub-Ps-tW2"/>
                             <constraint firstItem="VxA-Os-7sa" firstAttribute="trailing" secondItem="yVD-0Y-tBv" secondAttribute="trailing" constant="20" id="aLE-6e-Z2J"/>
-                            <constraint firstItem="VxA-Os-7sa" firstAttribute="bottom" secondItem="NiO-7U-feA" secondAttribute="bottom" constant="60" id="hYR-hi-Pbs"/>
-                            <constraint firstItem="yVD-0Y-tBv" firstAttribute="leading" secondItem="7dM-aZ-WvR" secondAttribute="trailing" constant="60" id="hf3-fh-Jd3"/>
+                            <constraint firstItem="TSs-TA-nTv" firstAttribute="leading" secondItem="VxA-Os-7sa" secondAttribute="leading" id="gEd-iF-7G8"/>
                             <constraint firstItem="Ud4-Jc-hDR" firstAttribute="leading" secondItem="VxA-Os-7sa" secondAttribute="leading" constant="20" id="qm1-HS-UTa"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="RoomNameField" destination="0sL-X7-hd5" id="UQq-7I-2U6"/>
                         <outlet property="UserNameField" destination="8JY-IT-AE2" id="jsZ-Cl-9ac"/>
+                        <outlet property="cameraConnectButton" destination="7Fz-D8-khp" id="GzY-lG-v3l"/>
                         <outlet property="connectButton" destination="TIn-IY-sVH" id="LpL-in-8oH"/>
                         <outlet property="disconnectButton" destination="NiO-7U-feA" id="clm-Ki-oXY"/>
                         <outlet property="micButton" destination="7dM-aZ-WvR" id="ZWF-4a-l0U"/>
@@ -286,6 +299,7 @@
     <resources>
         <image name="mic" catalog="system" width="108" height="128"/>
         <image name="phone.down.fill" catalog="system" width="128" height="52"/>
+        <image name="video.slash" catalog="system" width="128" height="106"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
