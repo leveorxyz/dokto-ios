@@ -244,6 +244,10 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="7Fz-D8-khp" firstAttribute="height" secondItem="NiO-7U-feA" secondAttribute="height" id="EQQ-0w-cdx"/>
+                                    <constraint firstItem="7Fz-D8-khp" firstAttribute="width" secondItem="NiO-7U-feA" secondAttribute="width" multiplier="0.942308" id="axh-X0-P9I"/>
+                                </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yVD-0Y-tBv" customClass="TVIVideoView">
                                 <rect key="frame" x="234" y="622" width="160" height="200"/>

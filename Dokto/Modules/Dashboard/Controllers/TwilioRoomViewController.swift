@@ -87,7 +87,8 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
                   print("Enter a valid userName and room name")
                   return
               }
-        viewModel.getTwilioAccessToken(id: "3fa85f64-5717-4562-b3fc-2c963f66afa6", roomName: roomName) {[weak self] accessToken in
+        //a309fd116b99463eb52402988d5a35d7
+        viewModel.getTwilioAccessToken(id: "a309fd116b99463eb52402988d5a35d7", roomName: roomName) {[weak self] accessToken in
             DispatchQueue.main.async {
                 self?.twilioAccessToken = accessToken
                 print("Got Access token \(self?.twilioAccessToken)")
@@ -120,10 +121,13 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
     
     @IBAction func toggleCameraOnOff(_ sender: Any) {
         if localVideoTrack != nil {
+            localVideoTrack?.isEnabled = false
             localVideoTrack = nil
+            
         }
         else{
-            self.startPreview()
+            localVideoTrack?.isEnabled = true
+            self.prepareLocalMedia()
         }
     }
     
@@ -282,6 +286,7 @@ extension TwilioRoomViewController{
     func renderRemoteParticipant(participant : RemoteParticipant) -> Bool {
         // This example renders the first subscribed RemoteVideoTrack from the RemoteParticipant.
         let videoPublications = participant.remoteVideoTracks
+        //print(videoPublications.count)
         for publication in videoPublications {
             if let subscribedVideoTrack = publication.remoteTrack,
                publication.isTrackSubscribed {
@@ -303,10 +308,22 @@ extension TwilioRoomViewController{
         }
     }
     func cleanupRemoteParticipant() {
+        
+        
         if self.remoteParticipant != nil {
+            print("removing from super view")
             self.remoteView?.removeFromSuperview()
             self.remoteView = nil
             self.remoteParticipant = nil
+        }
+    }
+    func cleanRemoteView(){
+        print("Cleaning remote video")
+        if self.remoteParticipant != nil {
+            print("removing from super view")
+            self.remoteView?.removeFromSuperview()
+            self.remoteView = nil
+            //self.remoteParticipant = nil
         }
     }
     
@@ -432,10 +449,15 @@ extension TwilioRoomViewController : RemoteParticipantDelegate{
     
     func remoteParticipantDidEnableVideoTrack(participant: RemoteParticipant, publication: RemoteVideoTrackPublication) {
         print("Participant \(participant.identity) enabled \(publication.trackName) video track")
+        if (self.remoteParticipant != nil) {
+            print("rendering video again")
+            _ = renderRemoteParticipant(participant: participant)
+        }
     }
     
     func remoteParticipantDidDisableVideoTrack(participant: RemoteParticipant, publication: RemoteVideoTrackPublication) {
         print("Participant \(participant.identity) disabled \(publication.trackName) video track")
+        cleanRemoteView()
     }
     
     func remoteParticipantDidEnableAudioTrack(participant: RemoteParticipant, publication: RemoteAudioTrackPublication) {
