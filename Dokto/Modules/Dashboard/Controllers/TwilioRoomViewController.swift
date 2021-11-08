@@ -88,7 +88,8 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
                   return
               }
         //a309fd116b99463eb52402988d5a35d7
-        viewModel.getTwilioAccessToken(id: "a309fd116b99463eb52402988d5a35d7", roomName: roomName) {[weak self] accessToken in
+        //3fa85f64-5717-4562-b3fc-2c963f66afa6
+        viewModel.getTwilioAccessToken(id: "3fa85f64-5717-4562-b3fc-2c963f66afa6", roomName: roomName) {[weak self] accessToken in
             DispatchQueue.main.async {
                 self?.twilioAccessToken = accessToken
                 print("Got Access token \(self?.twilioAccessToken)")
@@ -120,14 +121,8 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
     
     
     @IBAction func toggleCameraOnOff(_ sender: Any) {
-        if localVideoTrack != nil {
-            localVideoTrack?.isEnabled = false
-            localVideoTrack = nil
-            
-        }
-        else{
-            localVideoTrack?.isEnabled = true
-            self.prepareLocalMedia()
+        if (self.localVideoTrack != nil){
+            self.localVideoTrack?.isEnabled = !(self.localVideoTrack?.isEnabled)!
         }
     }
     
