@@ -50,7 +50,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         }
         
         self.disconnectButton.isHidden = true
-        self.micButton.isHidden = true
+        self.micButton.isHidden = false
         let tap = UITapGestureRecognizer(target: self, action: #selector(TwilioRoomViewController.dismissKeyboard))
         self.view.addGestureRecognizer(tap)
         
@@ -89,7 +89,9 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
               }
         //a309fd116b99463eb52402988d5a35d7
         //3fa85f64-5717-4562-b3fc-2c963f66afa6
-        viewModel.getTwilioAccessToken(id: "3fa85f64-5717-4562-b3fc-2c963f66afa6", roomName: roomName) {[weak self] accessToken in
+        //3fa85f64-5717-4562-b3fc-2c963f66afa8
+        
+        viewModel.getTwilioAccessToken(id: "a309fd116b99463eb52402988d5a35d7", roomName: roomName) {[weak self] accessToken in
             DispatchQueue.main.async {
                 self?.twilioAccessToken = accessToken
                 print("Got Access token \(self?.twilioAccessToken)")
@@ -148,7 +150,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         self.connectButton.isHidden = inRoom
         self.RoomNameField.isHidden = inRoom
         self.UserNameField.isHidden = inRoom
-        self.micButton.isHidden = !inRoom
+        //self.micButton.isHidden = !inRoom
         self.disconnectButton.isHidden = !inRoom
         self.navigationController?.setNavigationBarHidden(inRoom, animated: true)
         UIApplication.shared.isIdleTimerDisabled = inRoom
