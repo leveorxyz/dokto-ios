@@ -129,9 +129,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
     }
     
     func prepareLocalMedia() {
-        
-        // We will share local audio and video when we connect to the Room.
-        // Create an audio track.
+     
         if (localAudioTrack == nil) {
             localAudioTrack = LocalAudioTrack(options: nil, enabled: true, name: "Microphone")
             
@@ -140,9 +138,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
             }
         }
         
-        // Create a video track which captures from the camera.
         if (localVideoTrack == nil) {
-            //print("Will Add Preview Soon")
             self.startPreview()
         }
     }
@@ -150,7 +146,6 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         self.connectButton.isHidden = inRoom
         self.RoomNameField.isHidden = inRoom
         self.UserNameField.isHidden = inRoom
-        //self.micButton.isHidden = !inRoom
         self.disconnectButton.isHidden = !inRoom
         self.navigationController?.setNavigationBarHidden(inRoom, animated: true)
         UIApplication.shared.isIdleTimerDisabled = inRoom

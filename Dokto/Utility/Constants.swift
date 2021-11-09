@@ -24,8 +24,8 @@ struct Constants {
     
     struct Api {
         struct BaseUrl {
-            static let dev = "http://159.203.72.156"
-            static let prod = "http://159.203.72.156"
+            static let dev = "https://doktoapi.toybethdev.net"
+            static let prod = "https://doktoapi.toybethdev.net"
             static let current = dev
         }
         
