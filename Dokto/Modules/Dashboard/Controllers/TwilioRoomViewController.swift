@@ -19,17 +19,13 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
     var remoteParticipant: RemoteParticipant?
     var remoteView: VideoView?
     
-    
-    @IBOutlet weak var UserNameField: UITextField!
     @IBOutlet weak var RoomNameField: UITextField!
-    
     @IBOutlet weak var disconnectButton: UIButton!
     @IBOutlet weak var micButton: UIButton!
     @IBOutlet weak var previewView: VideoView!
-    
     @IBOutlet weak var connectButton: UIButton!
-    
     @IBOutlet weak var cameraConnectButton: UIButton!
+    @IBOutlet weak var cameraRotateButton: UIButton!
     
     private let viewModel = TwilioViewModel()
     
@@ -41,7 +37,9 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         self.disconnectButton.setTitle("", for: .normal)
         self.micButton.setTitle("", for: .normal)
         self.cameraConnectButton.setTitle("", for: .normal)
+        self.cameraRotateButton.setTitle("", for: .normal)
         
+        self.cameraRotateButton.isEnabled = false
         if PlatformUtils.isSimulator {
             self.previewView.removeFromSuperview()
         } else {
@@ -67,13 +65,10 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
     }
     
     func setupRemoteVideoView() {
-        // Creating `VideoView` programmatically
         self.remoteView = VideoView(frame: CGRect.zero, delegate: self)
         
         self.view.insertSubview(self.remoteView!, at: 0)
         
-        // `VideoView` supports scaleToFill, scaleAspectFill and scaleAspectFit
-        // scaleAspectFit is the default mode when you create `VideoView` programmatically.
         self.remoteView!.contentMode = .scaleAspectFit;
         remoteView?.frame = CGRect(x: 0, y: 100, width: view.frame.width, height: view.frame.width)
         
@@ -81,9 +76,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
     
     
     @IBAction func joinRoomAction(_ sender: Any) {
-        guard let userName = UserNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ,
-              let roomName = RoomNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-              !userName.isEmpty, !roomName.isEmpty else{
+        guard let roomName = RoomNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !roomName.isEmpty else{
                   print("Enter a valid userName and room name")
                   return
               }
@@ -128,6 +121,10 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         }
     }
     
+    @IBAction func rotateCamera(_ sender: Any) {
+        self.flipCamera()
+    }
+    
     func prepareLocalMedia() {
      
         if (localAudioTrack == nil) {
@@ -145,7 +142,6 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
     func showRoomUI(inRoom: Bool) {
         self.connectButton.isHidden = inRoom
         self.RoomNameField.isHidden = inRoom
-        self.UserNameField.isHidden = inRoom
         self.disconnectButton.isHidden = !inRoom
         self.navigationController?.setNavigationBarHidden(inRoom, animated: true)
         UIApplication.shared.isIdleTimerDisabled = inRoom
@@ -164,9 +160,6 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
     @objc func dismissKeyboard() {
         if (self.RoomNameField.isFirstResponder) {
             self.RoomNameField.resignFirstResponder()
-        }
-        else if (self.UserNameField.isFirstResponder){
-            self.UserNameField.resignFirstResponder()
         }
     }
     
@@ -226,7 +219,7 @@ extension TwilioRoomViewController{
         
         if (frontCamera != nil || backCamera != nil) {
 
-            
+            self.cameraRotateButton.isEnabled = true
             camera = CameraSource(delegate: self)
             localVideoTrack = LocalVideoTrack(source: camera!, enabled: true, name: "Camera")
             
@@ -315,7 +308,6 @@ extension TwilioRoomViewController{
             print("removing from super view")
             self.remoteView?.removeFromSuperview()
             self.remoteView = nil
-            //self.remoteParticipant = nil
         }
     }
     
@@ -331,8 +323,6 @@ extension TwilioRoomViewController : UITextFieldDelegate {
 extension TwilioRoomViewController : RoomDelegate{
     func roomDidConnect(room: Room) {
         print("Connected to room \(room.name) as \(room.localParticipant?.identity ?? "")")
-        
-        // This example only renders 1 RemoteVideoTrack at a time. Listen for all events to decide which track to render.
         for remoteParticipant in room.remoteParticipants {
             remoteParticipant.delegate = self
         }
