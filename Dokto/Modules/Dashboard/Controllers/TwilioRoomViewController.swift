@@ -41,12 +41,12 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         
         self.cameraRotateButton.isEnabled = false
         if PlatformUtils.isSimulator {
-            self.previewView.removeFromSuperview()
+            self.previewView.backgroundColor = .black
         } else {
             // Preview our local camera track in the local video preview view.
             self.startPreview()
         }
-        
+        prepareLocalMedia()
         self.disconnectButton.isHidden = true
         self.micButton.isHidden = false
         let tap = UITapGestureRecognizer(target: self, action: #selector(TwilioRoomViewController.dismissKeyboard))
@@ -84,10 +84,9 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         //3fa85f64-5717-4562-b3fc-2c963f66afa6
         //3fa85f64-5717-4562-b3fc-2c963f66afa8
         
-        viewModel.getTwilioAccessToken(id: "a309fd116b99463eb52402988d5a35d7", roomName: roomName) {[weak self] accessToken in
+        viewModel.getTwilioAccessToken(id: "a309fd116b99463eb52402988d5a35d6", roomName: roomName) {[weak self] accessToken in
             DispatchQueue.main.async {
                 self?.twilioAccessToken = accessToken
-                print("Got Access token \(self?.twilioAccessToken)")
                 self?.joinRoom(accessToken: self?.twilioAccessToken ?? "nil", roomName : roomName)
             }
         }
@@ -142,6 +141,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
     func showRoomUI(inRoom: Bool) {
         self.connectButton.isHidden = inRoom
         self.RoomNameField.isHidden = inRoom
+        self.remoteView?.isHidden = !inRoom
         self.disconnectButton.isHidden = !inRoom
         self.navigationController?.setNavigationBarHidden(inRoom, animated: true)
         UIApplication.shared.isIdleTimerDisabled = inRoom
@@ -181,23 +181,19 @@ extension TwilioRoomViewController{
                 builder.preferredAudioCodecs = [preferredAudioCodec]
             }
             
-            // Use the preferred video codec
             if let preferredVideoCodec = Settings.shared.videoCodec {
                 builder.preferredVideoCodecs = [preferredVideoCodec]
             }
             
-            // Use the preferred encoding parameters
             if let encodingParameters = Settings.shared.getEncodingParameters() {
                 builder.encodingParameters = encodingParameters
             }
             
-            // Use the preferred signaling region
+            
             if let signalingRegion = Settings.shared.signalingRegion {
                 builder.region = signalingRegion
             }
             
-            // The name of the Room where the Client will attempt to connect to. Please note that if you pass an empty
-            // Room `name`, the Client will create one for you. You can get the name or sid from any connected Room.
             builder.roomName = roomName
             
         }

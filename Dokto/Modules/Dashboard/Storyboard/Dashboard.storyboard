@@ -166,31 +166,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ud4-Jc-hDR">
-                                <rect key="frame" x="20" y="84" width="374" height="75"/>
+                                <rect key="frame" x="20" y="84" width="348" height="75"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="11T-Kk-Xdy">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="348" height="34"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Room name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0sL-X7-hd5">
-                                                <rect key="frame" x="0.0" y="0.0" width="320.5" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="348" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDP-OS-s47">
-                                                <rect key="frame" x="325.5" y="0.0" width="48.5" height="34"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="camera.rotate" catalog="system"/>
-                                                <connections>
-                                                    <action selector="rotateCamera:" destination="9PZ-dM-njx" eventType="touchUpInside" id="oBg-or-odH"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="SDP-OS-s47" firstAttribute="height" secondItem="0sL-X7-hd5" secondAttribute="height" id="wOX-oN-8lK"/>
-                                        </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIn-IY-sVH">
-                                        <rect key="frame" x="0.0" y="44" width="374" height="31"/>
+                                        <rect key="frame" x="0.0" y="44" width="348" height="31"/>
                                         <color key="backgroundColor" systemColor="linkColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Join">
@@ -203,13 +192,12 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TSs-TA-nTv">
-                                <rect key="frame" x="0.0" y="750" width="153" height="52"/>
+                                <rect key="frame" x="100" y="777" width="188" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiO-7U-feA">
-                                        <rect key="frame" x="0.0" y="0.0" width="52" height="52"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="31"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="52" id="1sp-i9-545"/>
-                                            <constraint firstAttribute="height" constant="52" id="9sY-UC-ABf"/>
+                                            <constraint firstAttribute="width" constant="50" id="PQQ-ep-OyS"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
@@ -226,7 +214,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Fz-D8-khp">
-                                        <rect key="frame" x="52" y="0.0" width="49" height="52"/>
+                                        <rect key="frame" x="50" y="0.0" width="49" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="video.slash" catalog="system">
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -235,12 +223,18 @@
                                             <action selector="toggleCameraOnOff:" destination="9PZ-dM-njx" eventType="touchUpInside" id="8Eb-xG-RUN"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDP-OS-s47">
+                                        <rect key="frame" x="99" y="0.0" width="48.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="camera.rotate" catalog="system">
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="rotateCamera:" destination="9PZ-dM-njx" eventType="touchUpInside" id="oBg-or-odH"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dM-aZ-WvR">
-                                        <rect key="frame" x="101" y="0.0" width="52" height="52"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="52" id="NZa-d1-gAo"/>
-                                            <constraint firstAttribute="width" constant="52" id="mal-Sv-sBr"/>
-                                        </constraints>
+                                        <rect key="frame" x="147.5" y="0.0" width="40.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="mic" catalog="system">
                                             <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -256,28 +250,34 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="7Fz-D8-khp" firstAttribute="height" secondItem="NiO-7U-feA" secondAttribute="height" id="EQQ-0w-cdx"/>
-                                    <constraint firstItem="7Fz-D8-khp" firstAttribute="width" secondItem="NiO-7U-feA" secondAttribute="width" multiplier="0.942308" id="axh-X0-P9I"/>
+                                    <constraint firstItem="7Fz-D8-khp" firstAttribute="height" secondItem="NiO-7U-feA" secondAttribute="height" id="BVs-nC-5UF"/>
+                                    <constraint firstItem="SDP-OS-s47" firstAttribute="width" secondItem="NiO-7U-feA" secondAttribute="width" multiplier="0.97" id="bma-ig-ZN9"/>
+                                    <constraint firstItem="SDP-OS-s47" firstAttribute="height" secondItem="NiO-7U-feA" secondAttribute="height" id="buN-Vl-9Oj"/>
+                                    <constraint firstItem="7dM-aZ-WvR" firstAttribute="height" secondItem="NiO-7U-feA" secondAttribute="height" id="eOT-JJ-d17"/>
+                                    <constraint firstItem="7dM-aZ-WvR" firstAttribute="width" secondItem="NiO-7U-feA" secondAttribute="width" multiplier="0.81" id="gtJ-ms-5H8"/>
+                                    <constraint firstItem="7Fz-D8-khp" firstAttribute="width" secondItem="NiO-7U-feA" secondAttribute="width" multiplier="0.98" id="vL4-CB-RfZ"/>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yVD-0Y-tBv" customClass="TVIVideoView">
-                                <rect key="frame" x="234" y="622" width="160" height="200"/>
+                                <rect key="frame" x="101" y="577" width="160" height="160"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="RLd-xV-B57"/>
                                     <constraint firstAttribute="width" constant="160" id="qqf-hY-g0k"/>
+                                    <constraint firstAttribute="height" constant="160" id="wFQ-Z2-NaL"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VxA-Os-7sa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="VxA-Os-7sa" firstAttribute="bottom" secondItem="yVD-0Y-tBv" secondAttribute="bottom" constant="40" id="7Qd-pq-avg"/>
-                            <constraint firstItem="VxA-Os-7sa" firstAttribute="bottom" secondItem="TSs-TA-nTv" secondAttribute="bottom" constant="60" id="Esw-Yw-RTf"/>
+                            <constraint firstItem="VxA-Os-7sa" firstAttribute="trailing" secondItem="TSs-TA-nTv" secondAttribute="trailing" constant="100" id="03d-Np-hd8"/>
+                            <constraint firstItem="TSs-TA-nTv" firstAttribute="leading" secondItem="VxA-Os-7sa" secondAttribute="leading" constant="100" id="AR0-n6-F64"/>
                             <constraint firstItem="Ud4-Jc-hDR" firstAttribute="top" secondItem="VxA-Os-7sa" secondAttribute="top" constant="40" id="Jxa-sU-Lkp"/>
+                            <constraint firstItem="TSs-TA-nTv" firstAttribute="top" secondItem="yVD-0Y-tBv" secondAttribute="bottom" constant="40" id="L3L-WM-dsN"/>
                             <constraint firstItem="VxA-Os-7sa" firstAttribute="trailing" secondItem="Ud4-Jc-hDR" secondAttribute="trailing" constant="20" id="Oub-Ps-tW2"/>
-                            <constraint firstItem="VxA-Os-7sa" firstAttribute="trailing" secondItem="yVD-0Y-tBv" secondAttribute="trailing" constant="20" id="aLE-6e-Z2J"/>
-                            <constraint firstItem="TSs-TA-nTv" firstAttribute="leading" secondItem="VxA-Os-7sa" secondAttribute="leading" id="gEd-iF-7G8"/>
+                            <constraint firstItem="yVD-0Y-tBv" firstAttribute="centerX" secondItem="RIx-23-gnb" secondAttribute="centerX" id="UmZ-KM-W4b"/>
+                            <constraint firstItem="VxA-Os-7sa" firstAttribute="trailing" secondItem="yVD-0Y-tBv" secondAttribute="trailing" constant="127" id="aLE-6e-Z2J"/>
+                            <constraint firstItem="VxA-Os-7sa" firstAttribute="bottom" secondItem="TSs-TA-nTv" secondAttribute="bottom" constant="54" id="neV-P0-I8M"/>
                             <constraint firstItem="Ud4-Jc-hDR" firstAttribute="leading" secondItem="VxA-Os-7sa" secondAttribute="leading" constant="20" id="qm1-HS-UTa"/>
                         </constraints>
                     </view>
