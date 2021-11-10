@@ -166,20 +166,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ud4-Jc-hDR">
-                                <rect key="frame" x="20" y="84" width="348" height="75"/>
+                                <rect key="frame" x="20" y="84" width="374" height="75"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="11T-Kk-Xdy">
-                                        <rect key="frame" x="0.0" y="0.0" width="348" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Room name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0sL-X7-hd5">
-                                                <rect key="frame" x="0.0" y="0.0" width="348" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIn-IY-sVH">
-                                        <rect key="frame" x="0.0" y="44" width="348" height="31"/>
+                                        <rect key="frame" x="0.0" y="44" width="374" height="31"/>
                                         <color key="backgroundColor" systemColor="linkColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Join">
@@ -192,7 +192,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TSs-TA-nTv">
-                                <rect key="frame" x="100" y="777" width="188" height="31"/>
+                                <rect key="frame" x="100" y="777" width="214" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiO-7U-feA">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="31"/>
@@ -233,8 +233,18 @@
                                             <action selector="rotateCamera:" destination="9PZ-dM-njx" eventType="touchUpInside" id="oBg-or-odH"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koU-mv-6za">
+                                        <rect key="frame" x="147.5" y="0.0" width="26" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="gearshape" catalog="system">
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="settingsTapped:" destination="9PZ-dM-njx" eventType="touchUpInside" id="WyM-S2-8Eb"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dM-aZ-WvR">
-                                        <rect key="frame" x="147.5" y="0.0" width="40.5" height="31"/>
+                                        <rect key="frame" x="173.5" y="0.0" width="40.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="mic" catalog="system">
                                             <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -251,6 +261,8 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="7Fz-D8-khp" firstAttribute="height" secondItem="NiO-7U-feA" secondAttribute="height" id="BVs-nC-5UF"/>
+                                    <constraint firstItem="koU-mv-6za" firstAttribute="width" secondItem="NiO-7U-feA" secondAttribute="width" multiplier="0.52" id="GmL-YX-W9R"/>
+                                    <constraint firstItem="koU-mv-6za" firstAttribute="height" secondItem="NiO-7U-feA" secondAttribute="height" id="HwY-sD-RHJ"/>
                                     <constraint firstItem="SDP-OS-s47" firstAttribute="width" secondItem="NiO-7U-feA" secondAttribute="width" multiplier="0.97" id="bma-ig-ZN9"/>
                                     <constraint firstItem="SDP-OS-s47" firstAttribute="height" secondItem="NiO-7U-feA" secondAttribute="height" id="buN-Vl-9Oj"/>
                                     <constraint firstItem="7dM-aZ-WvR" firstAttribute="height" secondItem="NiO-7U-feA" secondAttribute="height" id="eOT-JJ-d17"/>
@@ -259,7 +271,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yVD-0Y-tBv" customClass="TVIVideoView">
-                                <rect key="frame" x="101" y="577" width="160" height="160"/>
+                                <rect key="frame" x="127" y="577" width="160" height="160"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="qqf-hY-g0k"/>
@@ -289,6 +301,7 @@
                         <outlet property="disconnectButton" destination="NiO-7U-feA" id="clm-Ki-oXY"/>
                         <outlet property="micButton" destination="7dM-aZ-WvR" id="ZWF-4a-l0U"/>
                         <outlet property="previewView" destination="yVD-0Y-tBv" id="0tu-JG-vgp"/>
+                        <outlet property="settingsButton" destination="koU-mv-6za" id="j9B-8T-HLk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovf-aZ-1YX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -313,6 +326,7 @@
     </scenes>
     <resources>
         <image name="camera.rotate" catalog="system" width="128" height="94"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="mic" catalog="system" width="108" height="128"/>
         <image name="phone.down.fill" catalog="system" width="128" height="52"/>
         <image name="video.slash" catalog="system" width="128" height="106"/>

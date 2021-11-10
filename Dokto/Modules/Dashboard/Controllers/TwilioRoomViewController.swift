@@ -26,6 +26,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
     @IBOutlet weak var connectButton: UIButton!
     @IBOutlet weak var cameraConnectButton: UIButton!
     @IBOutlet weak var cameraRotateButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!
     
     private let viewModel = TwilioViewModel()
     
@@ -38,6 +39,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         self.micButton.setTitle("", for: .normal)
         self.cameraConnectButton.setTitle("", for: .normal)
         self.cameraRotateButton.setTitle("", for: .normal)
+        self.settingsButton.setTitle("", for: .normal)
         
         self.cameraRotateButton.isEnabled = false
         if PlatformUtils.isSimulator {
@@ -124,6 +126,10 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         self.flipCamera()
     }
     
+    @IBAction func settingsTapped(_ sender: Any) {
+        print("Settings Tapped")
+    }
+    
     func prepareLocalMedia() {
      
         if (localAudioTrack == nil) {
@@ -143,7 +149,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         self.RoomNameField.isHidden = inRoom
         self.remoteView?.isHidden = !inRoom
         self.disconnectButton.isHidden = !inRoom
-        self.navigationController?.setNavigationBarHidden(inRoom, animated: true)
+        //self.navigationController?.setNavigationBarHidden(inRoom, animated: true)
         UIApplication.shared.isIdleTimerDisabled = inRoom
         
         if inRoom{
@@ -154,7 +160,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         }
         
         // Show / hide the automatic home indicator on modern iPhones.
-        self.setNeedsUpdateOfHomeIndicatorAutoHidden()
+        //self.setNeedsUpdateOfHomeIndicatorAutoHidden()
     }
     
     @objc func dismissKeyboard() {
