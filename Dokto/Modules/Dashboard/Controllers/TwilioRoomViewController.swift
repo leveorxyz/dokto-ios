@@ -71,8 +71,8 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         
         self.view.insertSubview(self.remoteView!, at: 0)
         
-        self.remoteView!.contentMode = .scaleAspectFit;
-        remoteView?.frame = CGRect(x: 0, y: 100, width: view.frame.width, height: view.frame.width)
+        self.remoteView!.contentMode = .scaleAspectFill;
+        remoteView?.frame = CGRect(x: 0, y: 100, width: view.frame.width, height: view.frame.height)
         
     }
     
@@ -86,7 +86,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         //3fa85f64-5717-4562-b3fc-2c963f66afa6
         //3fa85f64-5717-4562-b3fc-2c963f66afa8
         
-        viewModel.getTwilioAccessToken(id: "a309fd116b99463eb52402988d5a35d6", roomName: roomName) {[weak self] accessToken in
+        viewModel.getTwilioAccessToken(id: "a309fd116b99463eb52402988d5a35d8", roomName: roomName) {[weak self] accessToken in
             DispatchQueue.main.async {
                 self?.twilioAccessToken = accessToken
                 self?.joinRoom(accessToken: self?.twilioAccessToken ?? "nil", roomName : roomName)
@@ -158,8 +158,6 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         else{
             title = "Connect to a room"
         }
-        
-        // Show / hide the automatic home indicator on modern iPhones.
         //self.setNeedsUpdateOfHomeIndicatorAutoHidden()
     }
     
@@ -418,15 +416,11 @@ extension TwilioRoomViewController : RemoteParticipantDelegate{
     }
     
     func didSubscribeToAudioTrack(audioTrack: RemoteAudioTrack, publication: RemoteAudioTrackPublication, participant: RemoteParticipant) {
-        // We are subscribed to the remote Participant's audio Track. We will start receiving the
-        // remote Participant's audio now.
         
         print("Subscribed to \(publication.trackName) audio track for Participant \(participant.identity)")
     }
     
     func didUnsubscribeFromAudioTrack(audioTrack: RemoteAudioTrack, publication: RemoteAudioTrackPublication, participant: RemoteParticipant) {
-        // We are unsubscribed from the remote Participant's audio Track. We will no longer receive the
-        // remote Participant's audio.
         
         print("Unsubscribed from \(publication.trackName) audio track for Participant \(participant.identity)")
     }
