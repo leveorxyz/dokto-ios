@@ -128,13 +128,13 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
     
     @IBAction func settingsTapped(_ sender: Any) {
         print("Settings Tapped")
+        
     }
     
     func prepareLocalMedia() {
      
         if (localAudioTrack == nil) {
             localAudioTrack = LocalAudioTrack(options: nil, enabled: true, name: "Microphone")
-            
             if (localAudioTrack == nil) {
                 print("Failed to create audio track")
             }
