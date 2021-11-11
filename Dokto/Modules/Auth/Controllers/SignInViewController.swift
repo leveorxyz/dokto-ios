@@ -23,4 +23,10 @@ extension SignInViewController {
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
+    
+    @IBAction func registerAction(_ sender: Any) {
+        if let controller = UIStoryboard.controller(with: .auth, type: SignUpViewController.self) {
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
 }

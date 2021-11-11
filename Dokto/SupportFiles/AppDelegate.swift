@@ -8,6 +8,7 @@
 import UIKit
 import PayPalCheckout
 import GoogleMaps
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //MARK: GMS service key
         GMSServices.provideAPIKey(Constants.Keys.GoogleMap.current)
+        
+        //MARK: IQKeyboardManager config
+        IQKeyboardManager.shared.enable = true
         
         return true
     }

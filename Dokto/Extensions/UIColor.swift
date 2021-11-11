@@ -8,7 +8,9 @@
 import UIKit
 
 enum ColorName: String {
-    case _38AF6D = "color_38AF6D"
+    case _2F97D3 = "color_2F97D3"
+    case _170041 = "color_170041"
+    case _A42BAD = "color_A42BAD"
 }
 
 extension UIColor {

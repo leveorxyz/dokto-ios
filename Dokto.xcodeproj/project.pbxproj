@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F15470E273C6198003473D8 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F15470D273C6198003473D8 /* UITextField.swift */; };
 		0F19B2812724A35D00D8B1F5 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19B2802724A35D00D8B1F5 /* DashboardViewModel.swift */; };
 		0F19B28327251A1700D8B1F5 /* LoadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F19B28227251A1700D8B1F5 /* LoadingManager.swift */; };
 		0F19B28927251B1F00D8B1F5 /* LoadingAnimationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F19B28727251B1F00D8B1F5 /* LoadingAnimationView.xib */; };
@@ -22,6 +23,10 @@
 		0F2215B4272424B6006416CD /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2215B3272424B6006416CD /* UIView.swift */; };
 		0F2215B627242521006416CD /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2215B527242521006416CD /* UIColor.swift */; };
 		0F2215B827242589006416CD /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2215B727242589006416CD /* Date.swift */; };
+		0FD70EAA273CC96F0024C6B0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD70EA9273CC96F0024C6B0 /* SignUpViewController.swift */; };
+		0FD70EAD273D82FC0024C6B0 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD70EAC273D82FC0024C6B0 /* SignUpViewModel.swift */; };
+		0FD70EB0273D83490024C6B0 /* RegisterUserTypeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD70EAF273D83490024C6B0 /* RegisterUserTypeDetails.swift */; };
+		0FD70EB3273D85F10024C6B0 /* RegisterUserTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD70EB2273D85F10024C6B0 /* RegisterUserTypeCollectionViewCell.swift */; };
 		0FF8EDCA272490CC000BE755 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8EDC9272490CC000BE755 /* UIStoryboard.swift */; };
 		0FF8EDCE27249147000BE755 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8EDCD27249147000BE755 /* DashboardViewController.swift */; };
 		0FF8EDD12724920D000BE755 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF8EDD02724920D000BE755 /* Dashboard.storyboard */; };
@@ -46,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		0BB9EA378E813C5C0A071460 /* Pods-Dokto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dokto.release.xcconfig"; path = "Target Support Files/Pods-Dokto/Pods-Dokto.release.xcconfig"; sourceTree = "<group>"; };
+		0F15470D273C6198003473D8 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		0F19B2802724A35D00D8B1F5 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		0F19B28227251A1700D8B1F5 /* LoadingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingManager.swift; sourceTree = "<group>"; };
 		0F19B28727251B1F00D8B1F5 /* LoadingAnimationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingAnimationView.xib; sourceTree = "<group>"; };
@@ -63,6 +69,10 @@
 		0F2215B3272424B6006416CD /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		0F2215B527242521006416CD /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		0F2215B727242589006416CD /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		0FD70EA9273CC96F0024C6B0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		0FD70EAC273D82FC0024C6B0 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		0FD70EAF273D83490024C6B0 /* RegisterUserTypeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserTypeDetails.swift; sourceTree = "<group>"; };
+		0FD70EB2273D85F10024C6B0 /* RegisterUserTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserTypeCollectionViewCell.swift; sourceTree = "<group>"; };
 		0FF8EDC9272490CC000BE755 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		0FF8EDCD27249147000BE755 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		0FF8EDD02724920D000BE755 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
@@ -205,6 +215,9 @@
 		0F2215AB27242374006416CD /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				0FD70EB1273D85C20024C6B0 /* CustomCells */,
+				0FD70EAE273D83210024C6B0 /* Models */,
+				0FD70EAB273D82E50024C6B0 /* ViewModels */,
 				0F2215AF2724239A006416CD /* Storyboard */,
 				0F2215AC2724237B006416CD /* Controllers */,
 			);
@@ -215,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				0F2215AD2724238E006416CD /* SignInViewController.swift */,
+				0FD70EA9273CC96F0024C6B0 /* SignUpViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -236,8 +250,33 @@
 				0FF8EDC9272490CC000BE755 /* UIStoryboard.swift */,
 				0FF8EDD5272494AC000BE755 /* UIApplication.swift */,
 				0FF8EDE427249BEF000BE755 /* Dictionary.swift */,
+				0F15470D273C6198003473D8 /* UITextField.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0FD70EAB273D82E50024C6B0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0FD70EAC273D82FC0024C6B0 /* SignUpViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0FD70EAE273D83210024C6B0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0FD70EAF273D83490024C6B0 /* RegisterUserTypeDetails.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0FD70EB1273D85C20024C6B0 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				0FD70EB2273D85F10024C6B0 /* RegisterUserTypeCollectionViewCell.swift */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 		0FF8EDCB27249122000BE755 /* Dashboard */ = {
@@ -499,9 +538,13 @@
 				0FF8EDD427249309000BE755 /* PaymentManager.swift in Sources */,
 				8D56B7AD272C3D2E00844CC3 /* Settings.swift in Sources */,
 				0F19B28327251A1700D8B1F5 /* LoadingManager.swift in Sources */,
+				0FD70EB0273D83490024C6B0 /* RegisterUserTypeDetails.swift in Sources */,
 				0F19B293272553F500D8B1F5 /* DoctorListMapViewController.swift in Sources */,
 				0FF8EDCA272490CC000BE755 /* UIStoryboard.swift in Sources */,
+				0FD70EB3273D85F10024C6B0 /* RegisterUserTypeCollectionViewCell.swift in Sources */,
 				8D9BC9CA2726CD2300853B58 /* TwilioAccessTokenResponseModel.swift in Sources */,
+				0F15470E273C6198003473D8 /* UITextField.swift in Sources */,
+				0FD70EAD273D82FC0024C6B0 /* SignUpViewModel.swift in Sources */,
 				0FF8EDCE27249147000BE755 /* DashboardViewController.swift in Sources */,
 				0FF8EDDC27249AB5000BE755 /* RMErrorModel.swift in Sources */,
 				8D9BC9C42726A15500853B58 /* TwilioManager.swift in Sources */,
@@ -518,6 +561,7 @@
 				0FF8EDE927249D6C000BE755 /* PaymentResponseDetails.swift in Sources */,
 				0F2215B627242521006416CD /* UIColor.swift in Sources */,
 				0FF8EDE527249BEF000BE755 /* Dictionary.swift in Sources */,
+				0FD70EAA273CC96F0024C6B0 /* SignUpViewController.swift in Sources */,
 				8D48BAB3273C2A330087DE3C /* SettingsViewController.swift in Sources */,
 				0FF8EDE327249BC9000BE755 /* RMResponseModel.swift in Sources */,
 				0F2215B4272424B6006416CD /* UIView.swift in Sources */,
@@ -685,7 +729,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.toybethsystems.dokto.jason;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toybethsystems.dokto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -722,7 +766,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.toybethsystems.dokto.jason;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toybethsystems.dokto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

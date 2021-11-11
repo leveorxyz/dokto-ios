@@ -12,6 +12,7 @@ target 'Dokto' do
   pod 'PayPalCheckout'
   pod 'GoogleMaps'
   pod 'TwilioVideo'
+  pod 'IQKeyboardManagerSwift'
   
 end
 
