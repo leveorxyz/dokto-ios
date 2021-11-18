@@ -8,6 +8,7 @@
 import UIKit
 
 enum StoryboardType: String {
+    case onboarding = "Onboarding"
     case dashboard = "Dashboard"
     case auth = "Auth"
 }

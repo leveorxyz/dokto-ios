@@ -23,6 +23,10 @@
 		0F2215B4272424B6006416CD /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2215B3272424B6006416CD /* UIView.swift */; };
 		0F2215B627242521006416CD /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2215B527242521006416CD /* UIColor.swift */; };
 		0F2215B827242589006416CD /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2215B727242589006416CD /* Date.swift */; };
+		0FA38C4B2746F5FE0035B1FD /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA38C4A2746F5FE0035B1FD /* OnboardingViewController.swift */; };
+		0FA38C4E2746F6870035B1FD /* OnboardingItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA38C4D2746F6870035B1FD /* OnboardingItemModel.swift */; };
+		0FA38C512746F6C50035B1FD /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA38C502746F6C50035B1FD /* OnboardingCollectionViewCell.swift */; };
+		0FA38C542746F9D50035B1FD /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA38C532746F9D50035B1FD /* Onboarding.storyboard */; };
 		0FD70EAA273CC96F0024C6B0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD70EA9273CC96F0024C6B0 /* SignUpViewController.swift */; };
 		0FD70EAD273D82FC0024C6B0 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD70EAC273D82FC0024C6B0 /* SignUpViewModel.swift */; };
 		0FD70EB0273D83490024C6B0 /* RegisterUserTypeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD70EAF273D83490024C6B0 /* RegisterUserTypeDetails.swift */; };
@@ -69,6 +73,10 @@
 		0F2215B3272424B6006416CD /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		0F2215B527242521006416CD /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		0F2215B727242589006416CD /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		0FA38C4A2746F5FE0035B1FD /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		0FA38C4D2746F6870035B1FD /* OnboardingItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingItemModel.swift; sourceTree = "<group>"; };
+		0FA38C502746F6C50035B1FD /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		0FA38C532746F9D50035B1FD /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		0FD70EA9273CC96F0024C6B0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0FD70EAC273D82FC0024C6B0 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		0FD70EAF273D83490024C6B0 /* RegisterUserTypeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserTypeDetails.swift; sourceTree = "<group>"; };
@@ -185,6 +193,7 @@
 		0F2215A8272422EB006416CD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0FA38C482746F5E30035B1FD /* Onboarding */,
 				8D9BC9C72726CCDF00853B58 /* Twilio */,
 				0F19B28427251B0200D8B1F5 /* Generic */,
 				0FF8EDE627249D48000BE755 /* Payment */,
@@ -253,6 +262,49 @@
 				0F15470D273C6198003473D8 /* UITextField.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0FA38C482746F5E30035B1FD /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				0FA38C522746F9C50035B1FD /* Storyboard */,
+				0FA38C4F2746F6A80035B1FD /* CustomCells */,
+				0FA38C4C2746F65C0035B1FD /* Models */,
+				0FA38C492746F5EB0035B1FD /* Controllers */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		0FA38C492746F5EB0035B1FD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0FA38C4A2746F5FE0035B1FD /* OnboardingViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0FA38C4C2746F65C0035B1FD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0FA38C4D2746F6870035B1FD /* OnboardingItemModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0FA38C4F2746F6A80035B1FD /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				0FA38C502746F6C50035B1FD /* OnboardingCollectionViewCell.swift */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		0FA38C522746F9C50035B1FD /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				0FA38C532746F9D50035B1FD /* Onboarding.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		0FD70EAB273D82E50024C6B0 /* ViewModels */ = {
@@ -463,6 +515,7 @@
 				0FF8EDD12724920D000BE755 /* Dashboard.storyboard in Resources */,
 				0F2215A12724225B006416CD /* LaunchScreen.storyboard in Resources */,
 				0F22159E2724225B006416CD /* Assets.xcassets in Resources */,
+				0FA38C542746F9D50035B1FD /* Onboarding.storyboard in Resources */,
 				0F19B28927251B1F00D8B1F5 /* LoadingAnimationView.xib in Resources */,
 				0F19B28D27251B9700D8B1F5 /* loading_animation.json in Resources */,
 			);
@@ -537,6 +590,7 @@
 				0FF8EDD6272494AC000BE755 /* UIApplication.swift in Sources */,
 				0FF8EDD427249309000BE755 /* PaymentManager.swift in Sources */,
 				8D56B7AD272C3D2E00844CC3 /* Settings.swift in Sources */,
+				0FA38C4B2746F5FE0035B1FD /* OnboardingViewController.swift in Sources */,
 				0F19B28327251A1700D8B1F5 /* LoadingManager.swift in Sources */,
 				0FD70EB0273D83490024C6B0 /* RegisterUserTypeDetails.swift in Sources */,
 				0F19B293272553F500D8B1F5 /* DoctorListMapViewController.swift in Sources */,
@@ -546,6 +600,7 @@
 				0F15470E273C6198003473D8 /* UITextField.swift in Sources */,
 				0FD70EAD273D82FC0024C6B0 /* SignUpViewModel.swift in Sources */,
 				0FF8EDCE27249147000BE755 /* DashboardViewController.swift in Sources */,
+				0FA38C4E2746F6870035B1FD /* OnboardingItemModel.swift in Sources */,
 				0FF8EDDC27249AB5000BE755 /* RMErrorModel.swift in Sources */,
 				8D9BC9C42726A15500853B58 /* TwilioManager.swift in Sources */,
 				0F2215AE2724238E006416CD /* SignInViewController.swift in Sources */,
@@ -567,6 +622,7 @@
 				0F2215B4272424B6006416CD /* UIView.swift in Sources */,
 				0F19B28A27251B1F00D8B1F5 /* LoadingAnimationView.swift in Sources */,
 				0F22159527242259006416CD /* AppDelegate.swift in Sources */,
+				0FA38C512746F6C50035B1FD /* OnboardingCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

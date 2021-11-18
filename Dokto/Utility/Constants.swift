@@ -20,6 +20,9 @@ struct Constants {
         struct GoogleMap {
             static let current = "AIzaSyC3jKbpRiXpO2hcQq12umTYmpCj8Wy9_so"
         }
+        struct UserDefaults {
+            static let onboardingIsDisplayed = "OnboardingIsDisplayed"
+        }
     }
     
     struct Api {

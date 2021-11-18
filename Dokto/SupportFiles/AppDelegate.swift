@@ -31,6 +31,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //MARK: IQKeyboardManager config
         IQKeyboardManager.shared.enable = true
         
+        //MARK: Initiate root view
+        initiateRootViewController()
+        
         return true
+    }
+}
+
+//MARK: Other methods
+extension AppDelegate {
+    
+    func initiateRootViewController() {
+        let onboardingIsDisplayed = UserDefaults.standard.bool(forKey: Constants.Keys.UserDefaults.onboardingIsDisplayed)
+        
+        if !onboardingIsDisplayed, let controller = UIStoryboard.controller(with: .onboarding, type: OnboardingViewController.self) {
+            self.window?.rootViewController = controller
+            self.window?.makeKeyAndVisible()
+        } else if let controller = UIStoryboard(name: "Auth", bundle: nil).instantiateInitialViewController() {
+            self.window?.rootViewController = controller
+            self.window?.makeKeyAndVisible()
+        }
     }
 }
