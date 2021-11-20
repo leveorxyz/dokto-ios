@@ -10,6 +10,12 @@ import PayPalCheckout
 import GoogleMaps
 import IQKeyboardManagerSwift
 
+#if DEBUG
+let DEBUG: Int = 1
+#else
+let DEBUG: Int = 0
+#endif
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -35,6 +41,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         initiateRootViewController()
         
         return true
+    }
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return .portrait
     }
 }
 

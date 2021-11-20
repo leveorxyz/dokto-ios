@@ -31,7 +31,7 @@ extension DashboardViewController {
         viewModel.flutterWaveCheckout { status in
             debugPrint(status)
             if status == .success {
-                AlertManager.show(title: "FlutterWave payment completed successfully")
+                AlertManager.showAlert(title: "FlutterWave payment completed successfully")
             }
         }
     }
@@ -40,7 +40,7 @@ extension DashboardViewController {
         viewModel.paystackCheckout { status in
             debugPrint(status)
             if status == .success {
-                AlertManager.show(title: "Paystack payment completed successfully")
+                AlertManager.showAlert(title: "Paystack payment completed successfully")
             }
         }
     }
@@ -49,7 +49,7 @@ extension DashboardViewController {
         viewModel.stripeCheckout { status in
             debugPrint(status)
             if status == .success {
-                AlertManager.show(title: "Stripe payment completed successfully")
+                AlertManager.showAlert(title: "Stripe payment completed successfully")
             }
         }
     }
@@ -58,7 +58,7 @@ extension DashboardViewController {
         viewModel.paypalCheckout { status in
             debugPrint(status)
             if status == .success {
-                AlertManager.show(title: "PayPal payment completed successfully")
+                AlertManager.showAlert(title: "PayPal payment completed successfully")
             }
         }
     }

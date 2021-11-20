@@ -8,11 +8,12 @@
 import UIKit
 
 enum UserType {
-    case doctor, patient, none
+    case doctor, patient, clinic, pharmacy, none
 }
 
 struct RegisterUserTypeDetails {
     var title: String?
     var icon: String = ""
+    var color: UIColor = .white
     var type: UserType = .patient
 }

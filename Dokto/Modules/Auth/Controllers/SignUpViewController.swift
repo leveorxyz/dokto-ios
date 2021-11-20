@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import SwiftUI
 
 class SignUpViewController: UIViewController {
     
-    @IBOutlet weak var userTypeCollectionView: UICollectionView!
+    @IBOutlet weak var userTypeTableView: UITableView!
     
     var viewModel = SignUpViewModel()
     
@@ -23,44 +24,41 @@ class SignUpViewController: UIViewController {
 //MARK: Action methods
 extension SignUpViewController {
     
-    @IBAction func loginAction(_ sender: Any) {
+    @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
 }
 
-//MARK: UICollectionViewDataSource, UICollectionViewDelegate methods
-extension SignUpViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+//MARK: UITableViewDataSource, UITableViewDelegate methods
+extension SignUpViewController: UITableViewDataSource, UITableViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.typeList.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterUserTypeCollectionViewCell", for: indexPath) as? RegisterUserTypeCollectionViewCell else {
-            return UICollectionViewCell()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RegisterUserTypeTableViewCell") as? RegisterUserTypeTableViewCell else {
+            return UITableViewCell()
         }
+        cell.selectionStyle = .none
         
         cell.updateWith(object: viewModel.typeList[indexPath.row])
-        cell.typeButton.backgroundColor = viewModel.selectedIndex == indexPath.row ? .named(._2F97D3) : .named(._2F97D3)?.withAlphaComponent(0.2)
-        
-        //operation with selection
-        cell.actionCompletion = { [weak self] object in
-            if let index = self?.viewModel.typeList.firstIndex(where: {$0.type == object.type}) {
-                self?.viewModel.selectedIndex = index
-                collectionView.reloadData()
-            }
-        }
         
         return cell
     }
-}
-
-//MARK: UICollectionViewDelegateFlowLayout methods
-extension SignUpViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = collectionView.frame.height
-        return CGSize(width: height, height: height)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? RegisterUserTypeTableViewCell {
+            cell.contentsView.animateWith(type: .zoomIn)
+        }
+        DispatchQueue.main.async {
+            self.navigateWith(object: self.viewModel.typeList[indexPath.row])
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.frame.width * (30/108)
     }
 }
 
@@ -69,6 +67,14 @@ extension SignUpViewController {
     
     func updateUIContents() {
         viewModel.loadUserTypes()
-        userTypeCollectionView.reloadData()
+        userTypeTableView.reloadData()
+    }
+    
+    func navigateWith(object: RegisterUserTypeDetails) {
+        if object.type == .patient {
+            if let controller = UIStoryboard.controller(with: .auth, type: PatientRegistrationViewController.self) {
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
+        }
     }
 }

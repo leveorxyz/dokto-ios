@@ -41,5 +41,8 @@ struct Constants {
         struct Twilio{
             static let twilioTokenUrl = "/twilio/video-token/"
         }
+        struct Login {
+            static let login = "/user/login/"
+        }
     }
 }
