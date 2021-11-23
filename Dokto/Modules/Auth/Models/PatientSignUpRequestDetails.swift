@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct PatientSignUpRequestDetails: Codable {
+class PatientSignUpRequestDetails: Codable {
     var city : String?
     var contactNo : String?
     var dateOfBirth : String?
@@ -24,6 +24,12 @@ struct PatientSignUpRequestDetails: Codable {
     var state : String?
     var street : String?
     var zipCode : String?
+    var insuranceName : String?
+    var insuranceNumber : String?
+    var insurancePolicyHolderName : String?
+    var referringDoctorAddress : String?
+    var referringDoctorFullName : String?
+    var referringDoctorPhoneNumber : String?
     
     enum CodingKeys: String, CodingKey {
         case city = "city"
@@ -42,9 +48,15 @@ struct PatientSignUpRequestDetails: Codable {
         case state = "state"
         case street = "street"
         case zipCode = "zip_code"
+        case insuranceName = "insurance_name"
+        case insuranceNumber = "insurance_number"
+        case insurancePolicyHolderName = "insurance_policy_holder_name"
+        case referringDoctorAddress = "referring_doctor_address"
+        case referringDoctorFullName = "referring_doctor_full_name"
+        case referringDoctorPhoneNumber = "referring_doctor_phone_number"
     }
     init() {}
-    init(from decoder: Decoder) throws {
+    required init(from decoder: Decoder) throws {
         let values = try? decoder.container(keyedBy: CodingKeys.self)
         city = try? values?.decodeIfPresent(String.self, forKey: .city)
         contactNo = try? values?.decodeIfPresent(String.self, forKey: .contactNo)
@@ -62,5 +74,11 @@ struct PatientSignUpRequestDetails: Codable {
         state = try? values?.decodeIfPresent(String.self, forKey: .state)
         street = try? values?.decodeIfPresent(String.self, forKey: .street)
         zipCode = try? values?.decodeIfPresent(String.self, forKey: .zipCode)
+        insuranceName = try? values?.decodeIfPresent(String.self, forKey: .insuranceName)
+        insuranceNumber = try? values?.decodeIfPresent(String.self, forKey: .insuranceNumber)
+        insurancePolicyHolderName = try? values?.decodeIfPresent(String.self, forKey: .insurancePolicyHolderName)
+        referringDoctorAddress = try? values?.decodeIfPresent(String.self, forKey: .referringDoctorAddress)
+        referringDoctorFullName = try? values?.decodeIfPresent(String.self, forKey: .referringDoctorFullName)
+        referringDoctorPhoneNumber = try? values?.decodeIfPresent(String.self, forKey: .referringDoctorPhoneNumber)
     }
 }

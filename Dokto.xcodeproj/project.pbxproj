@@ -27,6 +27,12 @@
 		0F2215B4272424B6006416CD /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2215B3272424B6006416CD /* UIView.swift */; };
 		0F2215B627242521006416CD /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2215B527242521006416CD /* UIColor.swift */; };
 		0F2215B827242589006416CD /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2215B727242589006416CD /* Date.swift */; };
+		0F4D7C08274A455400BD8965 /* CountryCodeListDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4D7C07274A455400BD8965 /* CountryCodeListDetails.swift */; };
+		0F4D7C0B274A460700BD8965 /* GenericViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4D7C0A274A460700BD8965 /* GenericViewModel.swift */; };
+		0F4D7C0E274A4A5400BD8965 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4D7C0D274A4A5400BD8965 /* BottomSheet.swift */; };
+		0F4D7C10274A4DEA00BD8965 /* IDName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4D7C0F274A4DEA00BD8965 /* IDName.swift */; };
+		0F4D7C12274A68B800BD8965 /* PatientIdentificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4D7C11274A68B800BD8965 /* PatientIdentificationVC.swift */; };
+		0F4D7C14274A739F00BD8965 /* StateListDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4D7C13274A739F00BD8965 /* StateListDetails.swift */; };
 		0F9BD35827498485005457DF /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9BD35727498485005457DF /* String.swift */; };
 		0F9BD35B27498537005457DF /* AbstractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9BD35A27498537005457DF /* AbstractViewController.swift */; };
 		0F9BD35D27498E61005457DF /* PatientSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9BD35C27498E61005457DF /* PatientSignUpViewModel.swift */; };
@@ -39,6 +45,7 @@
 		0FA38C4E2746F6870035B1FD /* OnboardingItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA38C4D2746F6870035B1FD /* OnboardingItemModel.swift */; };
 		0FA38C512746F6C50035B1FD /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA38C502746F6C50035B1FD /* OnboardingCollectionViewCell.swift */; };
 		0FA38C542746F9D50035B1FD /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA38C532746F9D50035B1FD /* Onboarding.storyboard */; };
+		0FB6E01B274ADD7600D1F4EF /* PatientHealthcareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB6E01A274ADD7600D1F4EF /* PatientHealthcareVC.swift */; };
 		0FD70EAA273CC96F0024C6B0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD70EA9273CC96F0024C6B0 /* SignUpViewController.swift */; };
 		0FD70EAD273D82FC0024C6B0 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD70EAC273D82FC0024C6B0 /* SignUpViewModel.swift */; };
 		0FD70EB0273D83490024C6B0 /* RegisterUserTypeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD70EAF273D83490024C6B0 /* RegisterUserTypeDetails.swift */; };
@@ -91,6 +98,12 @@
 		0F2215B3272424B6006416CD /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		0F2215B527242521006416CD /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		0F2215B727242589006416CD /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		0F4D7C07274A455400BD8965 /* CountryCodeListDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeListDetails.swift; sourceTree = "<group>"; };
+		0F4D7C0A274A460700BD8965 /* GenericViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewModel.swift; sourceTree = "<group>"; };
+		0F4D7C0D274A4A5400BD8965 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
+		0F4D7C0F274A4DEA00BD8965 /* IDName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDName.swift; sourceTree = "<group>"; };
+		0F4D7C11274A68B800BD8965 /* PatientIdentificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientIdentificationVC.swift; sourceTree = "<group>"; };
+		0F4D7C13274A739F00BD8965 /* StateListDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateListDetails.swift; sourceTree = "<group>"; };
 		0F9BD35727498485005457DF /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		0F9BD35A27498537005457DF /* AbstractViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractViewController.swift; sourceTree = "<group>"; };
 		0F9BD35C27498E61005457DF /* PatientSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientSignUpViewModel.swift; sourceTree = "<group>"; };
@@ -103,6 +116,7 @@
 		0FA38C4D2746F6870035B1FD /* OnboardingItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingItemModel.swift; sourceTree = "<group>"; };
 		0FA38C502746F6C50035B1FD /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		0FA38C532746F9D50035B1FD /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		0FB6E01A274ADD7600D1F4EF /* PatientHealthcareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientHealthcareVC.swift; sourceTree = "<group>"; };
 		0FD70EA9273CC96F0024C6B0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0FD70EAC273D82FC0024C6B0 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		0FD70EAF273D83490024C6B0 /* RegisterUserTypeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserTypeDetails.swift; sourceTree = "<group>"; };
@@ -156,6 +170,8 @@
 		0F19B28427251B0200D8B1F5 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				0F4D7C09274A45F500BD8965 /* ViewModels */,
+				0F4D7C06274A453C00BD8965 /* Models */,
 				0F9BD35927498513005457DF /* Controllers */,
 				0F19B28527251B0B00D8B1F5 /* Views */,
 			);
@@ -208,6 +224,7 @@
 		0F22159327242259006416CD /* Dokto */ = {
 			isa = PBXGroup;
 			children = (
+				0F4D7C0C274A49B600BD8965 /* CustomObjects */,
 				0FF8EDDF27249AFD000BE755 /* Utility */,
 				0FF8EDD2272492F7000BE755 /* Managers */,
 				0F2215B227242485006416CD /* Extensions */,
@@ -296,6 +313,32 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		0F4D7C06274A453C00BD8965 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0F4D7C07274A455400BD8965 /* CountryCodeListDetails.swift */,
+				0F4D7C0F274A4DEA00BD8965 /* IDName.swift */,
+				0F4D7C13274A739F00BD8965 /* StateListDetails.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0F4D7C09274A45F500BD8965 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0F4D7C0A274A460700BD8965 /* GenericViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0F4D7C0C274A49B600BD8965 /* CustomObjects */ = {
+			isa = PBXGroup;
+			children = (
+				0F4D7C0D274A4A5400BD8965 /* BottomSheet.swift */,
+			);
+			path = CustomObjects;
+			sourceTree = "<group>";
+		};
 		0F9BD35927498513005457DF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,6 +424,8 @@
 			children = (
 				0FF06DAA2747973E0023F69D /* PatientRegistrationViewController.swift */,
 				0F205DCA27481BAE002F0EBD /* PatientPersonalDetailsVC.swift */,
+				0F4D7C11274A68B800BD8965 /* PatientIdentificationVC.swift */,
+				0FB6E01A274ADD7600D1F4EF /* PatientHealthcareVC.swift */,
 			);
 			path = Patient;
 			sourceTree = "<group>";
@@ -654,12 +699,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FF8EDD6272494AC000BE755 /* UIApplication.swift in Sources */,
+				0FB6E01B274ADD7600D1F4EF /* PatientHealthcareVC.swift in Sources */,
 				0FF8EDD427249309000BE755 /* PaymentManager.swift in Sources */,
 				0F9BD35827498485005457DF /* String.swift in Sources */,
 				0F205DCD27481BF4002F0EBD /* TaskManager.swift in Sources */,
+				0F4D7C14274A739F00BD8965 /* StateListDetails.swift in Sources */,
 				0F9BD35F27498EA6005457DF /* SignInViewModel.swift in Sources */,
 				8D56B7AD272C3D2E00844CC3 /* Settings.swift in Sources */,
 				0FA38C4B2746F5FE0035B1FD /* OnboardingViewController.swift in Sources */,
+				0F4D7C10274A4DEA00BD8965 /* IDName.swift in Sources */,
 				0F19B28327251A1700D8B1F5 /* LoadingManager.swift in Sources */,
 				0FD70EB0273D83490024C6B0 /* RegisterUserTypeDetails.swift in Sources */,
 				0F19B293272553F500D8B1F5 /* DoctorListMapViewController.swift in Sources */,
@@ -675,6 +723,7 @@
 				0FF8EDCE27249147000BE755 /* DashboardViewController.swift in Sources */,
 				0FA38C4E2746F6870035B1FD /* OnboardingItemModel.swift in Sources */,
 				0F9BD3672749971D005457DF /* DataManager.swift in Sources */,
+				0F4D7C12274A68B800BD8965 /* PatientIdentificationVC.swift in Sources */,
 				0F9BD35B27498537005457DF /* AbstractViewController.swift in Sources */,
 				0FF8EDDC27249AB5000BE755 /* RMErrorModel.swift in Sources */,
 				8D9BC9C42726A15500853B58 /* TwilioManager.swift in Sources */,
@@ -682,6 +731,7 @@
 				0FF8EDD9272499BA000BE755 /* RequestManager.swift in Sources */,
 				8D5D774A272EF42A0020E459 /* PlatformUtils.swift in Sources */,
 				0FF8EDE127249B0C000BE755 /* Constants.swift in Sources */,
+				0F4D7C08274A455400BD8965 /* CountryCodeListDetails.swift in Sources */,
 				0F19B2812724A35D00D8B1F5 /* DashboardViewModel.swift in Sources */,
 				8D9BC9C62726B85600853B58 /* TwilioViewModel.swift in Sources */,
 				0F2215B827242589006416CD /* Date.swift in Sources */,
@@ -690,6 +740,7 @@
 				0FF8EDDE27249AD9000BE755 /* RMRequestModel.swift in Sources */,
 				8D31D21E272675820025F9C5 /* TwilioRoomViewController.swift in Sources */,
 				0F19B28F2725386D00D8B1F5 /* AlertManager.swift in Sources */,
+				0F4D7C0B274A460700BD8965 /* GenericViewModel.swift in Sources */,
 				0FF8EDE927249D6C000BE755 /* PaymentResponseDetails.swift in Sources */,
 				0F2215B627242521006416CD /* UIColor.swift in Sources */,
 				0FF8EDE527249BEF000BE755 /* Dictionary.swift in Sources */,
@@ -700,6 +751,7 @@
 				8D48BAB3273C2A330087DE3C /* SettingsViewController.swift in Sources */,
 				0FF8EDE327249BC9000BE755 /* RMResponseModel.swift in Sources */,
 				0F2215B4272424B6006416CD /* UIView.swift in Sources */,
+				0F4D7C0E274A4A5400BD8965 /* BottomSheet.swift in Sources */,
 				0F19B28A27251B1F00D8B1F5 /* LoadingAnimationView.swift in Sources */,
 				0F22159527242259006416CD /* AppDelegate.swift in Sources */,
 				0FA38C512746F6C50035B1FD /* OnboardingCollectionViewCell.swift in Sources */,

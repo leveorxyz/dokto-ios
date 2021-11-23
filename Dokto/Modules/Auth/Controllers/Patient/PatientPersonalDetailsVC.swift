@@ -15,7 +15,7 @@ enum GenderType: String {
     case none
 }
 
-class PatientPersonalDetailsVC: UIViewController {
+class PatientPersonalDetailsVC: AbstractViewController {
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -45,6 +45,9 @@ class PatientPersonalDetailsVC: UIViewController {
         }
     }
     
+    var genericViewModel = GenericViewModel()
+    var countryCodeList = [CountryCodeListItemDetails]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,6 +65,25 @@ extension PatientPersonalDetailsVC {
         TaskManager.shared.getPhotoWith(size: CGSize(width: 256, height: 256)) { [weak self] image in
             self?.profileImage = image
         }
+    }
+    
+    @IBAction func countryCodeAction(_ sender: Any) {
+        if countryCodeList.isEmpty {
+            LoadingManager.showProgress()
+            genericViewModel.getCountryCodeList { object, error in
+                LoadingManager.hideProgress()
+                if let list = object?.result, !list.isEmpty {
+                    self.countryCodeList = list
+                    DispatchQueue.main.async {
+                        self.showCountryCodeList()
+                    }
+                } else if let message  = object?.message ?? error?.message {
+                    AlertManager.showAlert(title: message)
+                }
+            }
+            return
+        }
+        self.showCountryCodeList()
     }
     
     @IBAction func nextAction(_ sender: Any) {
@@ -103,24 +125,6 @@ extension PatientPersonalDetailsVC: UITableViewDataSource, UITableViewDelegate {
 //MARK: Action methods
 extension PatientPersonalDetailsVC {
     
-    func initialSetup() {
-        genderTableViewHeightConstraint.constant = CGFloat(genderList.count * 44)
-        
-        //inline date selector
-        timePicker.datePickerMode = .date
-        if #available(iOS 13.4, *) {
-            timePicker.preferredDatePickerStyle = .wheels
-        }
-        let maximumDate = Calendar.current.date(byAdding: .year, value: -18, to: Date())
-        timePicker.maximumDate = maximumDate
-        timePicker.tintColor = .white
-        timePicker.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 200)
-        timePicker.backgroundColor = .clear
-        timePicker.addTarget(self, action: #selector(birthDateChanged), for: .valueChanged)
-        birthDateTextField.delegate = self
-        birthDateTextField.inputView = timePicker
-    }
-    
     @objc func birthDateChanged(sender: UIDatePicker) {
         selectedDate = sender.date
     }
@@ -139,6 +143,24 @@ extension PatientPersonalDetailsVC: UITextFieldDelegate {
 
 //MARK: Other methods
 extension PatientPersonalDetailsVC {
+    
+    func initialSetup() {
+        genderTableViewHeightConstraint.constant = CGFloat(genderList.count * 44)
+        
+        //inline date selector
+        timePicker.datePickerMode = .date
+        if #available(iOS 13.4, *) {
+            timePicker.preferredDatePickerStyle = .wheels
+        }
+        let maximumDate = Calendar.current.date(byAdding: .year, value: -18, to: Date())
+        timePicker.maximumDate = maximumDate
+        timePicker.tintColor = .white
+        timePicker.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 200)
+        timePicker.backgroundColor = .clear
+        timePicker.addTarget(self, action: #selector(birthDateChanged), for: .valueChanged)
+        birthDateTextField.delegate = self
+        birthDateTextField.inputView = timePicker
+    }
     
     func isValidInformation() -> Bool {
         var errorField: UITextField?
@@ -192,9 +214,10 @@ extension PatientPersonalDetailsVC {
     }
     
     func loadDummyData() {
+        profileImage = UIImage(named: "default_profile")
         firstNameTextField.text = "First name"
         lastNameTextField.text = "Last name"
-        countryCodeTextField.text = "+880"
+        countryCodeTextField.text = "880"
         mobileNumberTextField.text = "1913243746"
         emailTextField.text = "test@test.com"
         passwordTextField.text = "123456"
@@ -208,7 +231,8 @@ extension PatientPersonalDetailsVC {
         }
         
         //update values
-        var object = DataManager.shared.patientSignUpRequestDetails
+        let object = DataManager.shared.patientSignUpRequestDetails
+        object?.profilePhoto = profileImage?.toBase64()
         object?.fullName = getFullName()
         object?.contactNo = mobileNumberTextField.text
         object?.email = emailTextField.text
@@ -219,5 +243,22 @@ extension PatientPersonalDetailsVC {
     
     func getFullName() -> String {
         return (firstNameTextField.text ?? "") + " " + (lastNameTextField.text ?? "")
+    }
+    
+    func getCountryCodeIDList() -> [IDName] {
+        var list = [IDName]()
+        for object in countryCodeList {
+            let name = (object.name ?? "") + " (\(object.phoneCode ?? ""))"
+            list.append(IDName(key: object.phoneCode, name: name))
+        }
+        return list
+    }
+    
+    func showCountryCodeList() {
+        self.showSelectionList(title: "Select country", objectList: getCountryCodeIDList()) { item, index in
+            DispatchQueue.main.async {
+                self.countryCodeTextField.text = item.key
+            }
+        }
     }
 }

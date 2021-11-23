@@ -16,6 +16,7 @@ class PatientRegistrationViewController: AbstractViewController {
     var itemList = [String]()
     var completedItemList: Set<Int> = []
     var tabController: UITabBarController?
+    var patientSignUpViewModel = PatientSignUpViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +57,31 @@ extension PatientRegistrationViewController: UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        if currentItemIndex < tabController?.viewControllers?.count ?? 0 {
+            if indexPath.row < currentItemIndex, completedItemList.contains(indexPath.row) {
+                currentItemIndex = indexPath.row
+                tabController?.selectedViewController = tabController?.viewControllers?[indexPath.row]
+            } else if currentItemIndex != indexPath.row {
+                if let controller = tabController?.viewControllers?[currentItemIndex] as? PatientPersonalDetailsVC {
+                    if controller.isValidInformation() {
+                        controller.updatePatientSignUpRequestDetails()
+                        completedItemList.insert(currentItemIndex)
+                        currentItemIndex = indexPath.row
+                        collectionView.reloadData()
+                        tabController?.selectedViewController = tabController?.viewControllers?[indexPath.row]
+                    }
+                } else if let controller = tabController?.viewControllers?[currentItemIndex] as? PatientIdentificationVC {
+                    if controller.isValidInformation() {
+                        controller.updatePatientSignUpRequestDetails()
+                        completedItemList.insert(currentItemIndex)
+                        currentItemIndex = indexPath.row
+                        collectionView.reloadData()
+                        tabController?.selectedViewController = tabController?.viewControllers?[indexPath.row]
+                    }
+                }
+            }
+        }
+        collectionView.scrollToItem(at: IndexPath(row: currentItemIndex, section: 0), at: .centeredHorizontally, animated: true)
     }
 }
 
@@ -93,10 +118,40 @@ extension PatientRegistrationViewController {
         for item in tabController?.viewControllers ?? [] {
             if let controller = item as? PatientPersonalDetailsVC {
                 controller.nextActionCompletion = { [weak self] success in
+                    controller.updatePatientSignUpRequestDetails()
                     self?.completedItemList.insert(0)
                     self?.currentItemIndex = 1
                     self?.stepsCollectionView.reloadData()
                     self?.stepsCollectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: .centeredHorizontally, animated: true)
+                    self?.selectTabController(with: 1)
+                }
+            } else if let controller = item as? PatientIdentificationVC {
+                controller.nextActionCompletion = { [weak self] success in
+                    controller.updatePatientSignUpRequestDetails()
+                    self?.completedItemList.insert(1)
+                    self?.currentItemIndex = 2
+                    self?.stepsCollectionView.reloadData()
+                    self?.stepsCollectionView.scrollToItem(at: IndexPath(row: 2, section: 0), at: .centeredHorizontally, animated: true)
+                    self?.selectTabController(with: 2)
+                }
+            } else if let controller = item as? PatientHealthcareVC {
+                controller.nextActionCompletion = { [weak self] success in
+                    controller.updatePatientSignUpRequestDetails()
+                    self?.completedItemList.insert(2)
+                    
+                    //request for registration
+                    let headers = ["X-CSRFToken" : Constants.Keys.Api.csrfToken]
+                    LoadingManager.showProgress()
+                    self?.patientSignUpViewModel.signUp(with: headers) { object, error in
+                        LoadingManager.hideProgress()
+                        if object?.result != nil {
+                            DispatchQueue.main.async {
+                                self?.navigationController?.popToRootViewController(animated: true)
+                            }
+                        } else if let message = object?.message ?? error?.message {
+                            AlertManager.showAlert(title: message)
+                        }
+                    }
                 }
             }
         }
@@ -107,5 +162,11 @@ extension PatientRegistrationViewController {
                     "Identification Verification",
                     "Healthcare Information"]
         stepsCollectionView.reloadData()
+    }
+    
+    func selectTabController(with index: Int) {
+        if index < tabController?.viewControllers?.count ?? 0 {
+            tabController?.selectedIndex = index
+        }
     }
 }

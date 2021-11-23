@@ -39,3 +39,11 @@ extension UIImage {
         return UIGraphicsGetImageFromCurrentImageContext()
     }
 }
+
+//MARK: Conversion related
+extension UIImage {
+    
+    func toBase64() -> String? {
+        return self.jpegData(compressionQuality: 1)?.base64EncodedString()
+    }
+}

@@ -11,9 +11,24 @@ class PatientSignUpViewModel {
     
 }
 
+//MARK: Request related methods
 extension PatientSignUpViewModel {
     
-    func signUp(with object: [String:Any]) {
+    func signUp(with headers: [String:String], completion: @escaping(StateListDetails?, RMErrorModel?) -> ()) {
+        let request = RMRequestModel()
+        request.path = Constants.Api.Auth.Patient.registration
+        request.headers = headers
+        request.method = .post
+        if let object = DataManager.shared.patientSignUpRequestDetails?.asDictionary() {
+            request.body = object
+        }
         
+        RequestManager.request(request: request, type: StateListDetails.self) { response, error in
+            if let object = response.first {
+                completion(object, nil)
+            } else {
+                completion(nil, error)
+            }
+        }
     }
 }

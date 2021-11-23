@@ -23,6 +23,9 @@ struct Constants {
         struct UserDefaults {
             static let onboardingIsDisplayed = "OnboardingIsDisplayed"
         }
+        struct Api {
+            static let csrfToken = "4GLgUlll1AyQjcuH3uXxAQwmNJOpW2AxOxKblLHlVsiDf5Mvow282R3A2CLnqdWh"
+        }
     }
     
     struct Api {
@@ -41,8 +44,15 @@ struct Constants {
         struct Twilio{
             static let twilioTokenUrl = "/twilio/video-token/"
         }
-        struct Login {
+        struct Auth {
             static let login = "/user/login/"
+            struct Patient {
+                static let registration = "/user/patient-signup/"
+            }
+        }
+        struct Generic {
+            static let countryCode = "/constant/phone-code/"
+            static let stateList = "/constant/state/"
         }
     }
 }

@@ -16,7 +16,7 @@ extension SignInViewModel {
     
     func signIn(with params: [String: Any], completion: @escaping(LoginResponseDetails?, RMErrorModel?) -> ()) {
         let request = RMRequestModel()
-        request.path = Constants.Api.Login.login
+        request.path = Constants.Api.Auth.login
         request.body = params
         request.method = .post
         
