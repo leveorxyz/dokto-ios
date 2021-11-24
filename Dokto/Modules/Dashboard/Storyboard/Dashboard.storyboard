@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -191,17 +191,14 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TSs-TA-nTv">
-                                <rect key="frame" x="100" y="777" width="214" height="31"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="TSs-TA-nTv">
+                                <rect key="frame" x="100" y="788" width="212" height="34"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiO-7U-feA">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="31"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="PQQ-ep-OyS"/>
-                                        </constraints>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiO-7U-feA">
+                                        <rect key="frame" x="0.0" y="0.0" width="42.5" height="34"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
-                                            <imageReference key="image" image="phone.down.fill" catalog="system" symbolScale="large"/>
+                                            <imageReference key="image" image="phone.down.fill" catalog="system" symbolScale="medium"/>
                                             <color key="baseForegroundColor" systemColor="systemRedColor"/>
                                         </buttonConfiguration>
                                         <userDefinedRuntimeAttributes>
@@ -213,10 +210,10 @@
                                             <action selector="disconnect:" destination="9PZ-dM-njx" eventType="touchUpInside" id="3y8-fK-if6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Fz-D8-khp">
-                                        <rect key="frame" x="50" y="0.0" width="49" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Fz-D8-khp">
+                                        <rect key="frame" x="44.5" y="0.0" width="44" height="34"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="video.slash" catalog="system">
+                                        <buttonConfiguration key="configuration" style="plain" image="video">
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -224,9 +221,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDP-OS-s47">
-                                        <rect key="frame" x="99" y="0.0" width="48.5" height="31"/>
+                                        <rect key="frame" x="90.5" y="0.0" width="44" height="34"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="camera.rotate" catalog="system">
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="camera.rotate" catalog="system" symbolScale="medium"/>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -234,9 +232,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koU-mv-6za">
-                                        <rect key="frame" x="147.5" y="0.0" width="26" height="31"/>
+                                        <rect key="frame" x="136.5" y="0.0" width="41" height="34"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="gearshape" catalog="system">
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="gearshape" catalog="system" symbolScale="medium"/>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -244,14 +243,19 @@
                                             <segue destination="bVU-pl-PWW" kind="show" id="OTD-S1-6U5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dM-aZ-WvR">
-                                        <rect key="frame" x="173.5" y="0.0" width="40.5" height="31"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dM-aZ-WvR">
+                                        <rect key="frame" x="179.5" y="0.0" width="32.5" height="34"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="mic" catalog="system">
-                                            <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="mic.fill" cornerStyle="fixed">
+                                            <backgroundConfiguration key="background" cornerRadius="0.0" strokeWidth="0.0"/>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="makeCircular" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
@@ -261,18 +265,14 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="7Fz-D8-khp" firstAttribute="height" secondItem="NiO-7U-feA" secondAttribute="height" id="BVs-nC-5UF"/>
-                                    <constraint firstItem="koU-mv-6za" firstAttribute="width" secondItem="NiO-7U-feA" secondAttribute="width" multiplier="0.52" id="GmL-YX-W9R"/>
-                                    <constraint firstItem="koU-mv-6za" firstAttribute="height" secondItem="NiO-7U-feA" secondAttribute="height" id="HwY-sD-RHJ"/>
-                                    <constraint firstItem="SDP-OS-s47" firstAttribute="width" secondItem="NiO-7U-feA" secondAttribute="width" multiplier="0.97" id="bma-ig-ZN9"/>
-                                    <constraint firstItem="SDP-OS-s47" firstAttribute="height" secondItem="NiO-7U-feA" secondAttribute="height" id="buN-Vl-9Oj"/>
-                                    <constraint firstItem="7dM-aZ-WvR" firstAttribute="height" secondItem="NiO-7U-feA" secondAttribute="height" id="eOT-JJ-d17"/>
-                                    <constraint firstItem="7dM-aZ-WvR" firstAttribute="width" secondItem="NiO-7U-feA" secondAttribute="width" multiplier="0.81" id="gtJ-ms-5H8"/>
-                                    <constraint firstItem="7Fz-D8-khp" firstAttribute="width" secondItem="NiO-7U-feA" secondAttribute="width" multiplier="0.98" id="vL4-CB-RfZ"/>
+                                    <constraint firstItem="SDP-OS-s47" firstAttribute="width" secondItem="NiO-7U-feA" secondAttribute="width" multiplier="1.03529" id="TsB-gf-1Fd"/>
+                                    <constraint firstItem="koU-mv-6za" firstAttribute="width" secondItem="NiO-7U-feA" secondAttribute="width" multiplier="0.964706" id="ldz-Xs-8tG"/>
+                                    <constraint firstItem="7Fz-D8-khp" firstAttribute="width" secondItem="NiO-7U-feA" secondAttribute="width" multiplier="1.03529" id="u8x-X6-WFz"/>
+                                    <constraint firstItem="7dM-aZ-WvR" firstAttribute="width" secondItem="NiO-7U-feA" secondAttribute="width" multiplier="0.764706" id="zhL-5Q-D6F"/>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yVD-0Y-tBv" customClass="TVIVideoView">
-                                <rect key="frame" x="234" y="576" width="160" height="160"/>
+                                <rect key="frame" x="234" y="573" width="160" height="160"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="qqf-hY-g0k"/>
@@ -283,17 +283,17 @@
                         <viewLayoutGuide key="safeArea" id="VxA-Os-7sa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="VxA-Os-7sa" firstAttribute="trailing" secondItem="TSs-TA-nTv" secondAttribute="trailing" constant="100" id="03d-Np-hd8"/>
                             <constraint firstItem="VxA-Os-7sa" firstAttribute="trailing" secondItem="yVD-0Y-tBv" secondAttribute="trailing" constant="20" id="8Yu-o5-6NH"/>
-                            <constraint firstItem="TSs-TA-nTv" firstAttribute="leading" secondItem="VxA-Os-7sa" secondAttribute="leading" constant="100" id="AR0-n6-F64"/>
                             <constraint firstItem="yVD-0Y-tBv" firstAttribute="trailing" secondItem="RIx-23-gnb" secondAttribute="trailingMargin" id="HeW-qx-cVJ"/>
                             <constraint firstItem="Ud4-Jc-hDR" firstAttribute="top" secondItem="VxA-Os-7sa" secondAttribute="top" constant="40" id="Jxa-sU-Lkp"/>
-                            <constraint firstItem="TSs-TA-nTv" firstAttribute="top" secondItem="yVD-0Y-tBv" secondAttribute="bottom" constant="41" id="L3L-WM-dsN"/>
                             <constraint firstItem="VxA-Os-7sa" firstAttribute="trailing" secondItem="Ud4-Jc-hDR" secondAttribute="trailing" constant="20" id="Oub-Ps-tW2"/>
+                            <constraint firstItem="VxA-Os-7sa" firstAttribute="trailing" secondItem="TSs-TA-nTv" secondAttribute="trailing" constant="102" id="UXE-dR-VWa"/>
                             <constraint firstItem="yVD-0Y-tBv" firstAttribute="centerX" secondItem="RIx-23-gnb" secondAttribute="centerX" constant="107" id="UmZ-KM-W4b"/>
                             <constraint firstItem="VxA-Os-7sa" firstAttribute="trailing" secondItem="yVD-0Y-tBv" secondAttribute="trailing" constant="20" id="aLE-6e-Z2J"/>
-                            <constraint firstItem="VxA-Os-7sa" firstAttribute="bottom" secondItem="TSs-TA-nTv" secondAttribute="bottom" constant="54" id="neV-P0-I8M"/>
+                            <constraint firstItem="TSs-TA-nTv" firstAttribute="top" secondItem="yVD-0Y-tBv" secondAttribute="bottom" constant="55" id="bSN-jW-qO8"/>
+                            <constraint firstItem="TSs-TA-nTv" firstAttribute="leading" secondItem="VxA-Os-7sa" secondAttribute="leading" constant="100" id="dQW-4c-cKX"/>
                             <constraint firstItem="Ud4-Jc-hDR" firstAttribute="leading" secondItem="VxA-Os-7sa" secondAttribute="leading" constant="20" id="qm1-HS-UTa"/>
+                            <constraint firstItem="VxA-Os-7sa" firstAttribute="bottom" secondItem="TSs-TA-nTv" secondAttribute="bottom" constant="40" id="vHW-x6-IMb"/>
                         </constraints>
                     </view>
                     <connections>
@@ -358,9 +358,9 @@
     <resources>
         <image name="camera.rotate" catalog="system" width="128" height="94"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
-        <image name="mic" catalog="system" width="108" height="128"/>
+        <image name="mic.fill" width="12" height="16"/>
         <image name="phone.down.fill" catalog="system" width="128" height="52"/>
-        <image name="video.slash" catalog="system" width="128" height="106"/>
+        <image name="video" width="20" height="20"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

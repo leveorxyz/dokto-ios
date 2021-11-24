@@ -120,6 +120,12 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         if (self.localVideoTrack != nil){
             self.localVideoTrack?.isEnabled = !(self.localVideoTrack?.isEnabled)!
         }
+        if (self.localVideoTrack?.isEnabled == true){
+            self.cameraConnectButton.setImage(UIImage(named: "video"), for: .normal)
+        }
+        else{
+            self.cameraConnectButton.setImage(UIImage(named: "video.slash"), for: .normal)
+        }
     }
     
     @IBAction func rotateCamera(_ sender: Any) {
@@ -469,3 +475,4 @@ extension TwilioRoomViewController : CameraSourceDelegate {
         print("Camera source failed with error: \(error.localizedDescription)")
     }
 }
+

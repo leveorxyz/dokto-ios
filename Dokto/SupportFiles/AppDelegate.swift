@@ -8,6 +8,8 @@
 import UIKit
 import PayPalCheckout
 import GoogleMaps
+import AVFoundation
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,5 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey(Constants.Keys.GoogleMap.current)
         
         return true
+    }
+    
+    func applicationDidEnterBackground(application: UIApplication) {
+        
     }
 }
