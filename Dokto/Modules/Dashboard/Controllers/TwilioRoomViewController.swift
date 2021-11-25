@@ -29,42 +29,41 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
     @IBOutlet weak var settingsButton: UIButton!
     
     private let viewModel = TwilioViewModel()
+    private var participants = [Participant]()
+    
+    //private let collectionView : UICollectionView
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         title = "Connect to a room"
-        self.disconnectButton.setTitle("", for: .normal)
-        self.micButton.setTitle("", for: .normal)
-        self.cameraConnectButton.setTitle("", for: .normal)
-        self.cameraRotateButton.setTitle("", for: .normal)
-        self.settingsButton.setTitle("", for: .normal)
-        
-//        self.micButton.cornerRadius = micButton.frame.width/2.0
-//        self.settingsButton.cornerRadius = settingsButton.frame.width/2.0
-//        self.cameraConnectButton.cornerRadius = cameraConnectButton.frame.width/2.0
-//        self.disconnectButton.cornerRadius = disconnectButton.frame.width/2.0
-//        self.cameraRotateButton.cornerRadius = cameraRotateButton.frame.width/2.0
-        
-        self.cameraRotateButton.isEnabled = false
-        if PlatformUtils.isSimulator {
-            self.previewView.backgroundColor = .black
-        } else {
-            // Preview our local camera track in the local video preview view.
-            self.startPreview()
-        }
-        prepareLocalMedia()
-        self.disconnectButton.isHidden = true
-        self.micButton.isHidden = false
+        setupViews()
         let tap = UITapGestureRecognizer(target: self, action: #selector(TwilioRoomViewController.dismissKeyboard))
         self.view.addGestureRecognizer(tap)
         
     }
     
-    override var prefersHomeIndicatorAutoHidden: Bool {
-            return self.room != nil
+    private func setupViews(){
+        self.disconnectButton.setTitle("", for: .normal)
+        self.micButton.setTitle("", for: .normal)
+        self.cameraConnectButton.setTitle("", for: .normal)
+        self.cameraRotateButton.setTitle("", for: .normal)
+        self.settingsButton.setTitle("", for: .normal)
+        self.cameraRotateButton.isEnabled = false
+        if PlatformUtils.isSimulator {
+            self.previewView.backgroundColor = .black
+        } else {
+            self.startPreview()
         }
+        prepareLocalMedia()
+        self.disconnectButton.isHidden = true
+        self.micButton.isHidden = false
+    }
+    
+    override var prefersHomeIndicatorAutoHidden: Bool {
+        return self.room != nil
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -78,16 +77,16 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         self.view.insertSubview(self.remoteView!, at: 0)
         
         self.remoteView!.contentMode = .scaleAspectFill;
-        remoteView?.frame = CGRect(x: 0, y: 100, width: view.frame.width, height: view.frame.height)
+        remoteView?.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
         
     }
     
     
     @IBAction func joinRoomAction(_ sender: Any) {
         guard let roomName = RoomNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !roomName.isEmpty else{
-                  print("Enter a valid userName and room name")
-                  return
-              }
+            print("Enter a valid userName and room name")
+            return
+        }
         //a309fd116b99463eb52402988d5a35d7
         //3fa85f64-5717-4562-b3fc-2c963f66afa6
         //3fa85f64-5717-4562-b3fc-2c963f66afa8
@@ -144,7 +143,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
     }
     
     func prepareLocalMedia() {
-     
+        
         if (localAudioTrack == nil) {
             localAudioTrack = LocalAudioTrack(options: nil, enabled: true, name: "Microphone")
             if (localAudioTrack == nil) {
@@ -179,7 +178,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         }
     }
     
-   
+    
 }
 
 extension TwilioRoomViewController{
@@ -230,13 +229,15 @@ extension TwilioRoomViewController{
         let backCamera = CameraSource.captureDevice(position: .back)
         
         if (frontCamera != nil || backCamera != nil) {
-
+            
             self.cameraRotateButton.isEnabled = true
             camera = CameraSource(delegate: self)
             localVideoTrack = LocalVideoTrack(source: camera!, enabled: true, name: "Camera")
             
             // Add renderer to video track for local preview
             localVideoTrack!.addRenderer(self.previewView)
+            //            setupRemoteVideoView()
+            //            localVideoTrack!.addRenderer(self.remoteView!)
             print("Video track created")
             
             if (frontCamera != nil && backCamera != nil) {
@@ -482,4 +483,3 @@ extension TwilioRoomViewController : CameraSourceDelegate {
         print("Camera source failed with error: \(error.localizedDescription)")
     }
 }
-
