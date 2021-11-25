@@ -41,6 +41,12 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         self.cameraRotateButton.setTitle("", for: .normal)
         self.settingsButton.setTitle("", for: .normal)
         
+//        self.micButton.cornerRadius = micButton.frame.width/2.0
+//        self.settingsButton.cornerRadius = settingsButton.frame.width/2.0
+//        self.cameraConnectButton.cornerRadius = cameraConnectButton.frame.width/2.0
+//        self.disconnectButton.cornerRadius = disconnectButton.frame.width/2.0
+//        self.cameraRotateButton.cornerRadius = cameraRotateButton.frame.width/2.0
+        
         self.cameraRotateButton.isEnabled = false
         if PlatformUtils.isSimulator {
             self.previewView.backgroundColor = .black
@@ -363,6 +369,7 @@ extension TwilioRoomViewController : RoomDelegate{
         participant.delegate = self
         
         print("Participant \(participant.identity) connected with \(participant.remoteAudioTracks.count) audio and \(participant.remoteVideoTracks.count) video tracks")
+        print(participant)
     }
     
     func participantDidDisconnect(room: Room, participant: RemoteParticipant) {

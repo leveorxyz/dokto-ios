@@ -192,13 +192,18 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="TSs-TA-nTv">
-                                <rect key="frame" x="100" y="788" width="212" height="34"/>
+                                <rect key="frame" x="20" y="788" width="374" height="54"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiO-7U-feA">
-                                        <rect key="frame" x="0.0" y="0.0" width="42.5" height="34"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiO-7U-feA">
+                                        <rect key="frame" x="0.0" y="0.0" width="76.5" height="54"/>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                        <color key="tintColor" systemColor="systemRedColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" cornerStyle="fixed">
                                             <imageReference key="image" image="phone.down.fill" catalog="system" symbolScale="medium"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20">
+                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                            </backgroundConfiguration>
                                             <color key="baseForegroundColor" systemColor="systemRedColor"/>
                                         </buttonConfiguration>
                                         <userDefinedRuntimeAttributes>
@@ -210,32 +215,46 @@
                                             <action selector="disconnect:" destination="9PZ-dM-njx" eventType="touchUpInside" id="3y8-fK-if6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Fz-D8-khp">
-                                        <rect key="frame" x="44.5" y="0.0" width="44" height="34"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Fz-D8-khp">
+                                        <rect key="frame" x="78.5" y="0.0" width="78.5" height="54"/>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="video">
+                                        <buttonConfiguration key="configuration" style="plain" image="video" cornerStyle="fixed">
+                                            <backgroundConfiguration key="background" cornerRadius="20" strokeWidth="0.0">
+                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                            </backgroundConfiguration>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="toggleCameraOnOff:" destination="9PZ-dM-njx" eventType="touchUpInside" id="8Eb-xG-RUN"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDP-OS-s47">
-                                        <rect key="frame" x="90.5" y="0.0" width="44" height="34"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDP-OS-s47">
+                                        <rect key="frame" x="159" y="0.0" width="79" height="54"/>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" cornerStyle="fixed">
                                             <imageReference key="image" image="camera.rotate" catalog="system" symbolScale="medium"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20">
+                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                            </backgroundConfiguration>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="rotateCamera:" destination="9PZ-dM-njx" eventType="touchUpInside" id="oBg-or-odH"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koU-mv-6za">
-                                        <rect key="frame" x="136.5" y="0.0" width="41" height="34"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koU-mv-6za">
+                                        <rect key="frame" x="240" y="0.0" width="73.5" height="54"/>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
+                                        <buttonConfiguration key="configuration" style="plain" cornerStyle="fixed">
                                             <imageReference key="image" image="gearshape" catalog="system" symbolScale="medium"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20" strokeWidth="0.0">
+                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                            </backgroundConfiguration>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -243,11 +262,14 @@
                                             <segue destination="bVU-pl-PWW" kind="show" id="OTD-S1-6U5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dM-aZ-WvR">
-                                        <rect key="frame" x="179.5" y="0.0" width="32.5" height="34"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dM-aZ-WvR">
+                                        <rect key="frame" x="315.5" y="0.0" width="58.5" height="54"/>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="mic.fill" cornerStyle="fixed">
-                                            <backgroundConfiguration key="background" cornerRadius="0.0" strokeWidth="0.0"/>
+                                            <backgroundConfiguration key="background" cornerRadius="20" strokeWidth="0.0">
+                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                            </backgroundConfiguration>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <userDefinedRuntimeAttributes>
@@ -265,6 +287,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="Pb2-f1-HaP"/>
                                     <constraint firstItem="SDP-OS-s47" firstAttribute="width" secondItem="NiO-7U-feA" secondAttribute="width" multiplier="1.03529" id="TsB-gf-1Fd"/>
                                     <constraint firstItem="koU-mv-6za" firstAttribute="width" secondItem="NiO-7U-feA" secondAttribute="width" multiplier="0.964706" id="ldz-Xs-8tG"/>
                                     <constraint firstItem="7Fz-D8-khp" firstAttribute="width" secondItem="NiO-7U-feA" secondAttribute="width" multiplier="1.03529" id="u8x-X6-WFz"/>
@@ -285,15 +308,15 @@
                         <constraints>
                             <constraint firstItem="VxA-Os-7sa" firstAttribute="trailing" secondItem="yVD-0Y-tBv" secondAttribute="trailing" constant="20" id="8Yu-o5-6NH"/>
                             <constraint firstItem="yVD-0Y-tBv" firstAttribute="trailing" secondItem="RIx-23-gnb" secondAttribute="trailingMargin" id="HeW-qx-cVJ"/>
+                            <constraint firstItem="VxA-Os-7sa" firstAttribute="trailing" secondItem="TSs-TA-nTv" secondAttribute="trailing" constant="20" id="JNq-A5-Vq2"/>
                             <constraint firstItem="Ud4-Jc-hDR" firstAttribute="top" secondItem="VxA-Os-7sa" secondAttribute="top" constant="40" id="Jxa-sU-Lkp"/>
                             <constraint firstItem="VxA-Os-7sa" firstAttribute="trailing" secondItem="Ud4-Jc-hDR" secondAttribute="trailing" constant="20" id="Oub-Ps-tW2"/>
-                            <constraint firstItem="VxA-Os-7sa" firstAttribute="trailing" secondItem="TSs-TA-nTv" secondAttribute="trailing" constant="102" id="UXE-dR-VWa"/>
+                            <constraint firstItem="TSs-TA-nTv" firstAttribute="leading" secondItem="VxA-Os-7sa" secondAttribute="leading" constant="20" id="PxQ-gM-4BW"/>
                             <constraint firstItem="yVD-0Y-tBv" firstAttribute="centerX" secondItem="RIx-23-gnb" secondAttribute="centerX" constant="107" id="UmZ-KM-W4b"/>
                             <constraint firstItem="VxA-Os-7sa" firstAttribute="trailing" secondItem="yVD-0Y-tBv" secondAttribute="trailing" constant="20" id="aLE-6e-Z2J"/>
                             <constraint firstItem="TSs-TA-nTv" firstAttribute="top" secondItem="yVD-0Y-tBv" secondAttribute="bottom" constant="55" id="bSN-jW-qO8"/>
-                            <constraint firstItem="TSs-TA-nTv" firstAttribute="leading" secondItem="VxA-Os-7sa" secondAttribute="leading" constant="100" id="dQW-4c-cKX"/>
                             <constraint firstItem="Ud4-Jc-hDR" firstAttribute="leading" secondItem="VxA-Os-7sa" secondAttribute="leading" constant="20" id="qm1-HS-UTa"/>
-                            <constraint firstItem="VxA-Os-7sa" firstAttribute="bottom" secondItem="TSs-TA-nTv" secondAttribute="bottom" constant="40" id="vHW-x6-IMb"/>
+                            <constraint firstItem="VxA-Os-7sa" firstAttribute="bottom" secondItem="TSs-TA-nTv" secondAttribute="bottom" constant="20" id="zrB-s9-0Pl"/>
                         </constraints>
                     </view>
                     <connections>
@@ -363,6 +386,9 @@
         <image name="video" width="20" height="20"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
