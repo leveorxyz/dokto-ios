@@ -42,6 +42,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         // Do any additional setup after loading the view.
         title = "Connect to a room"
         setupViews()
+        setUpCollectionView()
         let tap = UITapGestureRecognizer(target: self, action: #selector(TwilioRoomViewController.dismissKeyboard))
         self.view.addGestureRecognizer(tap)
         
@@ -63,6 +64,9 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         self.disconnectButton.isHidden = true
         self.micButton.isHidden = false
         
+        
+    }
+    private func setUpCollectionView(){
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 2)
         layout.itemSize = CGSize(width: 160, height: 160)
@@ -71,6 +75,8 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         participantCollectionView.dataSource = self
         participantCollectionView.delegate = self
         participantCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        participantCollectionView.register(TwilioParticipantCollectionViewCell.self, forCellWithReuseIdentifier: TwilioParticipantCollectionViewCell.identifier)
+        participantCollectionView.isHidden = false
         view.addSubview(participantCollectionView)
     }
     override func viewDidLayoutSubviews() {
@@ -505,8 +511,11 @@ extension TwilioRoomViewController : UICollectionViewDelegate,UICollectionViewDa
         return 5
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        collectionViewCell.backgroundColor = .blue
+        guard let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: TwilioParticipantCollectionViewCell.identifier, for: indexPath) as? TwilioParticipantCollectionViewCell else{
+            return UICollectionViewCell()
+        }
+        collectionViewCell.participantNameLabel.text = "Local"
+        localVideoTrack?.addRenderer(collectionViewCell.participantView)
         
         return collectionViewCell
     }

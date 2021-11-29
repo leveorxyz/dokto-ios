@@ -39,6 +39,7 @@
 		8D48BAB3273C2A330087DE3C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D48BAB2273C2A320087DE3C /* SettingsViewController.swift */; };
 		8D56B7AD272C3D2E00844CC3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D56B7AC272C3D2E00844CC3 /* Settings.swift */; };
 		8D5D774A272EF42A0020E459 /* PlatformUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5D7749272EF42A0020E459 /* PlatformUtils.swift */; };
+		8D5E9F642754A28E0060CAC6 /* TwilioParticipantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5E9F632754A28E0060CAC6 /* TwilioParticipantCollectionViewCell.swift */; };
 		8D9BC9C42726A15500853B58 /* TwilioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9BC9C32726A15500853B58 /* TwilioManager.swift */; };
 		8D9BC9C62726B85600853B58 /* TwilioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9BC9C52726B85600853B58 /* TwilioViewModel.swift */; };
 		8D9BC9CA2726CD2300853B58 /* TwilioAccessTokenResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9BC9C92726CD2300853B58 /* TwilioAccessTokenResponseModel.swift */; };
@@ -81,6 +82,7 @@
 		8D48BAB2273C2A320087DE3C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8D56B7AC272C3D2E00844CC3 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		8D5D7749272EF42A0020E459 /* PlatformUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformUtils.swift; sourceTree = "<group>"; };
+		8D5E9F632754A28E0060CAC6 /* TwilioParticipantCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioParticipantCollectionViewCell.swift; sourceTree = "<group>"; };
 		8D9BC9C32726A15500853B58 /* TwilioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioManager.swift; sourceTree = "<group>"; };
 		8D9BC9C52726B85600853B58 /* TwilioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioViewModel.swift; sourceTree = "<group>"; };
 		8D9BC9C92726CD2300853B58 /* TwilioAccessTokenResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioAccessTokenResponseModel.swift; sourceTree = "<group>"; };
@@ -333,9 +335,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		8D5E9F622754A23E0060CAC6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8D5E9F632754A28E0060CAC6 /* TwilioParticipantCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		8D9BC9C72726CCDF00853B58 /* Twilio */ = {
 			isa = PBXGroup;
 			children = (
+				8D5E9F622754A23E0060CAC6 /* Cells */,
 				8D9BC9C82726CCE900853B58 /* Models */,
 				8D56B7AC272C3D2E00844CC3 /* Settings.swift */,
 				8D5D7749272EF42A0020E459 /* PlatformUtils.swift */,
@@ -509,6 +520,7 @@
 				0FF8EDD9272499BA000BE755 /* RequestManager.swift in Sources */,
 				8D5D774A272EF42A0020E459 /* PlatformUtils.swift in Sources */,
 				0FF8EDE127249B0C000BE755 /* Constants.swift in Sources */,
+				8D5E9F642754A28E0060CAC6 /* TwilioParticipantCollectionViewCell.swift in Sources */,
 				0F19B2812724A35D00D8B1F5 /* DashboardViewModel.swift in Sources */,
 				8D9BC9C62726B85600853B58 /* TwilioViewModel.swift in Sources */,
 				0F2215B827242589006416CD /* Date.swift in Sources */,
