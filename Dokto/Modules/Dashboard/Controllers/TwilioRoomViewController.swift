@@ -7,7 +7,6 @@
 
 import UIKit
 import TwilioVideo
-import SwiftUI
 
 class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
     
@@ -32,7 +31,8 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
     @IBOutlet weak var settingsButton: UIButton!
     
     private let viewModel = TwilioViewModel()
-    private var participants = [Participant]()
+    private var participants = [RemoteParticipant]()
+
     
     //private let collectionView : UICollectionView
     
@@ -48,6 +48,9 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         
     }
     
+    func dummyParticipants(){
+        //participants.append()
+    }
     private func setupViews(){
         self.disconnectButton.setTitle("", for: .normal)
         self.micButton.setTitle("", for: .normal)
@@ -319,6 +322,9 @@ extension TwilioRoomViewController{
         return false
     }
     func renderRemoteParticipants(participants : Array<RemoteParticipant>) {
+        
+        self.participants = participants
+        self.participantCollectionView.reloadData()
         for participant in participants {
             // Find the first renderable track.
             if participant.remoteVideoTracks.count > 0,
@@ -404,28 +410,22 @@ extension TwilioRoomViewController : RoomDelegate{
 
 extension TwilioRoomViewController : RemoteParticipantDelegate{
     func remoteParticipantDidPublishVideoTrack(participant: RemoteParticipant, publication: RemoteVideoTrackPublication) {
-        // Remote Participant has offered to share the video Track.
-        
         print("Participant \(participant.identity) published \(publication.trackName) video track")
     }
     
     func remoteParticipantDidUnpublishVideoTrack(participant: RemoteParticipant, publication: RemoteVideoTrackPublication) {
-        // Remote Participant has stopped sharing the video Track.
         print("Participant \(participant.identity) unpublished \(publication.trackName) video track")
     }
     
     func remoteParticipantDidPublishAudioTrack(participant: RemoteParticipant, publication: RemoteAudioTrackPublication) {
-        // Remote Participant has offered to share the audio Track.
         print("Participant \(participant.identity) published \(publication.trackName) audio track")
     }
     
     func remoteParticipantDidUnpublishAudioTrack(participant: RemoteParticipant, publication: RemoteAudioTrackPublication) {
-        // Remote Participant has stopped sharing the audio Track.
         print("Participant \(participant.identity) unpublished \(publication.trackName) audio track")
     }
     
     func didSubscribeToVideoTrack(videoTrack: RemoteVideoTrack, publication: RemoteVideoTrackPublication, participant: RemoteParticipant) {
-        // The LocalParticipant is subscribed to the RemoteParticipant's video Track. Frames will begin to arrive now.
         print("Subscribed to \(publication.trackName) video track for Participant \(participant.identity)")
         
         if (self.remoteParticipant == nil) {
@@ -434,8 +434,6 @@ extension TwilioRoomViewController : RemoteParticipantDelegate{
     }
     
     func didUnsubscribeFromVideoTrack(videoTrack: RemoteVideoTrack, publication: RemoteVideoTrackPublication, participant: RemoteParticipant) {
-        // We are unsubscribed from the remote Participant's video Track. We will no longer receive the
-        // remote Participant's video.
         
         print("Unsubscribed from \(publication.trackName) video track for Participant \(participant.identity)")
         
@@ -508,14 +506,21 @@ extension TwilioRoomViewController : CameraSourceDelegate {
 
 extension TwilioRoomViewController : UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return participants.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: TwilioParticipantCollectionViewCell.identifier, for: indexPath) as? TwilioParticipantCollectionViewCell else{
             return UICollectionViewCell()
         }
-        collectionViewCell.participantNameLabel.text = "Local"
-        localVideoTrack?.addRenderer(collectionViewCell.participantView)
+        let participant = participants[indexPath.item]
+        let videos = participant.remoteVideoTracks
+        for video in videos{
+            if let remoteVideo = video.remoteTrack{
+                remoteVideo.addRenderer(collectionViewCell.participantView)
+            }
+        }
+        collectionViewCell.participantNameLabel.text = participant.identity
+        //localVideoTrack?.addRenderer(collectionViewCell.participantView)
         
         return collectionViewCell
     }
