@@ -69,6 +69,7 @@
 		8D48BAB3273C2A330087DE3C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D48BAB2273C2A320087DE3C /* SettingsViewController.swift */; };
 		8D56B7AD272C3D2E00844CC3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D56B7AC272C3D2E00844CC3 /* Settings.swift */; };
 		8D5D774A272EF42A0020E459 /* PlatformUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5D7749272EF42A0020E459 /* PlatformUtils.swift */; };
+		8D5E9F672754E4610060CAC6 /* ClinicRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5E9F662754E4610060CAC6 /* ClinicRegistrationViewController.swift */; };
 		8D9BC9C42726A15500853B58 /* TwilioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9BC9C32726A15500853B58 /* TwilioManager.swift */; };
 		8D9BC9C62726B85600853B58 /* TwilioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9BC9C52726B85600853B58 /* TwilioViewModel.swift */; };
 		8D9BC9CA2726CD2300853B58 /* TwilioAccessTokenResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9BC9C92726CD2300853B58 /* TwilioAccessTokenResponseModel.swift */; };
@@ -141,6 +142,7 @@
 		8D48BAB2273C2A320087DE3C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8D56B7AC272C3D2E00844CC3 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		8D5D7749272EF42A0020E459 /* PlatformUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformUtils.swift; sourceTree = "<group>"; };
+		8D5E9F662754E4610060CAC6 /* ClinicRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicRegistrationViewController.swift; sourceTree = "<group>"; };
 		8D9BC9C32726A15500853B58 /* TwilioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioManager.swift; sourceTree = "<group>"; };
 		8D9BC9C52726B85600853B58 /* TwilioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioViewModel.swift; sourceTree = "<group>"; };
 		8D9BC9C92726CD2300853B58 /* TwilioAccessTokenResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioAccessTokenResponseModel.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 		0F2215AC2724237B006416CD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8D5E9F652754E43E0060CAC6 /* Clinic */,
 				0FF06DA9274797220023F69D /* Patient */,
 				0F2215AD2724238E006416CD /* SignInViewController.swift */,
 				0FD70EA9273CC96F0024C6B0 /* SignUpViewController.swift */,
@@ -535,6 +538,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		8D5E9F652754E43E0060CAC6 /* Clinic */ = {
+			isa = PBXGroup;
+			children = (
+				8D5E9F662754E4610060CAC6 /* ClinicRegistrationViewController.swift */,
+			);
+			path = Clinic;
+			sourceTree = "<group>";
+		};
 		8D9BC9C72726CCDF00853B58 /* Twilio */ = {
 			isa = PBXGroup;
 			children = (
@@ -721,6 +732,7 @@
 				0FF06DAE27479FD60023F69D /* PatientStepsCollectionViewCell.swift in Sources */,
 				0FF06DAB2747973E0023F69D /* PatientRegistrationViewController.swift in Sources */,
 				0FF8EDCE27249147000BE755 /* DashboardViewController.swift in Sources */,
+				8D5E9F672754E4610060CAC6 /* ClinicRegistrationViewController.swift in Sources */,
 				0FA38C4E2746F6870035B1FD /* OnboardingItemModel.swift in Sources */,
 				0F9BD3672749971D005457DF /* DataManager.swift in Sources */,
 				0F4D7C12274A68B800BD8965 /* PatientIdentificationVC.swift in Sources */,
