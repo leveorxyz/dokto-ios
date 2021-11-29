@@ -7,6 +7,7 @@
 
 import UIKit
 import TwilioVideo
+import SwiftUI
 
 class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
     
@@ -18,6 +19,8 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
     var localAudioTrack: LocalAudioTrack?
     var remoteParticipant: RemoteParticipant?
     var remoteView: VideoView?
+    
+    var participantCollectionView : UICollectionView!
     
     @IBOutlet weak var RoomNameField: UITextField!
     @IBOutlet weak var disconnectButton: UIButton!
@@ -59,8 +62,21 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         prepareLocalMedia()
         self.disconnectButton.isHidden = true
         self.micButton.isHidden = false
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 2)
+        layout.itemSize = CGSize(width: 160, height: 160)
+        layout.scrollDirection = .horizontal
+        participantCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        participantCollectionView.dataSource = self
+        participantCollectionView.delegate = self
+        participantCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        view.addSubview(participantCollectionView)
     }
-    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        participantCollectionView.frame = CGRect(x: 0, y: previewView.frame.minY, width: view.frame.width-previewView.frame.width, height: 160)
+    }
     override var prefersHomeIndicatorAutoHidden: Bool {
         return self.room != nil
     }
@@ -481,5 +497,17 @@ extension TwilioRoomViewController : VideoViewDelegate {
 extension TwilioRoomViewController : CameraSourceDelegate {
     func cameraSourceDidFail(source: CameraSource, error: Error) {
         print("Camera source failed with error: \(error.localizedDescription)")
+    }
+}
+
+extension TwilioRoomViewController : UICollectionViewDelegate,UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        collectionViewCell.backgroundColor = .blue
+        
+        return collectionViewCell
     }
 }
