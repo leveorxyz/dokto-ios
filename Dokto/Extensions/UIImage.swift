@@ -44,6 +44,14 @@ extension UIImage {
 extension UIImage {
     
     func toBase64() -> String? {
-        return self.jpegData(compressionQuality: 1)?.base64EncodedString()
+        return "data:image/jpeg;base64," + (self.jpegData(compressionQuality: 1)?.base64EncodedString(options: .init(rawValue: 0)) ?? "")
+    }
+}
+
+//MARK: Others
+extension UIImage {
+    
+    static func defaultProfile() -> UIImage? {
+        return UIImage(named: "default_profile")
     }
 }

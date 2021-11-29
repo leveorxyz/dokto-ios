@@ -11,4 +11,5 @@ class DataManager {
     static let shared = DataManager()
     
     var patientSignUpRequestDetails: PatientSignUpRequestDetails?
+    var doctorSignUpRequestDetails: DoctorSignUpRequestDetails?
 }

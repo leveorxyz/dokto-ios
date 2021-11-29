@@ -22,10 +22,21 @@ class GenderTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+}
+
+//MARK: Update related methods
+extension GenderTableViewCell {
     
     func updateWith(object: GenderType, isSelected: Bool) {
         titleLabel.text = object.rawValue
         selectionImageView.tintColor = isSelected ? .named(._A42BAD) : .white.withAlphaComponent(0.5)
         selectionImageView.image = UIImage(named: isSelected ? "radio_filled" : "radio_empty")
+    }
+    
+    func updateWith(object: LanguageType, isSelected: Bool) {
+        titleLabel.text = object.rawValue
+        titleLabel.textColor = .white
+        selectionImageView.tintColor = isSelected ? .named(._A42BAD) : .white.withAlphaComponent(0.5)
+        selectionImageView.image = UIImage(named: isSelected ? "check_filled" : "check_blank")
     }
 }

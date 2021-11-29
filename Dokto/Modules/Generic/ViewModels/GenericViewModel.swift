@@ -28,6 +28,20 @@ extension GenericViewModel {
         }
     }
     
+    func getCountryList(completion: @escaping(CountryListDetails?, RMErrorModel?) -> ()) {
+        let request = RMRequestModel()
+        request.path = Constants.Api.Generic.countryList
+        request.method = .get
+        
+        RequestManager.request(request: request, type: CountryListDetails.self) { response, error in
+            if let object = response.first {
+                completion(object, nil)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+    
     func getStateList(params: [String:Any], completion: @escaping(StateListDetails?, RMErrorModel?) -> ()) {
         let request = RMRequestModel()
         request.path = Constants.Api.Generic.stateList
