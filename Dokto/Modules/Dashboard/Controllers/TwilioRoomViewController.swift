@@ -32,14 +32,10 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
     
     private let viewModel = TwilioViewModel()
     private var participants = [RemoteParticipant]()
-
-    
-    //private let collectionView : UICollectionView
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
         title = "Connect to a room"
         setupViews()
         setUpCollectionView()
@@ -47,10 +43,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         self.view.addGestureRecognizer(tap)
         
     }
-    
-    func dummyParticipants(){
-        //participants.append()
-    }
+
     private func setupViews(){
         self.disconnectButton.setTitle("", for: .normal)
         self.micButton.setTitle("", for: .normal)
@@ -79,7 +72,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         participantCollectionView.delegate = self
         participantCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         participantCollectionView.register(TwilioParticipantCollectionViewCell.self, forCellWithReuseIdentifier: TwilioParticipantCollectionViewCell.identifier)
-        participantCollectionView.isHidden = false
+        participantCollectionView.isHidden = true
         view.addSubview(participantCollectionView)
     }
     override func viewDidLayoutSubviews() {
@@ -136,7 +129,6 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         if (self.localAudioTrack != nil) {
             self.localAudioTrack?.isEnabled = !(self.localAudioTrack?.isEnabled)!
             
-            // Update the button title
             if (self.localAudioTrack?.isEnabled == true) {
                 self.micButton.setImage(UIImage(named: "mic.fill"), for: .normal)
             } else {
@@ -185,7 +177,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         self.RoomNameField.isHidden = inRoom
         self.remoteView?.isHidden = !inRoom
         self.disconnectButton.isHidden = !inRoom
-        //self.navigationController?.setNavigationBarHidden(inRoom, animated: true)
+        self.participantCollectionView.isHidden = !inRoom
         UIApplication.shared.isIdleTimerDisabled = inRoom
         
         if inRoom{
@@ -194,7 +186,7 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         else{
             title = "Connect to a room"
         }
-        //self.setNeedsUpdateOfHomeIndicatorAutoHidden()
+        
     }
     
     @objc func dismissKeyboard() {
@@ -216,7 +208,6 @@ extension TwilioRoomViewController{
             builder.audioTracks = self.localAudioTrack != nil ? [self.localAudioTrack!] : [LocalAudioTrack]()
             builder.videoTracks = self.localVideoTrack != nil ? [self.localVideoTrack!] : [LocalVideoTrack]()
             
-            // Use the preferred audio codec
             if let preferredAudioCodec = Settings.shared.audioCodec {
                 builder.preferredAudioCodecs = [preferredAudioCodec]
             }
@@ -520,7 +511,8 @@ extension TwilioRoomViewController : UICollectionViewDelegate,UICollectionViewDa
             }
         }
         collectionViewCell.participantNameLabel.text = participant.identity
-        //localVideoTrack?.addRenderer(collectionViewCell.participantView)
+//        localVideoTrack?.addRenderer(collectionViewCell.participantView)
+//        collectionViewCell.participantNameLabel.text = "Local test"
         
         return collectionViewCell
     }
