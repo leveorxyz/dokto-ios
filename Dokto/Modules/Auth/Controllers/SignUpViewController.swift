@@ -76,5 +76,10 @@ extension SignUpViewController {
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         }
+        else if object.type == .clinic {
+            if let contoller = UIStoryboard.controller(with: .clinicAuth, type: ClinicRegistrationViewController.self){
+                self.navigationController?.pushViewController(contoller, animated: true)
+            }
+        }
     }
 }
