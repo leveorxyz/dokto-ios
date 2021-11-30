@@ -144,7 +144,7 @@ extension PatientRegistrationViewController {
                     LoadingManager.showProgress()
                     self?.patientSignUpViewModel.signUp(with: headers) { object, error in
                         LoadingManager.hideProgress()
-                        if object?.result != nil {
+                        if object?.result?.token != nil {
                             DispatchQueue.main.async {
                                 self?.navigationController?.popToRootViewController(animated: true)
                             }

@@ -102,9 +102,9 @@ extension PatientIdentificationVC {
     
     func initialSetup() {
         //load identification type
-        identificationTypeList = [.init(key: "1", name: "Passport"),
-                                  .init(key: "2", name: "Driving Licence"),
-                                  .init(key: "3", name: "National ID")]
+        identificationTypeList = [.init(key: "PASSPORT", name: "Passport"),
+                                  .init(key: "DRIVER'S LICENSE", name: "Driving Licence"),
+                                  .init(key: "STATE ID", name: "National ID")]
     }
     
     func isValidInformation() -> Bool {
@@ -156,7 +156,7 @@ extension PatientIdentificationVC {
     
     func updatePatientSignUpRequestDetails() {
         let object = DataManager.shared.patientSignUpRequestDetails
-        object?.identificationType = identificationTypeTextField.text
+        object?.identificationType = selectedIdentificationType?.key
         object?.identificationNumber = identificationNumberTextField.text
         object?.identificationPhoto = documentImage?.toBase64()
         object?.socialSecurityNumber = socialSecurityNumberTextField.text

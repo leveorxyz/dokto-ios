@@ -237,7 +237,7 @@ extension PatientPersonalDetailsVC {
         object?.contactNo = mobileNumberTextField.text
         object?.email = emailTextField.text
         object?.password = passwordTextField.text
-        object?.gender = selectedGender.rawValue
+        object?.gender = selectedGender.rawValue.uppercased()
         object?.dateOfBirth = birthDateTextField.text
     }
     

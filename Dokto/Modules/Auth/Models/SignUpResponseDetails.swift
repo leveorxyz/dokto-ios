@@ -1,5 +1,5 @@
 //
-//  DoctorSignUpResponseDetails.swift
+//  SignUpResponseDetails.swift
 //  Dokto
 //
 //  Created by Rupak on 11/30/21.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-struct DoctorSignUpResponseDetails: Codable {
+struct SignUpResponseDetails: Codable {
     let message : String?
-    let result : DoctorSignUpResponseResultDetails?
+    let result : SignUpResponseResultDetails?
     let statusCode : Int?
     
     enum CodingKeys: String, CodingKey {
@@ -20,12 +20,12 @@ struct DoctorSignUpResponseDetails: Codable {
     init(from decoder: Decoder) throws {
         let values = try? decoder.container(keyedBy: CodingKeys.self)
         message = try? values?.decodeIfPresent(String.self, forKey: .message)
-        result = try? values?.decodeIfPresent(DoctorSignUpResponseResultDetails.self, forKey: .result)
+        result = try? values?.decodeIfPresent(SignUpResponseResultDetails.self, forKey: .result)
         statusCode = try? values?.decodeIfPresent(Int.self, forKey: .statusCode)
     }
 }
 
-struct DoctorSignUpResponseResultDetails: Codable {
+struct SignUpResponseResultDetails: Codable {
     let city : String?
     let contactNo : String?
     let email : String?

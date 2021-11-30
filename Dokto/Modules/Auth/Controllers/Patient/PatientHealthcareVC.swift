@@ -108,7 +108,7 @@ extension PatientHealthcareVC {
         referringDoctorAddressTextField.text = "r test address"
         referringDoctorNameTextField.text = "r name"
         referringDoctorNumberTextField.text = "236468232"
-        selectedInsuranceType = IDName(key: "1", name: "Self paid")
+        selectedInsuranceType = IDName(key: "SELF-PAY", name: "Self paid")
         insuranceNameTextField.text = "test name"
         insuranceNumberTextField.text = "678682368"
         insurancePolicyHolderTextField.text = "test holder name"
@@ -119,8 +119,8 @@ extension PatientHealthcareVC {
         object?.referringDoctorAddress = referringDoctorAddressTextField.text
         object?.referringDoctorFullName = referringDoctorNameTextField.text
         object?.referringDoctorPhoneNumber = referringDoctorNumberTextField.text
-        object?.insuranceType = selectedInsuranceType?.name
-        if selectedInsuranceType?.key == "2" {
+        object?.insuranceType = selectedInsuranceType?.key
+        if selectedInsuranceType?.key == "INSURANCE" {
             object?.insuranceName = insuranceNameTextField.text
             object?.insuranceNumber = insuranceNumberTextField.text
             object?.insurancePolicyHolderName = insurancePolicyHolderTextField.text
@@ -133,8 +133,8 @@ extension PatientHealthcareVC {
     
     func getInsuranceTypeList() -> [IDName] {
         var list = [IDName]()
-        list.append(IDName(key: "1", name: "Self paid"))
-        list.append(IDName(key: "2", name: "Insurance verified"))
+        list.append(IDName(key: "SELF-PAY", name: "Self paid"))
+        list.append(IDName(key: "INSURANCE", name: "Insurance verified"))
         return list
     }
     

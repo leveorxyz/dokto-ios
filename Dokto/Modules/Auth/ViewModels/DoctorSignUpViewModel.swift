@@ -14,7 +14,7 @@ class DoctorSignUpViewModel {
 //MARK: Request related methods
 extension DoctorSignUpViewModel {
     
-    func signUp(with headers: [String:String], completion: @escaping(DoctorSignUpResponseDetails?, RMErrorModel?) -> ()) {
+    func signUp(with headers: [String:String], completion: @escaping(SignUpResponseDetails?, RMErrorModel?) -> ()) {
         let request = RMRequestModel()
         request.path = Constants.Api.Auth.Doctor.registration
         request.headers = headers
@@ -23,7 +23,7 @@ extension DoctorSignUpViewModel {
             request.body = object
         }
         
-        RequestManager.request(request: request, type: DoctorSignUpResponseDetails.self) { response, error in
+        RequestManager.request(request: request, type: SignUpResponseDetails.self) { response, error in
             if let object = response.first {
                 completion(object, nil)
             } else {
