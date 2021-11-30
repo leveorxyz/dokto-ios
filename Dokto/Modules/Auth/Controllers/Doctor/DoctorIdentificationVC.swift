@@ -1,19 +1,19 @@
 //
-//  PatientIdentificationVC.swift
+//  DoctorIdentificationVC.swift
 //  Dokto
 //
-//  Created by Rupak on 11/21/21.
+//  Created by Rupak on 11/27/21.
 //
 
 import UIKit
 
-class PatientIdentificationVC: AbstractViewController {
+class DoctorIdentificationVC: AbstractViewController {
 
     @IBOutlet weak var identificationTypeTextField: UITextField!
     @IBOutlet weak var identificationNumberTextField: UITextField!
     @IBOutlet weak var documentImageView: UIImageView!
-    @IBOutlet weak var socialSecurityNumberTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
+    @IBOutlet weak var countryTextField: UITextField!
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var zipCodeTextField: UITextField!
@@ -39,6 +39,12 @@ class PatientIdentificationVC: AbstractViewController {
             self.identificationTypeTextField.text = selectedIdentificationType?.name
         }
     }
+    var countryList = [CountryListItemDetails]()
+    var selectedCountry: CountryListItemDetails? {
+        didSet {
+            countryTextField.text = selectedCountry?.name
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +57,7 @@ class PatientIdentificationVC: AbstractViewController {
 }
 
 //MARK: Action methods
-extension PatientIdentificationVC {
+extension DoctorIdentificationVC {
     
     @IBAction func photoAction(_ sender: Any) {
         TaskManager.shared.getPhotoWith(size: CGSize(width: 256, height: 256)) { [weak self] image in
@@ -69,9 +75,32 @@ extension PatientIdentificationVC {
         }
     }
     
+    @IBAction func countryAction(_ sender: Any) {
+        if countryList.isEmpty {
+            LoadingManager.showProgress()
+            genericViewModel.getCountryList { object, error in
+                LoadingManager.hideProgress()
+                if let list = object?.result, !list.isEmpty {
+                    self.countryList = list
+                    DispatchQueue.main.async {
+                        self.showCountryList()
+                    }
+                } else if let message  = object?.message ?? error?.message {
+                    AlertManager.showAlert(title: message)
+                }
+            }
+            return
+        }
+        self.showCountryList()
+    }
+    
     @IBAction func stateListAction(_ sender: Any) {
+        if selectedCountry == nil {
+            AlertManager.showAlert(title: "Select country first!")
+            return
+        }
         if stateList.isEmpty {
-            let params: [String: Any] = ["country_code" : "BD"]
+            let params: [String: Any] = ["country_code" : selectedCountry?.countryCode ?? "BD"]
             LoadingManager.showProgress()
             genericViewModel.getStateList(params: params) { object, error in
                 LoadingManager.hideProgress()
@@ -92,19 +121,19 @@ extension PatientIdentificationVC {
     @IBAction func nextAction(_ sender: Any) {
         if !isValidInformation() {return}
         //update request object
-        self.updatePatientSignUpRequestDetails()
+        self.updateDoctorSignUpRequestDetails()
         nextActionCompletion?(true)
     }
 }
 
 //MARK: Other methods
-extension PatientIdentificationVC {
+extension DoctorIdentificationVC {
     
     func initialSetup() {
         //load identification type
-        identificationTypeList = [.init(key: "1", name: "Passport"),
-                                  .init(key: "2", name: "Driving Licence"),
-                                  .init(key: "3", name: "National ID")]
+        identificationTypeList = [.init(key: "PASSPORT", name: "Passport"),
+                                  .init(key: "DRIVER'S LICENSE", name: "Driving Licence"),
+                                  .init(key: "STATE ID", name: "National ID")]
     }
     
     func isValidInformation() -> Bool {
@@ -120,13 +149,13 @@ extension PatientIdentificationVC {
         } else if documentImage == nil {
             AlertManager.showAlert(title: "Document is required")
             errorFound = true
-        } else if socialSecurityNumberTextField.text == "" {
-            AlertManager.showAlert(title: "Social security number is required")
-            errorField = socialSecurityNumberTextField
-            errorFound = true
         } else if addressTextField.text == "" {
             AlertManager.showAlert(title: "Address is required")
             errorField = addressTextField
+            errorFound = true
+        } else if countryTextField.text == "" {
+            AlertManager.showAlert(title: "Country is required")
+            errorField = countryTextField
             errorFound = true
         } else if stateTextField.text == "" {
             AlertManager.showAlert(title: "State is required")
@@ -147,20 +176,21 @@ extension PatientIdentificationVC {
     func loadDummyData() {
         selectedIdentificationType = identificationTypeList.first
         identificationNumberTextField.text = "3479738523872"
-        socialSecurityNumberTextField.text = "q5623472"
         addressTextField.text = "test address"
-        stateTextField.text = "Bangladesh"
+        countryTextField.text = "Bangladesh"
+        stateTextField.text = "Dhaka Division"
         cityTextField.text = "Dhaka"
         zipCodeTextField.text = "1212"
+        documentImage = UIImage.defaultProfile()
     }
     
-    func updatePatientSignUpRequestDetails() {
-        let object = DataManager.shared.patientSignUpRequestDetails
-        object?.identificationType = identificationTypeTextField.text
+    func updateDoctorSignUpRequestDetails() {
+        let object = DataManager.shared.doctorSignUpRequestDetails
+        object?.identificationType = selectedIdentificationType?.key
         object?.identificationNumber = identificationNumberTextField.text
         object?.identificationPhoto = documentImage?.toBase64()
-        object?.socialSecurityNumber = socialSecurityNumberTextField.text
         object?.street = addressTextField.text
+        object?.country = countryTextField.text
         object?.state = stateTextField.text
         object?.city = cityTextField.text
         object?.zipCode = zipCodeTextField.text
@@ -172,6 +202,27 @@ extension PatientIdentificationVC {
             list.append(IDName(key: object.stateCode, name: object.name))
         }
         return list
+    }
+    
+    func getCountryList() -> [IDName] {
+        var list = [IDName]()
+        for object in countryList {
+            list.append(IDName(key: object.countryCode, name: object.name))
+        }
+        return list
+    }
+    
+    func showCountryList() {
+        self.showSelectionList(title: "Select country", objectList: getCountryList()) { [weak self] item, index in
+            DispatchQueue.main.async {
+                let countryDetails = self?.countryList.filter({$0.countryCode == item.key}).first
+                if self?.selectedCountry?.countryCode != countryDetails?.countryCode {
+                    self?.selectedCountry = countryDetails
+                    self?.stateList = []
+                    self?.selectedState = nil
+                }
+            }
+        }
     }
     
     func showStateList() {

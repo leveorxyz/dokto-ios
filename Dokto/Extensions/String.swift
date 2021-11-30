@@ -15,4 +15,11 @@ extension String {
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: self)
     }
+    
+    func base64ToImage() -> UIImage? {
+        if let imageData = Data.init(base64Encoded: self, options: .init(rawValue: 0)) {
+            return UIImage(data: imageData)
+        }
+        return nil
+    }
 }
