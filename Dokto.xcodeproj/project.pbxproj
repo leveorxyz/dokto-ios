@@ -73,6 +73,8 @@
 		8D5E9F692754E5170060CAC6 /* clinicAuth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D5E9F682754E5170060CAC6 /* clinicAuth.storyboard */; };
 		8D5E9F6B27560FE40060CAC6 /* CountryListDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5E9F6A27560FE40060CAC6 /* CountryListDetails.swift */; };
 		8D5E9F6D2756191A0060CAC6 /* CityListDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5E9F6C2756191A0060CAC6 /* CityListDetails.swift */; };
+		8D631D61275632EC0096FD57 /* ClinicRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D631D60275632EC0096FD57 /* ClinicRegistrationViewModel.swift */; };
+		8D631D63275633C20096FD57 /* ClinicRegistrationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D631D62275633C20096FD57 /* ClinicRegistrationResponse.swift */; };
 		8D9BC9C42726A15500853B58 /* TwilioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9BC9C32726A15500853B58 /* TwilioManager.swift */; };
 		8D9BC9C62726B85600853B58 /* TwilioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9BC9C52726B85600853B58 /* TwilioViewModel.swift */; };
 		8D9BC9CA2726CD2300853B58 /* TwilioAccessTokenResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9BC9C92726CD2300853B58 /* TwilioAccessTokenResponseModel.swift */; };
@@ -149,6 +151,8 @@
 		8D5E9F682754E5170060CAC6 /* clinicAuth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = clinicAuth.storyboard; sourceTree = "<group>"; };
 		8D5E9F6A27560FE40060CAC6 /* CountryListDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListDetails.swift; sourceTree = "<group>"; };
 		8D5E9F6C2756191A0060CAC6 /* CityListDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListDetails.swift; sourceTree = "<group>"; };
+		8D631D60275632EC0096FD57 /* ClinicRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicRegistrationViewModel.swift; sourceTree = "<group>"; };
+		8D631D62275633C20096FD57 /* ClinicRegistrationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicRegistrationResponse.swift; sourceTree = "<group>"; };
 		8D9BC9C32726A15500853B58 /* TwilioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioManager.swift; sourceTree = "<group>"; };
 		8D9BC9C52726B85600853B58 /* TwilioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioViewModel.swift; sourceTree = "<group>"; };
 		8D9BC9C92726CD2300853B58 /* TwilioAccessTokenResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioAccessTokenResponseModel.swift; sourceTree = "<group>"; };
@@ -408,6 +412,7 @@
 				0FD70EAC273D82FC0024C6B0 /* SignUpViewModel.swift */,
 				0F9BD35C27498E61005457DF /* PatientSignUpViewModel.swift */,
 				0F9BD35E27498EA6005457DF /* SignInViewModel.swift */,
+				8D631D60275632EC0096FD57 /* ClinicRegistrationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -418,6 +423,7 @@
 				0FD70EAF273D83490024C6B0 /* RegisterUserTypeDetails.swift */,
 				0F9BD36027498FDF005457DF /* LoginResponseDetails.swift */,
 				0F9BD364274996BD005457DF /* PatientSignUpRequestDetails.swift */,
+				8D631D62275633C20096FD57 /* ClinicRegistrationResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -760,6 +766,7 @@
 				0F2215B827242589006416CD /* Date.swift in Sources */,
 				0F205DCF27481D8A002F0EBD /* UIImage.swift in Sources */,
 				0F9BD36327499572005457DF /* AppUtility.swift in Sources */,
+				8D631D61275632EC0096FD57 /* ClinicRegistrationViewModel.swift in Sources */,
 				0FF8EDDE27249AD9000BE755 /* RMRequestModel.swift in Sources */,
 				8D5E9F6B27560FE40060CAC6 /* CountryListDetails.swift in Sources */,
 				8D31D21E272675820025F9C5 /* TwilioRoomViewController.swift in Sources */,
@@ -770,6 +777,7 @@
 				0FF8EDE527249BEF000BE755 /* Dictionary.swift in Sources */,
 				0FD70EAA273CC96F0024C6B0 /* SignUpViewController.swift in Sources */,
 				0F205DD127483F83002F0EBD /* GenderTableViewCell.swift in Sources */,
+				8D631D63275633C20096FD57 /* ClinicRegistrationResponse.swift in Sources */,
 				0F205DCB27481BAE002F0EBD /* PatientPersonalDetailsVC.swift in Sources */,
 				0F9BD365274996BD005457DF /* PatientSignUpRequestDetails.swift in Sources */,
 				8D48BAB3273C2A330087DE3C /* SettingsViewController.swift in Sources */,

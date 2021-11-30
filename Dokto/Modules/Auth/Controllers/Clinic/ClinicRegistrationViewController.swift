@@ -35,6 +35,7 @@ class ClinicRegistrationViewController: AbstractViewController{
         }
     }
     var genericViewModel = GenericViewModel()
+    var clinicViewModel = ClinicRegistrationViewModel()
     var countryCodeList = [CountryCodeListItemDetails]()
     var countryList = [CountryListItemDetails]()
     var stateList = [StateListItemDetails]()
@@ -174,6 +175,39 @@ extension ClinicRegistrationViewController{
         print("Submit Select tapped")
         //let fullName = hospitalNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         if validateregistrationData(){return}
+        
+        let fullName = hospitalNameField.text
+        let email = clinicEmailField.text
+        let password = passWordField.text
+        let numberOfpractitioners = NumberofPractitionersField.text
+        let image = clinicImageView.image?.toBase64() ?? "String"
+        let countryCode = mobileNumberCountryCodeField.text
+        let number = mobilenumberField.text
+        let contactNumber = "\(countryCode)\(number)"
+        let countryName = countrySelectField.text
+        let stateName = stateSelectField.text
+        let address = addressTextField.text
+        let zipCode = zipCodeField.text
+        let city = citySelectField.text
+        
+        let registrationData : [String : Any] = [
+            "street": address,
+            "password": password,
+            "full_name": fullName,
+            "state": stateName,
+            "zip_code": zipCode,
+            "city": city,
+            "contact_no": contactNumber,
+            "email": email,
+            "number_of_practitioners": numberOfpractitioners,
+            "profile_photo": image
+        ]
+        clinicViewModel.registerClinic(with: registrationData) { data, error in
+            if let data = data{
+                print(data)
+            }
+        }
+        
     }
     
 }
