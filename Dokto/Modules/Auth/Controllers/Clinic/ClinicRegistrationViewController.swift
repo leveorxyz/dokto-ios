@@ -27,13 +27,39 @@ class ClinicRegistrationViewController: UIViewController {
     @IBOutlet weak var citySelectField: UITextField!
     @IBOutlet weak var citySelectButton: UIButton!
     @IBOutlet weak var zipCodeField: UITextField!
-    
     @IBOutlet weak var submitButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
 
+}
+
+//MARK - Action methods
+extension ClinicRegistrationViewController{
+    @IBAction func setProfileLogoAction(_ sender: Any) {
+        print("Choose photo tapped")
     }
     
-
+    @IBAction func mobileNumberDropDownAction(_ sender: Any) {
+        print("Mobile number drop down tapped")
+    }
+    
+    @IBAction func countrySelectAction(_ sender: Any) {
+        print("country select tapped")
+    }
+    
+    @IBAction func stateSelectAction(_ sender: Any) {
+        print("State select Tapped")
+    }
+    
+    @IBAction func citySelectAction(_ sender: Any) {
+        print("City select Tapped")
+    }
+    
+    
+    @IBAction func submitAction(_ sender: Any) {
+        print("Submit Select tapped")
+    }
+    
 }
