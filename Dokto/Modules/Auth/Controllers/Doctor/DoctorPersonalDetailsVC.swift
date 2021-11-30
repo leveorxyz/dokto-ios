@@ -85,7 +85,7 @@ extension DoctorPersonalDetailsVC {
     @IBAction func nextAction(_ sender: Any) {
         if !isValidInformation() {return}
         //update request object
-        self.updatePatientSignUpRequestDetails()
+        self.updateDoctorSignUpRequestDetails()
         nextActionCompletion?(true)
     }
 }
@@ -216,7 +216,7 @@ extension DoctorPersonalDetailsVC {
         selectedDate = Date()
     }
     
-    func updatePatientSignUpRequestDetails() {
+    func updateDoctorSignUpRequestDetails() {
         if DataManager.shared.doctorSignUpRequestDetails == nil {
             DataManager.shared.doctorSignUpRequestDetails = DoctorSignUpRequestDetails()
         }
@@ -228,7 +228,7 @@ extension DoctorPersonalDetailsVC {
         object?.contactNo = mobileNumberTextField.text
         object?.email = emailTextField.text
         object?.password = passwordTextField.text
-        object?.gender = selectedGender.rawValue
+        object?.gender = selectedGender.rawValue.uppercased()
         object?.dateOfBirth = birthDateTextField.text
     }
     

@@ -19,6 +19,7 @@ class DoctorEducationVC: AbstractViewController {
     @IBOutlet weak var languageTableView: UITableView!
     @IBOutlet weak var educationTableView: UITableView!
     @IBOutlet weak var specialityTextField: UITextField!
+    @IBOutlet weak var specialityCollectionView: UICollectionView!
     
     @IBOutlet weak var languageTableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var educationTableViewHeightConstraint: NSLayoutConstraint!
@@ -50,6 +51,9 @@ extension DoctorEducationVC {
         self.showSelectionList(title: "Select speciality", objectList: getSpecialityList()) { [weak self] item, index in
             if let name = item.name {
                 self?.selectedSpecialityList.insert(name)
+                self?.selectedSpecialityList = Set(self?.selectedSpecialityList.sorted() ?? [])
+                self?.specialityCollectionView.isHidden = false
+                self?.specialityCollectionView.reloadData()
             }
         }
     }
@@ -134,6 +138,29 @@ extension DoctorEducationVC: DoctorEducationTableViewCellDelegate {
     }
 }
 
+//MARK: UICollectionViewDelegate, UICollectionViewDataSource methods
+extension DoctorEducationVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return selectedSpecialityList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DoctorSpecialityCollectionViewCell", for: indexPath) as? DoctorSpecialityCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        cell.updateWith(item: Array(selectedSpecialityList)[indexPath.row])
+        cell.deleteCompletion = { [weak self] (item) in
+            self?.selectedSpecialityList.remove(item)
+            collectionView.reloadData()
+            self?.specialityCollectionView.isHidden = self?.selectedSpecialityList.count == 0
+        }
+        
+        return cell
+    }
+}
+
 //MARK: Other methods
 extension DoctorEducationVC {
     
@@ -187,6 +214,12 @@ extension DoctorEducationVC {
         let image = UIImage(named: "default_profile")
         education.certificate = image?.toBase64()
         education.certificateImage = image
+        educationList = [education]
+        educationTableView.reloadData()
+        
+        selectedSpecialityList = Set(specialityList.prefix(3))
+        specialityCollectionView.isHidden = false
+        specialityCollectionView.reloadData()
     }
     
     func updateDoctorSignUpRequestDetails() {
@@ -198,7 +231,7 @@ extension DoctorEducationVC {
     
     func getSpecialityList() -> [IDName] {
         var list = [IDName]()
-        let finalList = specialityList.subtracting(selectedSpecialityList)
+        let finalList = specialityList.subtracting(selectedSpecialityList).sorted()
         for (index, value) in finalList.enumerated() {
             list.append(IDName(id: index, name: value))
         }

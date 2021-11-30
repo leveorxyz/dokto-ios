@@ -64,7 +64,7 @@ extension DoctorRegistrationVC: UICollectionViewDelegate, UICollectionViewDataSo
             } else if currentItemIndex != indexPath.row {
                 if let controller = tabController?.viewControllers?[currentItemIndex] as? DoctorPersonalDetailsVC {
                     if controller.isValidInformation() {
-                        controller.updatePatientSignUpRequestDetails()
+                        controller.updateDoctorSignUpRequestDetails()
                         completedItemList.insert(currentItemIndex)
                         currentItemIndex = indexPath.row
                         collectionView.reloadData()
@@ -72,7 +72,15 @@ extension DoctorRegistrationVC: UICollectionViewDelegate, UICollectionViewDataSo
                     }
                 } else if let controller = tabController?.viewControllers?[currentItemIndex] as? DoctorIdentificationVC {
                     if controller.isValidInformation() {
-                        controller.updatePatientSignUpRequestDetails()
+                        controller.updateDoctorSignUpRequestDetails()
+                        completedItemList.insert(currentItemIndex)
+                        currentItemIndex = indexPath.row
+                        collectionView.reloadData()
+                        tabController?.selectedViewController = tabController?.viewControllers?[indexPath.row]
+                    }
+                } else if let controller = tabController?.viewControllers?[currentItemIndex] as? DoctorEducationVC {
+                    if controller.isValidInformation() {
+                        controller.updateDoctorSignUpRequestDetails()
                         completedItemList.insert(currentItemIndex)
                         currentItemIndex = indexPath.row
                         collectionView.reloadData()
@@ -117,7 +125,7 @@ extension DoctorRegistrationVC {
         for item in tabController?.viewControllers ?? [] {
             if let controller = item as? DoctorPersonalDetailsVC {
                 controller.nextActionCompletion = { [weak self] success in
-                    controller.updatePatientSignUpRequestDetails()
+                    controller.updateDoctorSignUpRequestDetails()
                     self?.completedItemList.insert(0)
                     self?.currentItemIndex = 1
                     self?.stepsCollectionView.reloadData()
@@ -126,7 +134,7 @@ extension DoctorRegistrationVC {
                 }
             } else if let controller = item as? DoctorIdentificationVC {
                 controller.nextActionCompletion = { [weak self] success in
-                    controller.updatePatientSignUpRequestDetails()
+                    controller.updateDoctorSignUpRequestDetails()
                     self?.completedItemList.insert(1)
                     self?.currentItemIndex = 2
                     self?.stepsCollectionView.reloadData()
@@ -137,13 +145,22 @@ extension DoctorRegistrationVC {
                 controller.nextActionCompletion = { [weak self] success in
                     controller.updateDoctorSignUpRequestDetails()
                     self?.completedItemList.insert(2)
+                    self?.currentItemIndex = 3
+                    self?.stepsCollectionView.reloadData()
+                    self?.stepsCollectionView.scrollToItem(at: IndexPath(row: 3, section: 0), at: .centeredHorizontally, animated: true)
+                    self?.selectTabController(with: 3)
+                }
+            } else if let controller = item as? DoctorProfessionVC {
+                controller.nextActionCompletion = { [weak self] success in
+                    controller.updateDoctorSignUpRequestDetails()
+                    self?.completedItemList.insert(2)
                     
                     //request for registration
                     let headers = ["X-CSRFToken" : Constants.Keys.Api.csrfToken]
                     LoadingManager.showProgress()
                     self?.doctorSignUpViewModel.signUp(with: headers) { object, error in
                         LoadingManager.hideProgress()
-                        if object?.result != nil {
+                        if object?.result?.token != nil {
                             DispatchQueue.main.async {
                                 self?.navigationController?.popToRootViewController(animated: true)
                             }

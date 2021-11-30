@@ -99,8 +99,7 @@ extension DoctorEducationTableViewCell {
         if #available(iOS 13.4, *) {
             timePicker.preferredDatePickerStyle = .wheels
         }
-        let maximumDate = Calendar.current.date(byAdding: .year, value: -18, to: Date())
-        timePicker.maximumDate = maximumDate
+        timePicker.maximumDate = Date()
         timePicker.tintColor = .white
         timePicker.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: 200)
         timePicker.backgroundColor = .clear

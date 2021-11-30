@@ -121,7 +121,7 @@ extension DoctorIdentificationVC {
     @IBAction func nextAction(_ sender: Any) {
         if !isValidInformation() {return}
         //update request object
-        self.updatePatientSignUpRequestDetails()
+        self.updateDoctorSignUpRequestDetails()
         nextActionCompletion?(true)
     }
 }
@@ -131,9 +131,9 @@ extension DoctorIdentificationVC {
     
     func initialSetup() {
         //load identification type
-        identificationTypeList = [.init(key: "1", name: "Passport"),
-                                  .init(key: "2", name: "Driving Licence"),
-                                  .init(key: "3", name: "National ID")]
+        identificationTypeList = [.init(key: "PASSPORT", name: "Passport"),
+                                  .init(key: "DRIVER'S LICENSE", name: "Driving Licence"),
+                                  .init(key: "STATE ID", name: "National ID")]
     }
     
     func isValidInformation() -> Bool {
@@ -184,9 +184,9 @@ extension DoctorIdentificationVC {
         documentImage = UIImage.defaultProfile()
     }
     
-    func updatePatientSignUpRequestDetails() {
+    func updateDoctorSignUpRequestDetails() {
         let object = DataManager.shared.doctorSignUpRequestDetails
-        object?.identificationType = identificationTypeTextField.text
+        object?.identificationType = selectedIdentificationType?.key
         object?.identificationNumber = identificationNumberTextField.text
         object?.identificationPhoto = documentImage?.toBase64()
         object?.street = addressTextField.text
