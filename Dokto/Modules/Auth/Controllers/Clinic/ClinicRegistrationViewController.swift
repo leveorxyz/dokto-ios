@@ -115,7 +115,7 @@ extension ClinicRegistrationViewController{
         guard  self.selectedCountry != nil else{
             return
         }
-        //print(selectedCountry?.countryCode)
+     
         stateList = []
         if stateList.isEmpty {
             let params: [String: Any] = ["country_code" : selectedCountry?.countryCode ?? "BD"]
@@ -166,14 +166,14 @@ extension ClinicRegistrationViewController{
             }
             return
         }
-        //show a city list
+    
         self.showCityList()
     }
     
     
     @IBAction func submitAction(_ sender: Any) {
         print("Submit Select tapped")
-        //let fullName = hospitalNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+      
         if validateregistrationData(){return}
         
         let fullName = hospitalNameField.text
@@ -204,7 +204,6 @@ extension ClinicRegistrationViewController{
         ]
         print(registrationData)
         clinicViewModel.registerClinic(with: registrationData) { data, error in
-            print(data)
             if let data = data, error == nil{
                 print(data)
                 AlertManager.showAlert(title: "Registered, Check email to confirm Registration")

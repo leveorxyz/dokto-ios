@@ -53,19 +53,6 @@ struct RegistrationResult: Codable {
         case numberOfParticipants = "number_of_practitioners"
         case token = "token"
         case profilePhoto = "profile_photo"
-//        city": "Ghazni",
-//        "full_name": "L hospital",
-//        "street": "afghan road",
-//        "state": "Ghazni",
-//        "zip_code": "1400",
-//        "contact_no": "931111111",
-//        "email": "newEmailForJason1163@gmail.com",
-//        "id": "c739b88f-ffa9-4e03-9a5f-f9064b472b65",
-//        "last_login": null,
-//        "username": "l.hospital.1",
-//        "number_of_practitioners": 2,
-//        "token": "da6a301a7d35cacd301b3a030871b1659c4477f8",
-//        "profile_photo": "https://doktoapi.toybethdev.net/media/profile_photo/c739b88f-ffa9-4e03-9a5f-f9064b472b65_2021_11_30_11_39_51_134799.jpeg"
     }
     init(from decoder: Decoder) throws {
         let values = try? decoder.container(keyedBy: CodingKeys.self)
