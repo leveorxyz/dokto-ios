@@ -36,8 +36,9 @@ class ClinicRegistrationViewController: AbstractViewController{
     }
     var genericViewModel = GenericViewModel()
     var countryCodeList = [CountryCodeListItemDetails]()
+    var countryList = [CountryListItemDetails]()
     var stateList = [StateListItemDetails]()
-    var selectedCountry : CountryCodeListItemDetails? {
+    var selectedCountry : CountryListItemDetails? {
         didSet{
             countrySelectField.text = selectedCountry?.name
         }
@@ -84,13 +85,13 @@ extension ClinicRegistrationViewController{
     }
     
     @IBAction func countrySelectAction(_ sender: Any) {
-        if countryCodeList.isEmpty{
+        if countryList.isEmpty{
             LoadingManager.showProgress()
-            genericViewModel.getCountryCodeList { object, error in
+            genericViewModel.getCountryList { object, error in
                 LoadingManager.hideProgress()
                 
                 if let list = object?.result, !list.isEmpty{
-                    self.countryCodeList = list
+                    self.countryList = list
                     DispatchQueue.main.async{
                         self.showCountryList()
                     }
@@ -104,8 +105,13 @@ extension ClinicRegistrationViewController{
     }
     
     @IBAction func stateSelectAction(_ sender: Any) {
+        guard  self.selectedCountry != nil else{
+            return
+        }
+        //print(selectedCountry?.countryCode)
+        stateList = []
         if stateList.isEmpty {
-            let params: [String: Any] = ["country_code" : "BD"]
+            let params: [String: Any] = ["country_code" : selectedCountry?.countryCode ?? "BD"]
             LoadingManager.showProgress()
             genericViewModel.getStateList(params: params) { object, error in
                 LoadingManager.hideProgress()
@@ -154,17 +160,17 @@ extension ClinicRegistrationViewController{
     }
     
     func showCountryList() {
-        self.showSelectionList(title: "Select country", objectList: getCountryIDList()) { item, index in
+        self.showSelectionList(title: "Select country", objectList: getCountryIDList()) {[weak self] item, index in
             DispatchQueue.main.async {
-                self.countrySelectField.text = item.name
+                self?.selectedCountry = self?.countryList.filter({$0.countryCode == item.country_code}).first
             }
         }
     }
     
     func getCountryIDList() -> [IDName] {
         var list = [IDName]()
-        for object in countryCodeList {
-            list.append(IDName(key: object.phoneCode, name: object.name))
+        for object in countryList {
+            list.append(IDName(country_code: object.countryCode, name: object.name))
         }
         return list
     }
