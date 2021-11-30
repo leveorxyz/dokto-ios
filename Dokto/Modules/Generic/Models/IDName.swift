@@ -29,4 +29,7 @@ class IDName: NSObject {
         self.name = name
         self.country_code = country_code
     }
+    init(name : String){
+        self.name = name
+    }
 }

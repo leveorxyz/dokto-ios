@@ -143,7 +143,7 @@ extension ClinicRegistrationViewController{
             return
         }
         cityList = []
-        
+        citySelectField.text = ""
         if cityList.isEmpty{
             let params: [String : Any] = [
                 "country_code" : selectedCountry?.countryCode ?? "BD",
@@ -157,6 +157,7 @@ extension ClinicRegistrationViewController{
                     self.cityList = list
                     DispatchQueue.main.async {
                         //show a city list
+                        self.showCityList()
                     }
                 } else if let message  = object?.message ?? error?.message {
                     AlertManager.showAlert(title: message)
@@ -165,6 +166,7 @@ extension ClinicRegistrationViewController{
             return
         }
         //show a city list
+        self.showCityList()
     }
     
     
@@ -214,6 +216,22 @@ extension ClinicRegistrationViewController{
             list.append(IDName(key: object.stateCode, name: object.name))
         }
         return list
+    }
+    func getCityList()-> [IDName]{
+        var list = [IDName]()
+        
+        for object in cityList{
+            list.append(IDName(name: object))
+        }
+        return list
+    }
+    
+    func showCityList(){
+        self.showSelectionList(title: "Select City", objectList: getCityList()) {[weak self] item, index in
+            DispatchQueue.main.async {
+                self?.selectedCity = self?.cityList.filter({$0 == item.name}).first
+            }
+        }
     }
     
     func showStateList() {
