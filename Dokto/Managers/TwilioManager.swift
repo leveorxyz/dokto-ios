@@ -35,12 +35,12 @@ class TwilioManager{
             }
             do{
                 let tokenResponse = try JSONDecoder().decode(TwilioVideoTokenAPIResponse.self, from: data)
-                //debugPrint(tokenResponse)
+                debugPrint(tokenResponse)
                 completion(.success(tokenResponse))
             }
             catch{
                 print("Error here")
-                completion(.failure(.jsonParseError))
+                //completion(.failure(.jsonParseError))
                 //print(error.localizedDescription)
             }
         }.resume()

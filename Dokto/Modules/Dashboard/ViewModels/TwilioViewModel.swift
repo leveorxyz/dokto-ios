@@ -18,7 +18,7 @@ class TwilioViewModel{
         ]
         twilioManager.getAccessToken(urlPath: Constants.Api.Twilio.twilioTokenUrl, body: data) { result in
             switch result{
-                
+
             case .success(let tokenResponse):
                 let token = tokenResponse.result.token
                 //print(token)
@@ -27,6 +27,7 @@ class TwilioViewModel{
                 print("failed to get token")
                 print(error.localizedDescription)
             }
+            
         }
         
         

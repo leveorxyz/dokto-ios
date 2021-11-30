@@ -181,8 +181,8 @@ extension ClinicRegistrationViewController{
         let password = passWordField.text
         let numberOfpractitioners = NumberofPractitionersField.text
         let image = clinicImageView.image?.toBase64() ?? "String"
-        let countryCode = mobileNumberCountryCodeField.text
-        let number = mobilenumberField.text
+        let countryCode = mobileNumberCountryCodeField.text!
+        let number = mobilenumberField.text!
         let contactNumber = "\(countryCode)\(number)"
         let countryName = countrySelectField.text
         let stateName = stateSelectField.text
@@ -191,20 +191,26 @@ extension ClinicRegistrationViewController{
         let city = citySelectField.text
         
         let registrationData : [String : Any] = [
-            "street": address,
-            "password": password,
-            "full_name": fullName,
-            "state": stateName,
-            "zip_code": zipCode,
-            "city": city,
+            "street": address!,
+            "password": password!,
+            "full_name": fullName!,
+            "state": stateName!,
+            "zip_code": zipCode!,
+            "city": city!,
             "contact_no": contactNumber,
-            "email": email,
-            "number_of_practitioners": numberOfpractitioners,
+            "email": email!,
+            "number_of_practitioners": numberOfpractitioners!,
             "profile_photo": image
         ]
+        print(registrationData)
         clinicViewModel.registerClinic(with: registrationData) { data, error in
-            if let data = data{
+            print(data)
+            if let data = data, error == nil{
                 print(data)
+                AlertManager.showAlert(title: "Registered, Check email to confirm Registration")
+            }
+            else{
+                print(error?.localizedDescription)
             }
         }
         
