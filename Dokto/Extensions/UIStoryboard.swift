@@ -12,6 +12,7 @@ enum StoryboardType: String {
     case dashboard = "Dashboard"
     case auth = "Auth"
     case clinicAuth = "clinicAuth"
+    case pharmacyAuth = "pharmacyAuth"
 }
 
 extension UIStoryboard {

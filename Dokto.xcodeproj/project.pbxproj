@@ -78,6 +78,8 @@
 		8D9BC9C42726A15500853B58 /* TwilioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9BC9C32726A15500853B58 /* TwilioManager.swift */; };
 		8D9BC9C62726B85600853B58 /* TwilioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9BC9C52726B85600853B58 /* TwilioViewModel.swift */; };
 		8D9BC9CA2726CD2300853B58 /* TwilioAccessTokenResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9BC9C92726CD2300853B58 /* TwilioAccessTokenResponseModel.swift */; };
+		8DB9F4FE27565BED0075629F /* PhramacyRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB9F4FD27565BED0075629F /* PhramacyRegistrationViewController.swift */; };
+		8DB9F50027565C270075629F /* pharmacyAuth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DB9F4FF27565C270075629F /* pharmacyAuth.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,6 +158,8 @@
 		8D9BC9C32726A15500853B58 /* TwilioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioManager.swift; sourceTree = "<group>"; };
 		8D9BC9C52726B85600853B58 /* TwilioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioViewModel.swift; sourceTree = "<group>"; };
 		8D9BC9C92726CD2300853B58 /* TwilioAccessTokenResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioAccessTokenResponseModel.swift; sourceTree = "<group>"; };
+		8DB9F4FD27565BED0075629F /* PhramacyRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhramacyRegistrationViewController.swift; sourceTree = "<group>"; };
+		8DB9F4FF27565C270075629F /* pharmacyAuth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = pharmacyAuth.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +298,7 @@
 		0F2215AC2724237B006416CD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8DB9F4FC27565BBF0075629F /* Pharmacy */,
 				8D5E9F652754E43E0060CAC6 /* Clinic */,
 				0FF06DA9274797220023F69D /* Patient */,
 				0F2215AD2724238E006416CD /* SignInViewController.swift */,
@@ -307,6 +312,7 @@
 			children = (
 				0F2215B0272423A7006416CD /* Auth.storyboard */,
 				8D5E9F682754E5170060CAC6 /* clinicAuth.storyboard */,
+				8DB9F4FF27565C270075629F /* pharmacyAuth.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -579,6 +585,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		8DB9F4FC27565BBF0075629F /* Pharmacy */ = {
+			isa = PBXGroup;
+			children = (
+				8DB9F4FD27565BED0075629F /* PhramacyRegistrationViewController.swift */,
+			);
+			path = Pharmacy;
+			sourceTree = "<group>";
+		};
 		FCD0F59E31E23E3590656858 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -649,6 +663,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5E9F692754E5170060CAC6 /* clinicAuth.storyboard in Resources */,
+				8DB9F50027565C270075629F /* pharmacyAuth.storyboard in Resources */,
 				0F2215B1272423A7006416CD /* Auth.storyboard in Resources */,
 				0FF8EDD12724920D000BE755 /* Dashboard.storyboard in Resources */,
 				0F2215A12724225B006416CD /* LaunchScreen.storyboard in Resources */,
@@ -736,6 +751,7 @@
 				0FA38C4B2746F5FE0035B1FD /* OnboardingViewController.swift in Sources */,
 				0F4D7C10274A4DEA00BD8965 /* IDName.swift in Sources */,
 				0F19B28327251A1700D8B1F5 /* LoadingManager.swift in Sources */,
+				8DB9F4FE27565BED0075629F /* PhramacyRegistrationViewController.swift in Sources */,
 				0FD70EB0273D83490024C6B0 /* RegisterUserTypeDetails.swift in Sources */,
 				0F19B293272553F500D8B1F5 /* DoctorListMapViewController.swift in Sources */,
 				0FF8EDCA272490CC000BE755 /* UIStoryboard.swift in Sources */,

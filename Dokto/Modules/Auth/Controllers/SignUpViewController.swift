@@ -81,5 +81,10 @@ extension SignUpViewController {
                 self.navigationController?.pushViewController(contoller, animated: true)
             }
         }
+        else if object.type == .pharmacy {
+            if let controller = UIStoryboard.controller(with: .pharmacyAuth, type: PhramacyRegistrationViewController.self ){
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
+        }
     }
 }
