@@ -54,6 +54,7 @@ struct Constants {
             static let countryCode = "/constant/phone-code/"
             static let stateList = "/constant/state/"
             static let countryList = "/constant/country/"
+            static let cityList = "/constant/city/"
         }
     }
 }

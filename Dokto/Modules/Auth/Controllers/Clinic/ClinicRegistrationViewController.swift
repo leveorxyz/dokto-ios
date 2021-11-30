@@ -38,6 +38,7 @@ class ClinicRegistrationViewController: AbstractViewController{
     var countryCodeList = [CountryCodeListItemDetails]()
     var countryList = [CountryListItemDetails]()
     var stateList = [StateListItemDetails]()
+    var cityList = [String]()
     var selectedCountry : CountryListItemDetails? {
         didSet{
             countrySelectField.text = selectedCountry?.name
@@ -46,6 +47,11 @@ class ClinicRegistrationViewController: AbstractViewController{
     var selectedState: StateListItemDetails? {
         didSet {
             stateSelectField.text = selectedState?.name
+        }
+    }
+    var selectedCity : String? {
+        didSet{
+            citySelectField.text = selectedCity
         }
     }
     
@@ -132,6 +138,33 @@ extension ClinicRegistrationViewController{
     
     @IBAction func citySelectAction(_ sender: Any) {
         print("City select Tapped")
+        
+        guard self.selectedCountry != nil ,self.selectedState != nil else{
+            return
+        }
+        cityList = []
+        
+        if cityList.isEmpty{
+            let params: [String : Any] = [
+                "country_code" : selectedCountry?.countryCode ?? "BD",
+                "state_code" : selectedState?.stateCode ?? "13"
+            ]
+            LoadingManager.showProgress()
+            
+            genericViewModel.getCityList(params: params) { object, error in
+                LoadingManager.hideProgress()
+                if let list = object?.result, !list.isEmpty{
+                    self.cityList = list
+                    DispatchQueue.main.async {
+                        //show a city list
+                    }
+                } else if let message  = object?.message ?? error?.message {
+                    AlertManager.showAlert(title: message)
+                }
+            }
+            return
+        }
+        //show a city list
     }
     
     

@@ -43,6 +43,22 @@ extension GenericViewModel {
         
     }
     
+    func getCityList(params: [String:Any],completion: @escaping(CityListDetails?,RMErrorModel?) -> ()){
+        let request = RMRequestModel()
+        request.path = Constants.Api.Generic.cityList
+        request.parameters = params
+        request.method = .get
+        
+        RequestManager.request(request: request, type: CityListDetails.self) { response, error in
+            if let object = response.first {
+                completion(object, nil)
+            } else {
+                completion(nil, error)
+            }
+
+        }
+    }
+    
     func getStateList(params: [String:Any], completion: @escaping(StateListDetails?, RMErrorModel?) -> ()) {
         let request = RMRequestModel()
         request.path = Constants.Api.Generic.stateList
@@ -57,4 +73,5 @@ extension GenericViewModel {
             }
         }
     }
+    
 }
