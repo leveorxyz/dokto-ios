@@ -36,6 +36,17 @@ class ClinicRegistrationViewController: AbstractViewController{
     }
     var genericViewModel = GenericViewModel()
     var countryCodeList = [CountryCodeListItemDetails]()
+    var stateList = [StateListItemDetails]()
+    var selectedCountry : CountryCodeListItemDetails? {
+        didSet{
+            countrySelectField.text = selectedCountry?.name
+        }
+    }
+    var selectedState: StateListItemDetails? {
+        didSet {
+            stateSelectField.text = selectedState?.name
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,11 +84,44 @@ extension ClinicRegistrationViewController{
     }
     
     @IBAction func countrySelectAction(_ sender: Any) {
-        print("country select tapped")
+        if countryCodeList.isEmpty{
+            LoadingManager.showProgress()
+            genericViewModel.getCountryCodeList { object, error in
+                LoadingManager.hideProgress()
+                
+                if let list = object?.result, !list.isEmpty{
+                    self.countryCodeList = list
+                    DispatchQueue.main.async{
+                        self.showCountryList()
+                    }
+                } else if let message  = object?.message ?? error?.message {
+                    AlertManager.showAlert(title: message)
+                }
+            }
+            return
+        }
+        self.showCountryList()
     }
     
     @IBAction func stateSelectAction(_ sender: Any) {
-        print("State select Tapped")
+        if stateList.isEmpty {
+            let params: [String: Any] = ["country_code" : "BD"]
+            LoadingManager.showProgress()
+            genericViewModel.getStateList(params: params) { object, error in
+                LoadingManager.hideProgress()
+                if let list = object?.result, !list.isEmpty {
+                    self.stateList = list
+                    DispatchQueue.main.async {
+                        self.showStateList()
+                    }
+                } else if let message  = object?.message ?? error?.message {
+                    AlertManager.showAlert(title: message)
+                }
+            }
+            return
+        }
+        self.showStateList()
+        
     }
     
     @IBAction func citySelectAction(_ sender: Any) {
@@ -105,6 +149,38 @@ extension ClinicRegistrationViewController{
         self.showSelectionList(title: "Select country", objectList: getCountryCodeIDList()) { item, index in
             DispatchQueue.main.async {
                 self.mobileNumberCountryCodeField.text = item.key
+            }
+        }
+    }
+    
+    func showCountryList() {
+        self.showSelectionList(title: "Select country", objectList: getCountryIDList()) { item, index in
+            DispatchQueue.main.async {
+                self.countrySelectField.text = item.name
+            }
+        }
+    }
+    
+    func getCountryIDList() -> [IDName] {
+        var list = [IDName]()
+        for object in countryCodeList {
+            list.append(IDName(key: object.phoneCode, name: object.name))
+        }
+        return list
+    }
+    
+    func getStateIDList() -> [IDName] {
+        var list = [IDName]()
+        for object in stateList {
+            list.append(IDName(key: object.stateCode, name: object.name))
+        }
+        return list
+    }
+    
+    func showStateList() {
+        self.showSelectionList(title: "Select state", objectList: getStateIDList()) { [weak self] item, index in
+            DispatchQueue.main.async {
+                self?.selectedState = self?.stateList.filter({$0.stateCode == item.key}).first
             }
         }
     }
