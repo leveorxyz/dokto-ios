@@ -24,10 +24,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXj-wB-ICf">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="177"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="patient_reg_top" translatesAutoresizingMaskIntoConstraints="NO" id="DkC-QP-AtF">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="patient_reg_top" translatesAutoresizingMaskIntoConstraints="NO" id="DkC-QP-AtF">
                                                 <rect key="frame" x="266" y="25" width="148" height="157"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pharmacy                Registration" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jSq-gB-ps3">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Pharmacy                Registration" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jSq-gB-ps3">
                                                 <rect key="frame" x="20" y="46.5" width="241" height="84"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                                 <nil key="textColor"/>
@@ -82,6 +82,9 @@
                                                                         <real key="value" value="15"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="choosePhotoAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7jJ-HT-4og"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -95,8 +98,8 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6bC-QT-uBb">
                                                         <rect key="frame" x="0.0" y="208" width="414" height="101.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hospital name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWB-qR-voh">
-                                                                <rect key="frame" x="20" y="25" width="109" height="20.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pharmacy name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWB-qR-voh">
+                                                                <rect key="frame" x="20" y="25" width="123" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -149,6 +152,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phJ-kY-qQY">
                                                                 <rect key="frame" x="20" y="53.5" width="60" height="48"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <connections>
+                                                                    <action selector="mobileNumberDropDownAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AhU-3l-5MM"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -302,6 +308,9 @@
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U43-2p-uXJ">
                                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                        <connections>
+                                                                            <action selector="countrySelectAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="4dW-Qs-r4l"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -386,6 +395,9 @@
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGG-cf-Gzt">
                                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                        <connections>
+                                                                            <action selector="selectStateAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="SQp-Lg-VVk"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -442,6 +454,9 @@
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9K-5a-GhN">
                                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                        <connections>
+                                                                            <action selector="selectCityAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Qap-Es-eGH"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -520,6 +535,9 @@
                                                                         <real key="value" value="15"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="submitAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="3Tm-ui-EYf"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -561,6 +579,26 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1Bb-B9-zd6" secondAttribute="trailing" id="sqV-B6-R9i"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="NumberofPractitionersField" destination="pJE-aM-0et" id="Pih-Mg-Ubj"/>
+                        <outlet property="addressTextField" destination="FnU-mX-cgK" id="YAY-CF-AQe"/>
+                        <outlet property="citySelectButton" destination="y9K-5a-GhN" id="1W2-Ip-VP6"/>
+                        <outlet property="citySelectField" destination="ME8-vh-NP9" id="ht1-fq-cSc"/>
+                        <outlet property="confirmPasswordField" destination="e9b-zV-KlY" id="bnu-WN-Kys"/>
+                        <outlet property="countrySelectButton" destination="U43-2p-uXJ" id="F5w-xk-qzl"/>
+                        <outlet property="countrySelectField" destination="s59-z4-z99" id="j6g-2w-zMG"/>
+                        <outlet property="mobileNumberCountryCodeField" destination="dxh-Rz-ZJe" id="Bb7-x3-YGH"/>
+                        <outlet property="mobileNumberdropDownButton" destination="phJ-kY-qQY" id="zeI-6b-T8V"/>
+                        <outlet property="mobilenumberField" destination="4yz-8D-KU9" id="Yjw-g7-mAn"/>
+                        <outlet property="passWordField" destination="tu3-fo-0lD" id="3t8-Mu-Beq"/>
+                        <outlet property="pharmacyEmailField" destination="TE8-Mm-OVv" id="ujo-eC-VEz"/>
+                        <outlet property="pharmacyImageView" destination="hth-FM-FSG" id="ld8-4L-4wp"/>
+                        <outlet property="pharmacyNameField" destination="yYC-2X-cPE" id="LYa-jO-qQe"/>
+                        <outlet property="stateSelectButton" destination="JGG-cf-Gzt" id="lP8-gc-u4c"/>
+                        <outlet property="stateSelectField" destination="tuy-6A-8fi" id="wn1-cK-v0A"/>
+                        <outlet property="submitButton" destination="KA1-w0-hTL" id="l4e-Xh-lFy"/>
+                        <outlet property="zipCodeField" destination="jdq-BC-oMx" id="DCr-E9-0xS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

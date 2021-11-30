@@ -203,7 +203,9 @@ extension ClinicRegistrationViewController{
             "profile_photo": image
         ]
         print(registrationData)
+        LoadingManager.showProgress(title: "Registering Clinic")
         clinicViewModel.registerClinic(with: registrationData) { data, error in
+            LoadingManager.hideProgress()
             if let data = data, error == nil{
                 print(data)
                 AlertManager.showAlert(title: "Registered, Check email to confirm Registration")

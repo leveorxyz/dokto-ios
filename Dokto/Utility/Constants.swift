@@ -52,6 +52,9 @@ struct Constants {
             struct Clinic{
                 static let registration = "/user/clinic-signup/"
             }
+            struct Pharmacy{
+                static let registration = "/user/pharmacy-signup/"
+            }
         }
         struct Generic {
             static let countryCode = "/constant/phone-code/"
