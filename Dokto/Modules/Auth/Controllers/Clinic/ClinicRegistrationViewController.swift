@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ClinicRegistrationViewController: UIViewController {
+class ClinicRegistrationViewController: AbstractViewController{
 
     
     @IBOutlet weak var clinicImageView: UIImageView!
@@ -29,6 +29,14 @@ class ClinicRegistrationViewController: UIViewController {
     @IBOutlet weak var zipCodeField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     
+    var clinicImage: UIImage? {
+        didSet {
+            clinicImageView.image = clinicImage
+        }
+    }
+    var genericViewModel = GenericViewModel()
+    var countryCodeList = [CountryCodeListItemDetails]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -39,10 +47,29 @@ class ClinicRegistrationViewController: UIViewController {
 extension ClinicRegistrationViewController{
     @IBAction func setProfileLogoAction(_ sender: Any) {
         print("Choose photo tapped")
+        TaskManager.shared.getPhotoWith(size: CGSize(width: 256, height: 256)) { [weak self] image in
+            self?.clinicImage = image
+        }
     }
     
     @IBAction func mobileNumberDropDownAction(_ sender: Any) {
         print("Mobile number drop down tapped")
+        if countryCodeList.isEmpty {
+            LoadingManager.showProgress()
+            genericViewModel.getCountryCodeList { object, error in
+                LoadingManager.hideProgress()
+                if let list = object?.result, !list.isEmpty {
+                    self.countryCodeList = list
+                    DispatchQueue.main.async {
+                        self.showCountryCodeList()
+                    }
+                } else if let message  = object?.message ?? error?.message {
+                    AlertManager.showAlert(title: message)
+                }
+            }
+            return
+        }
+        self.showCountryCodeList()
     }
     
     @IBAction func countrySelectAction(_ sender: Any) {
@@ -62,4 +89,23 @@ extension ClinicRegistrationViewController{
         print("Submit Select tapped")
     }
     
+}
+
+extension ClinicRegistrationViewController{
+    
+    func getCountryCodeIDList() -> [IDName] {
+        var list = [IDName]()
+        for object in countryCodeList {
+            let name = (object.name ?? "") + " (\(object.phoneCode ?? ""))"
+            list.append(IDName(key: object.phoneCode, name: name))
+        }
+        return list
+    }
+    func showCountryCodeList() {
+        self.showSelectionList(title: "Select country", objectList: getCountryCodeIDList()) { item, index in
+            DispatchQueue.main.async {
+                self.mobileNumberCountryCodeField.text = item.key
+            }
+        }
+    }
 }
