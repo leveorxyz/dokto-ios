@@ -327,6 +327,7 @@
 				8DB9F4FC27565BBF0075629F /* Pharmacy */,
 				8D5E9F652754E43E0060CAC6 /* Clinic */,
 				0F6F704127514152006947C3 /* Doctor */,
+				0F6F704127514152006947C3 /* Doctor */,
 				0FF06DA9274797220023F69D /* Patient */,
 				0F2215AD2724238E006416CD /* SignInViewController.swift */,
 				0FD70EA9273CC96F0024C6B0 /* SignUpViewController.swift */,
@@ -488,6 +489,7 @@
 				0F9BD35C27498E61005457DF /* PatientSignUpViewModel.swift */,
 				0F9BD35E27498EA6005457DF /* SignInViewModel.swift */,
 				8D631D60275632EC0096FD57 /* ClinicRegistrationViewModel.swift */,
+				0FB837C72755107600C0CC60 /* DoctorSignUpViewModel.swift */,
 				0FB837C72755107600C0CC60 /* DoctorSignUpViewModel.swift */,
 			);
 			path = ViewModels;
@@ -876,6 +878,7 @@
 				0FD70EAA273CC96F0024C6B0 /* SignUpViewController.swift in Sources */,
 				0F205DD127483F83002F0EBD /* GenderTableViewCell.swift in Sources */,
 				8D631D63275633C20096FD57 /* ClinicRegistrationResponse.swift in Sources */,
+				0FA0C955275207A500C58BB1 /* CountryListDetails.swift in Sources */,
 				0FA0C955275207A500C58BB1 /* CountryListDetails.swift in Sources */,
 				0F205DCB27481BAE002F0EBD /* PatientPersonalDetailsVC.swift in Sources */,
 				0F9BD365274996BD005457DF /* PatientSignUpRequestDetails.swift in Sources */,
