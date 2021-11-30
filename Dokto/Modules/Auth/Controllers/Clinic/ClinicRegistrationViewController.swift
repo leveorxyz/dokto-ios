@@ -172,12 +172,48 @@ extension ClinicRegistrationViewController{
     
     @IBAction func submitAction(_ sender: Any) {
         print("Submit Select tapped")
+        //let fullName = hospitalNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        if validateregistrationData(){return}
     }
     
 }
 
 extension ClinicRegistrationViewController{
     
+    func validateregistrationData()-> Bool{
+        var errorFound = false
+        if hospitalNameField.text?.trimmingCharacters(in: .newlines) == "" {
+            AlertManager.showAlert(title: "Enter a valid Fullname")
+            errorFound = true
+        }
+        else if mobileNumberCountryCodeField.text == ""{
+            AlertManager.showAlert(title: "Enter a mobile number")
+            errorFound = true
+        }
+        else if mobilenumberField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            AlertManager.showAlert(title: "Enter a mobile number")
+            errorFound = true
+        }
+        else if let clinicEmail = clinicEmailField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !clinicEmail.isValidEmail() {
+            AlertManager.showAlert(title: "Enter a valid email")
+            errorFound = true
+        }
+        else if  let password = passWordField.text, password.count <= 8 {
+            AlertManager.showAlert(title: "Password is too short")
+            errorFound = true
+        }
+        else if let password = passWordField.text,let confirmPassword = confirmPasswordField.text , confirmPassword != password {
+            AlertManager.showAlert(title: "Passwords do not match")
+            errorFound = true
+        }
+        
+        else if clinicImageView.image == nil {
+            AlertManager.showAlert(title: "Enter a valid Image")
+            errorFound = true
+        }
+        
+        return errorFound
+    }
     func getCountryCodeIDList() -> [IDName] {
         var list = [IDName]()
         for object in countryCodeList {
