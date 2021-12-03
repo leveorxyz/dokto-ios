@@ -214,8 +214,9 @@ extension ClinicRegistrationViewController{
                 }
             
             }
-            else{
-                print(error?.localizedDescription)
+            else if let error = error{
+                print(error.localizedDescription)
+                AlertManager.showAlert(title: error.localizedDescription)
             }
         }
         

@@ -207,14 +207,18 @@ extension PhramacyRegistrationViewController {
         ]
         print(registrationData)
         LoadingManager.showProgress(title: "Registering Pharmacy")
-        clinicViewModel.registerPharmacy(with: registrationData) { data, error in
+        clinicViewModel.registerPharmacy(with: registrationData) {[weak self] data, error in
             LoadingManager.hideProgress()
             if let data = data, error == nil{
                 print(data)
-                AlertManager.showAlert(title: "Registered, Check email to confirm Registration")
+                DispatchQueue.main.async {
+                    self?.navigationController?.popToRootViewController(animated: true)
+                }
+                
             }
-            else{
-                print(error?.localizedDescription)
+            else if let error = error{
+                print(error.localizedDescription)
+                AlertManager.showAlert(title: error.localizedDescription)
             }
         }
     }
