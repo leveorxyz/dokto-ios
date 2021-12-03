@@ -42,6 +42,11 @@ class TwilioRoomViewController: UIViewController, LocalParticipantDelegate{
         self.settingsButton.setTitle("", for: .normal)
         
         self.cameraRotateButton.isEnabled = false
+        self.disconnectButton.cornerRadius = 20
+        self.micButton.cornerRadius = 20
+        self.cameraRotateButton.cornerRadius = 20
+        self.settingsButton.cornerRadius = 20
+        self.cameraConnectButton.cornerRadius = 20
         if PlatformUtils.isSimulator {
             self.previewView.backgroundColor = .black
         } else {
