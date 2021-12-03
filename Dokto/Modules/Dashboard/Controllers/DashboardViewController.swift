@@ -22,6 +22,8 @@ class DashboardViewController: UIViewController {
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
+    
+    
 }
 
 //MARK: Action methods
@@ -75,4 +77,12 @@ extension DashboardViewController {
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
+    
+    @IBAction func logOutAction(_ sender: Any) {
+        print("Log out tapped")
+        if let controller = UIStoryboard.controller(with: .auth, type: SignInViewController.self){
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
 }

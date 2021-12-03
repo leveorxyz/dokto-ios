@@ -204,11 +204,15 @@ extension ClinicRegistrationViewController{
         ]
         print(registrationData)
         LoadingManager.showProgress(title: "Registering Clinic")
-        clinicViewModel.registerClinic(with: registrationData) { data, error in
+        clinicViewModel.registerClinic(with: registrationData) {[weak self] data, error in
             LoadingManager.hideProgress()
             if let data = data, error == nil{
                 print(data)
-                AlertManager.showAlert(title: "Registered, Check email to confirm Registration")
+                
+                DispatchQueue.main.async {
+                        self?.navigationController?.popToRootViewController(animated: true)
+                }
+            
             }
             else{
                 print(error?.localizedDescription)
