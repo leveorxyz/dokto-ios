@@ -47,4 +47,11 @@ extension DashboardViewModel {
             }
         }
     }
+    
+    func paypalCheckout(_ completion: @escaping(_ status: PaymentStatus) -> ()) {
+        paymentManager.checkoutWithPaypal()
+        paymentManager.paymentCompletion = { status in
+            completion(status)
+        }
+    }
 }

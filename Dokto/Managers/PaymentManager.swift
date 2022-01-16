@@ -9,6 +9,7 @@ import UIKit
 import RaveSDK
 import PaystackCheckout
 import Stripe
+import PayPalCheckout
 
 enum PaymentStatus {
     case success, failure, dismiss
@@ -18,6 +19,7 @@ class PaymentManager {
     
     var paymentCompletion: ((PaymentStatus) -> ())?
     var paymentSheet : PaymentSheet?
+    var paypalButton: PayPalButton?
 }
 
 //MARK: FlutterWave related methods
@@ -53,21 +55,12 @@ extension PaymentManager: RavePayProtocol {
         }
         
         //request for backend verification
-        let request = RMRequestModel()
-        request.path = "http://159.203.72.156/accounting/flutterwave-verify/"
-        request.body = [
+        let body = [
             "transaction_reference" : response["id"] ?? "1234567",
             "id" : "1"
         ]
-        
-        RequestManager.request(request: request, type: PaymentResponseDetails.self) { [weak self] response, error in
-            if let _ = response.first {
-                debugPrint("Payment verified")
-                self?.paymentCompletion?(.success)
-            } else {
-                debugPrint("Payment verification failed")
-                self?.paymentCompletion?(.failure)
-            }
+        verifyPaypalWithBackend(path: Constants.Api.Payment.flutterWave, body: body) { [weak self] success in
+            self?.paymentCompletion?(success ? .success : .failure)
         }
     }
     
@@ -96,21 +89,12 @@ extension PaymentManager: CheckoutProtocol {
         print("Successfully paid with reference : \(response.reference)")
         
         //request for backend verification
-        let request = RMRequestModel()
-        request.path = "http://159.203.72.156/accounting/paystack-verify/"
-        request.body = [
+        let body = [
             "transaction_reference" : response.reference,
             "id" : response.id
         ]
-        
-        RequestManager.request(request: request, type: PaymentResponseDetails.self) { [weak self] response, error in
-            if let _ = response.first {
-                debugPrint("Payment verified")
-                self?.paymentCompletion?(.success)
-            } else {
-                debugPrint("Payment verification failed")
-                self?.paymentCompletion?(.failure)
-            }
+        verifyPaypalWithBackend(path: Constants.Api.Payment.paystack, body: body) { [weak self] success in
+            self?.paymentCompletion?(success ? .success : .failure)
         }
     }
     
@@ -168,7 +152,7 @@ extension PaymentManager {
                       let paymentIntentClientSecret = json["paymentIntent"] as? String,
                       let publishableKey = json["publishableKey"] as? String,
                       
-                      let self = self
+                        let self = self
                 else {
                     // Handle error
                     completion(false)
@@ -181,7 +165,7 @@ extension PaymentManager {
                 var configuration = PaymentSheet.Configuration()
                 configuration.merchantDisplayName = "Dokto"
                 //configuration.applePay = .init(
-                   // merchantId: "com.foo.example", merchantCountryCode: "US")
+                // merchantId: "com.foo.example", merchantCountryCode: "US")
                 configuration.customer = .init(
                     id: customerId, ephemeralKeySecret: customerEphemeralKeySecret)
                 //configuration.returnURL = "payments-example://stripe-redirect"
@@ -197,3 +181,88 @@ extension PaymentManager {
         task.resume()
     }
 }
+
+//MARK: Paypal related methods
+extension PaymentManager {
+    
+    func initiatePaypalButton() {
+        self.paypalButton = PayPalButton()
+    }
+    
+    func checkoutWithPaypal() {
+        configurePayPalCheckout()
+        
+        //update delay time
+        var delayTime = 1.0
+        if self.paypalButton != nil {
+            delayTime = 0
+        } else {
+            self.paypalButton = PayPalButton()
+        }
+        
+        //fire touch event
+        DispatchQueue.main.asyncAfter(deadline: .now()+delayTime) {
+            self.paypalButton?.sendActions(for: .touchUpInside)
+        }
+    }
+    
+    func configurePayPalCheckout() {
+        Checkout.setCreateOrderCallback { createOrderAction in
+            let amount = PurchaseUnit.Amount(currencyCode: .usd, value: "\(100.0)")
+            let purchaseUnit = PurchaseUnit(amount: amount)
+            let order = OrderRequest(intent: .capture, purchaseUnits: [purchaseUnit])
+            
+            createOrderAction.create(order: order)
+        }
+        
+        //show cancel alert
+        Checkout.setOnCancelCallback {
+            DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+//                AlertManager.show(title: "You have cancelled your payment")
+                self.paymentCompletion?(.dismiss)
+            }
+        }
+        
+        Checkout.setOnApproveCallback { approval in
+            approval.actions.capture { [weak self] (response, error) in
+                if error != nil {
+                    debugPrint("Paypal error: Something went wrong, try again later")
+                    self?.paymentCompletion?(.failure)
+                } else if response?.data.status.lowercased() == "completed" {
+                    let body = [
+                        "transaction_reference" : "1234567",
+                        "id" : "1"
+                    ]
+                    self?.verifyPaypalWithBackend(path: Constants.Api.Payment.paypal,
+                                                  body: body, { success in
+                        self?.paymentCompletion?(success ? .success : .failure)
+                    })
+                } else {
+                    self?.paymentCompletion?(.failure)
+                }
+            }
+        }
+    }
+}
+
+//MARK: Payment verification related methods
+extension PaymentManager {
+    
+    func verifyPaypalWithBackend(path: String, body: [String:Any], _ completion: @escaping(_ success: Bool) -> ()) {
+        let request = RMRequestModel()
+        request.path = path
+        request.body = body
+        request.method = .post
+        
+        RequestManager.request(request: request, type: PaymentResponseDetails.self) { response, error in
+            if let _ = response.first {
+                debugPrint("Payment verified")
+                completion(true)
+            } else {
+                debugPrint("Payment verification failed")
+                completion(false)
+            }
+        }
+    }
+}
+

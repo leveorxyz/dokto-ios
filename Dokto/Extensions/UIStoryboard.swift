@@ -8,8 +8,11 @@
 import UIKit
 
 enum StoryboardType: String {
+    case onboarding = "Onboarding"
     case dashboard = "Dashboard"
     case auth = "Auth"
+    case clinicAuth = "clinicAuth"
+    case pharmacyAuth = "pharmacyAuth"
 }
 
 extension UIStoryboard {
