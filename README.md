@@ -1,5 +1,7 @@
 # Dokto-iOS
 
+![dokto_ios_mockups](https://github.com/user-attachments/assets/07fd424b-0ca9-4aff-bec0-c12d6c0a48fc)
+
 ### Demo Video
 
 [Watch on YouTube](https://youtu.be/QpJafRcQkqc)
